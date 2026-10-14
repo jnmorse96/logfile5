@@ -76,6 +76,17 @@ export const CHANNELS = {
       { id: "science", label: "Research", hint: "genetics, microbiome, cell therapies, prevention" },
     ],
   },
+  trials: {
+    id: "trials",
+    kicker: "Trial tracker",
+    name: "Trial Tracker",
+    tagline:
+      "New Crohn's and colitis clinical trials registered around the world, and newly published results: new medications and new ways to manage symptoms. Checked every 12 hours.",
+    accent: "#0891B2",
+    defaultSelected: [],
+    categories: [],
+    isTrials: true, // filled by the engine from ClinicalTrials.gov and PubMed; no live web scan
+  },
   gainer: {
     id: "gainer",
     kicker: "Hard gainer wellness",

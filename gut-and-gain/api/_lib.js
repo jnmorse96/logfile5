@@ -74,11 +74,19 @@ export async function askClaude(prompt, { search = false, maxTokens = 4000 } = {
 }
 
 export function extractJSON(text, open = "{", close = "}") {
-  const clean = text.replace(/```(?:json)?/g, "");
-  const s = clean.indexOf(open);
-  const e = clean.lastIndexOf(close);
-  if (s === -1 || e <= s) throw new Error("No JSON found in model output");
-  return JSON.parse(clean.slice(s, e + 1));
+  // Models sometimes write a sentence before the JSON, and that sentence can
+  // contain braces. Try each opening bracket in turn until one parses.
+  const clean = String(text || "").replace(/```(?:json)?/g, "");
+  const end = clean.lastIndexOf(close);
+  let lastErr = new Error("No JSON found in model output");
+  for (let s = clean.indexOf(open); s !== -1 && s < end; s = clean.indexOf(open, s + 1)) {
+    try {
+      return JSON.parse(clean.slice(s, end + 1));
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr;
 }
 
 // ---- validate and clamp a story so nothing odd reaches the page -------------
@@ -98,6 +106,7 @@ export function cleanStory(s) {
     source: str(s?.source, 160),
     sourceType: SOURCE_TYPES.includes(s?.sourceType) ? s.sourceType : "News",
     date: str(s?.date, 40),
+    published: /^\d{4}-\d{2}(-\d{2})?$/.test(String(s?.published || "").trim()) ? String(s.published).trim() : "",
     url: /^https:\/\//.test(url) ? url : "",
   };
 }

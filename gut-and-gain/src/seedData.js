@@ -567,3 +567,111 @@ export const FIELD_GUIDE = [
     url: "https://jeroenboschziekenhuis.nl/afdelingen/maag-darm-en-leverziekten-mdl/zorg-bij-de-ziekte-van-crohn-en-colitis-ulcerosa-ibd/leven-met-de-ziekte-van-crohn-of-colitis-ulcerosa/pdf",
   },
 ];
+
+// Trial Tracker: saved entries shown until the engine's first run. Only trials
+// confirmed in public listings or company announcements; registry numbers are
+// included only where the source gave one.
+SEED.trialsRegistry = [
+  {
+    id: "NCT06850727",
+    title: "OD-001: a first-in-class oral pill (RIPK2 scaffolding inhibitor) for ulcerative colitis",
+    summary:
+      "A phase 2a trial testing OD-001, an oral drug that blocks RIPK2, an immune signaling protein, in moderately to severely active ulcerative colitis. More induction results are being presented at UEG Week in Barcelona on October 20, 2026.",
+    whoFor: "Adults with moderately to severely active ulcerative colitis.",
+    kind: "Medication",
+    conditions: ["UC"],
+    phase: "Phase 2",
+    status: "",
+    interventions: [{ type: "Drug", name: "OD-001 (oral)" }],
+    sponsor: "Odyssey Therapeutics",
+    industry: true,
+    countries: [],
+    firstPosted: "",
+    url: "https://clinicaltrials.gov/study/NCT06850727",
+    sourceNote: "Odyssey Therapeutics, October 6, 2026",
+  },
+  {
+    id: "seed-afimkibart",
+    title: "Afimkibart (RO7790121), an anti-TL1A antibody, in a phase 3 Crohn's disease program",
+    summary:
+      "A multicenter, double-blind, placebo-controlled phase 3 treat-through study of afimkibart for both induction and maintenance in moderately to severely active Crohn's disease.",
+    whoFor: "Adults with moderately to severely active Crohn's disease.",
+    kind: "Medication",
+    conditions: ["Crohn's"],
+    phase: "Phase 3",
+    status: "",
+    interventions: [{ type: "Biologic", name: "Afimkibart (RO7790121)" }],
+    sponsor: "Roche",
+    industry: true,
+    countries: ["United States"],
+    firstPosted: "",
+    url: "https://clinicaltrials.ucsf.edu/crohns-disease",
+    sourceNote: "UCSF clinical trials listing, 2026",
+  },
+  {
+    id: "seed-dtt-vedo-upa",
+    title: "Dual targeted therapy: vedolizumab plus upadacitinib for Crohn's disease",
+    summary:
+      "Tests whether giving two advanced therapies together (vedolizumab with upadacitinib) reduces bowel inflammation and ulcers more than standard single-drug treatment.",
+    whoFor: "Adults with moderate to severe Crohn's disease.",
+    kind: "Medication",
+    conditions: ["Crohn's"],
+    phase: "",
+    status: "",
+    interventions: [
+      { type: "Biologic", name: "Vedolizumab" },
+      { type: "Drug", name: "Upadacitinib" },
+    ],
+    sponsor: "",
+    industry: false,
+    countries: ["United States"],
+    firstPosted: "",
+    url: "https://clinicaltrials.ucsd.edu/crohns-disease",
+    sourceNote: "UC San Diego clinical trials listing, 2026",
+  },
+  {
+    id: "seed-tilpisertib",
+    title: "Tilpisertib fosmecarbil versus placebo in ulcerative colitis",
+    summary:
+      "A placebo-controlled trial of tilpisertib fosmecarbil, an investigational oral drug, in people with ulcerative colitis.",
+    whoFor: "Adults with ulcerative colitis.",
+    kind: "Medication",
+    conditions: ["UC"],
+    phase: "",
+    status: "",
+    interventions: [{ type: "Drug", name: "Tilpisertib fosmecarbil" }],
+    sponsor: "",
+    industry: false,
+    countries: ["United States"],
+    firstPosted: "",
+    url: "https://clinicaltrials.ucsf.edu/inflammatory-bowel-disease",
+    sourceNote: "UCSF clinical trials listing, 2026",
+  },
+  {
+    id: "seed-t2t-switch",
+    title: "Switch or stay? Treating to healing when symptoms are gone but inflammation isn't",
+    summary:
+      "A real-world strategy trial for people whose symptoms are in remission but who still have moderate to severe inflammation on endoscopy. It compares switching to a different advanced therapy with staying on the current one.",
+    whoFor: "People with Crohn's or ulcerative colitis in symptom remission with ongoing inflammation.",
+    kind: "Care & monitoring",
+    conditions: ["Crohn's", "UC"],
+    phase: "N/A",
+    status: "",
+    interventions: [{ type: "Other", name: "Treatment strategy" }],
+    sponsor: "",
+    industry: false,
+    countries: ["United States"],
+    firstPosted: "",
+    url: "https://clinicaltrials.ucsd.edu/crohns-disease",
+    sourceNote: "UC San Diego clinical trials listing, 2026",
+  },
+];
+
+// Published results: real trial readouts already in the saved briefings.
+SEED.trials = [
+  ...SEED.ibd.filter((s) => /Obefazimod|Skyrizi|Injectable infliximab/.test(s.title)),
+  ...SEED.reality.filter((s) => /emulsifiers/.test(s.title)),
+].map((s) => ({
+  ...s,
+  kind: /emulsifiers/.test(s.title) ? "Symptom management" : "Medication",
+}));

@@ -19,6 +19,7 @@ export default async function handler(req, res) {
     ibd: "what someone living with Crohn's or ulcerative colitis might want to ask their gastroenterologist or surgeon about it (no individual medical advice)",
     reality: "how worried someone with IBD should realistically be, and practical steps that reduce the risk (no dosing for recreational substances, no individual medical advice)",
     gainer: "how a hard gainer trying to add weight and muscle could apply it, and who should be cautious",
+    trials: "what the trial tested and found, its limitations, and what someone with Crohn's or colitis might ask their gastroenterologist about it (no individual medical advice)",
   }[channel.id];
 
   try {

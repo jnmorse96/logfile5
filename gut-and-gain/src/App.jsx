@@ -3,6 +3,7 @@ import { CHANNELS, REGIONS, LANGUAGES, SITE_NAME, SITE_TAGLINE, TRACKS } from ".
 import { SEED, SEED_UPDATED, PLAYBOOK, FIELD_GUIDE } from "./seedData.js";
 import { EVIDENCE_LABELS, WHY_LABELS, ACTION_LABELS, SOURCE_LABELS } from "./i18n.js";
 import VilliBackground from "./VilliBackground.jsx";
+import { TrialsSide, TrialList, filterTrials, EMPTY_TRIAL_FILTER } from "./Trials.jsx";
 
 const today = () => new Date().toISOString().slice(0, 10);
 const STORE_KEY = (ch) => `lw:last:${ch}`;
@@ -27,7 +28,7 @@ function loadSaved(channelId) {
 }
 
 function initialState(channel) {
-  const saved = loadSaved(channel.id);
+  const saved = channel.isTrials ? null : loadSaved(channel.id);
   return {
     selected: channel.defaultSelected,
     region: "worldwide",
@@ -41,11 +42,14 @@ function initialState(channel) {
     translating: false,
     notice: null,
     expanded: {},
-    view: "news",
+    view: channel.isTrials ? "trials" : "news",
     showSettings: false,
     evidence: null,
     facet: "All",
     hideIndustry: false,
+    registry: channel.isTrials ? SEED.trialsRegistry : [],
+    tf: EMPTY_TRIAL_FILTER,
+    nextRunAt: null,
   };
 }
 
@@ -71,6 +75,29 @@ async function getJSON(url, options = {}, timeoutMs = 150_000) {
 }
 const NO_BACKEND_TEXT =
   "Live scans, translation and deep dives turn on once the site is deployed with its API key (see README). You're reading the saved briefing.";
+
+// The daily engine publishes static files under /data (see engine/run.mjs).
+async function fetchStatic(url) {
+  try {
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok || !(res.headers.get("content-type") || "").includes("json")) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+const fmtTime = (iso) =>
+  new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+function relTime(iso) {
+  const h = (Date.now() - Date.parse(iso)) / 3600000;
+  if (!Number.isFinite(h) || h < 0) return "";
+  if (h < 1) return "added just now";
+  if (h < 24) return `added ${Math.round(h)} h ago`;
+  if (h < 24 * 7) return `added ${Math.round(h / 24)} d ago`;
+  return "";
+}
+const fmtDate = (d) =>
+  new Date(`${d}T12:00:00`).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
 
 // ---- small components -------------------------------------------------------------
 function Logo() {
@@ -123,6 +150,55 @@ export default function App() {
   const [state, setState] = useState(() =>
     Object.fromEntries(Object.values(CHANNELS).map((ch) => [ch.id, initialState(ch)]))
   );
+
+  const [editions, setEditions] = useState({ list: [], viewing: "latest", latestDate: null });
+
+  // Put an edition (today's or an archived day) into every channel.
+  function applyEdition(edition, mode) {
+    setState((prev) => {
+      const next = { ...prev };
+      for (const [id, ch] of Object.entries(edition.channels || {})) {
+        if (!next[id] || !(ch?.stories?.length || ch?.registry?.length)) continue;
+        const cur = next[id];
+        // A visitor's own live scan that is newer than today's edition stays on screen.
+        if (mode === "daily" && cur.mode === "live" && cur.generatedAt && cur.generatedAt > edition.generatedAt) continue;
+        const byLang = { en: ch.stories || [], ...(ch.translations || {}) };
+        next[id] = {
+          ...cur,
+          byLang,
+          baseLang: "en",
+          activeLang: byLang[cur.activeLang] ? cur.activeLang : "en",
+          mode,
+          generatedAt: edition.generatedAt,
+          editionDate: edition.date,
+          nextRunAt: edition.nextRunAt || null,
+          registry: ch.registry || cur.registry,
+          tf: EMPTY_TRIAL_FILTER,
+          expanded: {},
+          evidence: null,
+          facet: "All",
+        };
+      }
+      return next;
+    });
+  }
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const [latest, index] = await Promise.all([fetchStatic("/data/latest.json"), fetchStatic("/data/index.json")]);
+      if (cancelled || !latest?.channels) return; // no edition yet: the saved briefing stays
+      applyEdition(latest, "daily");
+      setEditions({ list: index?.editions || [{ date: latest.date }], viewing: "latest", latestDate: latest.date });
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  async function viewEdition(value) {
+    const ed = await fetchStatic(value === "latest" ? "/data/latest.json" : `/data/archive/${value}.json`);
+    if (ed?.channels) applyEdition(ed, value === "latest" ? "daily" : "archive");
+    setEditions((e) => ({ ...e, viewing: value }));
+  }
 
   const channel = CHANNELS[channelId];
   const cs = state[channelId];
@@ -240,10 +316,23 @@ export default function App() {
 
   const stamp =
     cs.mode === "live" && cs.generatedAt
-      ? `Live scan · ${new Date(cs.generatedAt).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}`
-      : `Saved briefing · checked ${SEED_UPDATED}`;
+      ? `Live scan · ${fmtTime(cs.generatedAt)}`
+      : cs.mode === "daily"
+        ? `Updated ${fmtTime(cs.generatedAt)}${cs.nextRunAt ? ` · next check ${fmtTime(cs.nextRunAt)}` : ""}`
+        : cs.mode === "archive"
+          ? `Edition of ${fmtDate(cs.editionDate)}`
+          : `Saved briefing · checked ${SEED_UPDATED}`;
+  const newCount =
+    cs.mode === "daily"
+      ? stories.filter((s) => s.isNew).length + (channel.isTrials ? cs.registry.filter((t) => t.isNew).length : 0)
+      : 0;
   const dateline = new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
   const secondView = channelId === "reality" ? "Field guide" : channelId === "gainer" ? "Playbook" : null;
+  const viewTabs = channel.isTrials
+    ? [["trials", "New trials", cs.registry.length], ["news", "Published results", stories.length]]
+    : secondView
+      ? [["news", "News", stories.length], ["second", secondView, channelId === "reality" ? FIELD_GUIDE.length : PLAYBOOK.length]]
+      : null;
   const total = stories.length || 1;
 
   return (
@@ -299,6 +388,13 @@ export default function App() {
             <h1>{channel.name}</h1>
             <p className="sec-tagline">{channel.tagline}</p>
           </div>
+          {channel.isTrials ? (
+            <div className="sec-actions trial-sources">
+              <span>Sources</span>
+              <a href="https://clinicaltrials.gov" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov ↗</a>
+              <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">PubMed ↗</a>
+            </div>
+          ) : (
           <div className="sec-actions">
             <button className="btn primary" onClick={runBriefing} disabled={cs.loading}>
               {cs.loading ? "Scanning…" : "Run live scan"}
@@ -311,6 +407,7 @@ export default function App() {
               Scan settings
             </button>
           </div>
+          )}
         </section>
 
         {(cs.showSettings || cs.loading || cs.notice) && (
@@ -358,6 +455,10 @@ export default function App() {
 
         {/* -------------------------- sidebar: evidence bar -------------------------- */}
         <aside className="side" aria-label="About this briefing">
+          {channel.isTrials && cs.view === "trials" ? (
+            <TrialsSide registry={cs.registry} f={cs.tf} setF={(u) => patch({ tf: { ...cs.tf, ...u } })} />
+          ) : (
+          <>
           <div className="panel ev-panel">
             <div className="panel-title">Evidence behind this briefing</div>
             <div className="ev-bar">
@@ -442,23 +543,44 @@ export default function App() {
             </dl>
             <p><span className="flag">Industry source</span> The information comes from the company that makes the product.</p>
           </div>
+          </>
+          )}
         </aside>
 
         {/* ------------------------------ main column ------------------------------ */}
         <section className="main" aria-live="polite">
           <div className="briefing-bar">
             <div className="bb-left">
-              <span className="bb-title">Daily briefing</span>
+              <span className="bb-title">{channel.isTrials ? "Trial tracker" : "Latest briefing"}</span>
               <span className="bb-stats">
-                <b>{stories.length}</b> stories <i>·</i> <b>{stats.sources}</b> sources <i>·</i> <b>{stats.minutes}</b> min read
+                {channel.isTrials && <><b>{cs.registry.length}</b> trials <i>·</i> </>}
+                <b>{stories.length}</b> {channel.isTrials ? "results" : "stories"}
+                {newCount > 0 && <> <i>·</i> <b className="new-count">{newCount}</b> new in 24 h</>}
+                {" "}<i>·</i> <b>{stats.sources}</b> sources <i>·</i> <b>{stats.minutes}</b> min read
               </span>
             </div>
-            <span className="bb-stamp">{cs.translating ? "Translating…" : stamp}</span>
+            <div className="bb-right">
+              {editions.list.length > 0 && (
+                <label className="edition-pick">
+                  <span className="sr-only">Edition</span>
+                  <select value={editions.viewing} onChange={(e) => viewEdition(e.target.value)}>
+                    <option value="latest">Latest</option>
+                    {editions.list
+                      .filter((e) => e.date !== editions.latestDate)
+                      .slice(0, 30)
+                      .map((e) => (
+                        <option key={e.date} value={e.date}>{fmtDate(e.date)}</option>
+                      ))}
+                  </select>
+                </label>
+              )}
+              <span className="bb-stamp">{cs.translating ? "Translating…" : stamp}</span>
+            </div>
           </div>
 
-          {secondView && (
+          {viewTabs && (
             <div className="subtabs" role="tablist" aria-label="View">
-              {["news", "second"].map((v) => (
+              {viewTabs.map(([v, label, count]) => (
                 <button
                   key={v}
                   role="tab"
@@ -466,11 +588,19 @@ export default function App() {
                   className={`subtab ${cs.view === v ? "is-on" : ""}`}
                   onClick={() => patch({ view: v })}
                 >
-                  {v === "news" ? "News" : secondView}
-                  <span>{v === "news" ? stories.length : channelId === "reality" ? FIELD_GUIDE.length : PLAYBOOK.length}</span>
+                  {label}
+                  <span>{count}</span>
                 </button>
               ))}
             </div>
+          )}
+
+          {cs.view === "trials" && (
+            <TrialList
+              trials={filterTrials(cs.registry, cs.tf)}
+              total={cs.registry.length}
+              onClear={() => patch({ tf: EMPTY_TRIAL_FILTER })}
+            />
           )}
 
           {cs.view === "news" && (
@@ -487,22 +617,29 @@ export default function App() {
                   return (
                     <article key={`${cs.activeLang}-${idx}`} className={`story ${i === 0 && !filtersOn ? "lead" : ""}`} lang={cs.activeLang}>
                       <div className="story-meta">
+                        {s.isNew && cs.mode === "daily" && <span className="pill new">New</span>}
                         {s.track && <span className="pill track">{s.track}</span>}
+                        {s.kind && <span className={`pill kind ${{ Medication: "k-med", "Symptom management": "k-sym", "Care & monitoring": "k-care" }[s.kind] || ""}`}>{s.kind}</span>}
                         {s.condition && <span className="pill cond">{s.condition}</span>}
                         <span className="meta-text">
                           {s.region}
                           {s.originalLanguage && !/^english$/i.test(s.originalLanguage) ? ` · orig. ${s.originalLanguage}` : ""}
                           <span className="sep">·</span>
                           <time>{s.date}</time>
+                          {cs.mode === "daily" && s.firstSeenAt && relTime(s.firstSeenAt) && (
+                            <><span className="sep">·</span><span className="added">{relTime(s.firstSeenAt)}</span></>
+                          )}
                         </span>
                         <Meter level={s.evidence} label={evLabels[s.evidence] || s.evidence} />
                       </div>
                       <h2 className="story-title">{s.title}</h2>
                       <p className="story-dek">{s.summary}</p>
-                      <div className="takeaway">
-                        <span className="tk-label">{takeawayLabel}</span>
-                        <p>{s.whyItMatters}</p>
-                      </div>
+                      {s.whyItMatters && (
+                        <div className="takeaway">
+                          <span className="tk-label">{takeawayLabel}</span>
+                          <p>{s.whyItMatters}</p>
+                        </div>
+                      )}
                       <div className="story-foot">
                         <span className="src">
                           <span className="src-type">{s.sourceType || "Source"}</span>

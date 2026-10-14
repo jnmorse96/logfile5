@@ -1,14 +1,58 @@
 # Gut & Gain
 
-Three channels, rated by strength of evidence and readable in 10 languages:
+Four sections, rated by strength of evidence and readable in 10 languages:
 
 - **Reality Check** (front page): the unwelcome but true things people with Crohn's and colitis should brace for, around nightlife (alcohol, vaping, cannabis, sleep, dehydration with an ostomy, painkillers) and the gym (emulsifiers in shakes, SARMs, steroids, muscle loss, stoma hernias, iron). Each card pairs the evidence with "What you can do", and filters split it by Nightlife, Gym and Meds. A **Field guide** adds practical tips from Dutch, Belgian, German, UK and European IBD care: toilet apps and keys, Dutch hospital rules on alcohol with thiopurines and methotrexate, Dutch drug-checking, festival kits, and Maastricht University muscle research.
 - **IBD Watch**: Crohn's disease and ulcerative colitis news worldwide: new drugs and trials, surgery, monitoring, diet, cell therapies and quality of life. Each story is tagged Crohn's, UC or IBD.
+- **Trial Tracker**: new Crohn's and colitis clinical trials registered around the world (ClinicalTrials.gov) and newly published trial results (PubMed), sorted into new medications, symptom management, and care and monitoring, with filters for phase, status and condition.
 - **Hard Gainer**: an evidence-graded playbook for gaining weight and lean muscle, plus the latest research, including gaining with IBD.
 
 To rename the site, change `SITE_NAME` in `src/channels.js` and the `<title>` in `index.html`.
 
 The site opens with a **saved briefing** of real, linked studies (in `src/seedData.js`), so it works with no setup. Once it's deployed with an Anthropic API key, **Run a live scan** searches the web for new developments, and **translation** and **deep dives** turn on.
+
+## News engine (every 12 hours)
+
+Twice a day the engine adds new stories from around the world to every section and refreshes the Trial Tracker. The site loads the latest feed first, falls back to the saved briefing if the engine hasn't run yet, and lets readers browse earlier days with the edition picker.
+
+**What each run does** (`engine/run.mjs`):
+
+1. **Gather, rotating around the world.** Each section runs focused searches ("beats"), defined in `engine/beats.js`. On every run, each beat searches a different region: worldwide, Europe, Asia-Pacific, North America, the Netherlands and Belgium, and Latin America. Within three days, every topic has been searched in every region. IBD Watch includes a dedicated **"New trials & symptom management"** beat (urgency, pain, fatigue, perianal disease, joint and skin symptoms, sleep, mental health), covering drugs as well as devices, diet, exercise and psychological programs.
+2. **Clean.** Drops stories with missing fields or no link, anything published more than 12 months ago, and impossible future dates.
+3. **Dedupe.** Removes repeats within the run and anything already published in the last 30 days (matching cleaned-up links and near-identical titles).
+4. **Verify.** Checks every source link and drops clear 404s. Paywalls and bot-blocks are kept.
+5. **Rank.** Scores freshness, evidence strength and independence; takes stories round-robin across beats; allows at most 2 stories per company, counting stories already in the feed.
+6. **Add to the rolling feed.** New stories go on top (up to 8 per section per run). The feed holds up to 14 stories; anything older than 7 days rolls off. Stories first seen in the last 24 hours get a **New** badge and an "added 3 h ago" note.
+7. **Trial Tracker** (`engine/trials.mjs`), from official sources rather than web search:
+   - **ClinicalTrials.gov registry:** interventional Crohn's, ulcerative colitis and IBD trials registered in the last 45 days, plus trials whose results were posted in the last 90 days, with sites in any country. Each trial is labeled **New medication**, **Symptom management** or **Care & monitoring**. The tracker shows phase, status, size, main measure, sponsor (industry flagged), countries, and a link to the registry entry. Trials that change status or post results come back to the top with an **Updated** or **Results posted** badge.
+   - **PubMed:** newly indexed randomized trials, phase 2/3 trials and meta-analyses on Crohn's and colitis from journals worldwide, shown under **Published results**.
+   - Claude rewrites the registry text and abstracts into plain language, without web search, using only the source text. If that step fails, the official text is shown instead.
+8. **Publish.** Writes `public/data/latest.json`, `public/data/archive/<date>.json` and `public/data/index.json`. Optionally pre-translates (`ENGINE_LANGUAGES`).
+
+**Safety nets:** a section never publishes empty (it keeps its last stories); if every source fails, nothing is written and the run is marked failed so GitHub emails you; a run with nothing new keeps the current feed.
+
+**Schedule** (`.github/workflows/daily-engine.yml`): every 12 hours, at 10:17 and 22:17 UTC (about 6:17 a.m. and 6:17 p.m. New York). It commits the update and Vercel redeploys automatically. Set it up once:
+
+1. Push the project to GitHub (the same repo Vercel deploys).
+2. In the repo: **Settings → Secrets and variables → Actions**
+   - **Secret** `ANTHROPIC_API_KEY` (required)
+   - Optional: **secret** `NCBI_API_KEY` and **variable** `NCBI_EMAIL` (PubMed rate limits), **variables** `ENGINE_LANGUAGES` (for example `es,nl,pt`) and `ANTHROPIC_MODEL`
+3. Open the **Actions** tab, choose **News engine**, and click **Run workflow** to publish the first update now.
+
+To change the timing, edit the `cron` line (UTC) and `runHours` in `engine/beats.js`.
+
+**Cost:** 10 web-search scans per run, so 20 a day, plus 1–2 cheap plain-language calls for the Trial Tracker. Roughly $1–3 a day depending on the model. ClinicalTrials.gov and PubMed are free. Set a monthly limit in the Anthropic Console.
+
+**Run it yourself:**
+
+```bash
+npm run engine        # real run (needs ANTHROPIC_API_KEY), writes public/data
+npm run engine:test   # mock run: no API calls, prints the result instead of writing it
+```
+
+Options: `ENGINE_CHANNELS=trials` runs one section; `ENGINE_DRY_RUN=1` prints without writing; `ENGINE_SKIP_LINKCHECK=1` skips link checks.
+
+**Rolling back a bad update:** revert the "News update" commit on GitHub, and Vercel redeploys the previous one.
 
 ## Design
 
@@ -78,6 +122,15 @@ Rough cost: a few cents per uncached scan with web search. Cached repeats are fr
 | `api/translate.js` | Translates a briefing |
 | `api/deepdive.js` | Deeper analysis of one story (cached GET) |
 | `api/_lib.js` | Calls Claude, handles paused searches, cleans and validates output |
+| `api/_prompts.js` | Scan instructions shared by the live scan and the daily engine |
+| `engine/run.mjs` | The news engine (runs every 12 hours) |
+| `engine/beats.js` | What the engine searches for, region rotation, and feed settings |
+| `engine/trials.mjs` | Trial Tracker: ClinicalTrials.gov and PubMed |
+| `src/Trials.jsx` | Trial Tracker list and filters |
+| `engine/lib.mjs` | Dedupe, link checks and ranking |
+| `engine/mock.mjs` | Canned responses for testing without API calls |
+| `.github/workflows/daily-engine.yml` | Runs the engine every 12 hours |
+| `public/data/` | Published feed and archive (written by the engine) |
 
 To change the model, set `ANTHROPIC_MODEL` in Vercel's environment variables.
 
