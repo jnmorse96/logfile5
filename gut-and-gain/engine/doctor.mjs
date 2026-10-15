@@ -11,6 +11,8 @@ export const FIX = {
   credit: "Your Anthropic account is out of credit. Add credit at https://platform.claude.com/settings/billing.",
   web_search_disabled:
     "Web search is turned off for your Anthropic organization. An admin can turn it on at https://platform.claude.com/settings/capabilities.",
+  workspace:
+    "This API key was created for \"All workspaces\", so it needs a workspace. Easiest fix: create a new key at https://platform.claude.com/settings/keys and pick a single workspace (not \"All workspaces\") when creating it, then update the ANTHROPIC_API_KEY secret. Or add a repository variable ANTHROPIC_WORKSPACE_ID with the workspace ID (wrkspc_…) from https://platform.claude.com/settings/workspaces.",
   model: "The model name isn't available to your account. Remove or fix the ANTHROPIC_MODEL variable in GitHub (Settings → Secrets and variables → Actions → Variables).",
   overloaded: "Anthropic's API was overloaded during the check. This usually clears on its own; the next run will retry.",
   rate_limit: "Your Anthropic account hit its rate limit. Wait and re-run, or raise your limits in the Anthropic Console.",
@@ -18,7 +20,7 @@ export const FIX = {
   server: "Anthropic's API returned a server error. The next run will retry.",
   bad_request: "Anthropic rejected the request. See the error text above.",
 };
-export const FATAL = new Set(["missing_key", "auth", "credit", "model"]);
+export const FATAL = new Set(["missing_key", "auth", "credit", "model", "workspace"]);
 
 async function checkHttp(name, url) {
   const ctrl = new AbortController();
