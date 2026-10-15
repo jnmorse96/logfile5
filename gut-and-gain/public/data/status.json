@@ -1,14 +1,15 @@
 {
-  "lastRunAt": "2026-10-15T18:01:14.561Z",
+  "lastRunAt": "2026-10-15T18:02:53.673Z",
   "lastRunOk": false,
   "lastSuccessAt": null,
-  "nextRunAt": "2026-10-16T06:01:14.561Z",
+  "nextRunAt": "2026-10-16T06:02:53.673Z",
   "message": "The engine couldn't start: invalid x-api-key",
   "problems": [
     {
       "code": "auth",
       "message": "invalid x-api-key",
-      "fix": "The ANTHROPIC_API_KEY secret is invalid or was revoked. Create a new key at https://platform.claude.com/settings/keys and update the secret in GitHub (Settings → Secrets and variables → Actions)."
+      "fix": "The ANTHROPIC_API_KEY secret is invalid or was revoked. Create a new key at https://platform.claude.com/settings/keys and update the secret in GitHub (Settings → Secrets and variables → Actions).",
+      "keyCheck": "doesn't start with sk-ant-, so it isn't an Anthropic API key (maybe the key's name or ID was pasted instead of the key itself); length 31 characters (a full key is usually about 108)"
     }
   ],
   "counts": {}
