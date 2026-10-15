@@ -9,7 +9,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "engine": "node engine/run.mjs",
-    "engine:test": "ENGINE_MOCK=1 ENGINE_DRY_RUN=1 node engine/run.mjs"
+    "engine:test": "node engine/run.mjs --mock --dry-run",
+    "engine:doctor": "node engine/doctor.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",

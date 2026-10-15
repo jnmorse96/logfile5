@@ -10,8 +10,8 @@
 // Claude is only used (without web search) to rewrite registry text and
 // abstracts into plain language. If that fails, the official text is used.
 
-const CT_BASE = "https://clinicaltrials.gov/api/v2/studies";
-const EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils";
+const CT_BASE = process.env.ENGINE_CT_BASE || "https://clinicaltrials.gov/api/v2/studies";
+const EUTILS = process.env.ENGINE_EUTILS_BASE || "https://eutils.ncbi.nlm.nih.gov/entrez/eutils";
 const UA = "GutAndGainBot/1.0 (+https://github.com; trial tracker)";
 
 export const TRIALS = {

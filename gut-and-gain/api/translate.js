@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   try {
     const { text } = await askClaude(
       `Translate into natural, fluent ${target.label}. Keep drug, compound, trial and gene names as they are. Return ONLY a JSON array with the same objects and "i" values, translating title, summary and whyItMatters. No markdown.\n\n${JSON.stringify(slim)}`,
-      { maxTokens: 5000 }
+      { maxTokens: 5000, attempts: 2, timeoutMs: 60000 }
     );
     const out = extractJSON(text, "[", "]");
     const translated = input.map((s, i) => {

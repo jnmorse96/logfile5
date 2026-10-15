@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 "${title}" (topic: ${clip(q.tag, 60)}; source: ${clip(q.source, 160)}).
 
 About 170 words of plain prose in ${lang.label}: what was actually found (with numbers), study design and limitations (size, blinding, funding), how it fits prior evidence, and ${angle}. Only state what your search results support. No headings, bullets or markdown.`,
-      { search: true, maxTokens: 3000 }
+      { search: true, maxTokens: 3000, attempts: 2, timeoutMs: 100000 }
     );
     res.setHeader("Cache-Control", "public, s-maxage=86400, stale-while-revalidate=86400");
     return res.status(200).json({ text: text.trim() });
