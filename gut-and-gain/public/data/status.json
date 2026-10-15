@@ -1,15 +1,14 @@
 {
-  "lastRunAt": "2026-10-15T18:02:53.673Z",
+  "lastRunAt": "2026-10-15T18:08:54.802Z",
   "lastRunOk": false,
   "lastSuccessAt": null,
-  "nextRunAt": "2026-10-16T06:02:53.673Z",
-  "message": "The engine couldn't start: invalid x-api-key",
+  "nextRunAt": "2026-10-16T06:08:54.802Z",
+  "message": "The engine couldn't start: This API key is not scoped to a workspace, so this request must include the anthropic-workspace-id header with the ID of the workspace to use. Add the header, or use an API key that is scoped to a workspace.",
   "problems": [
     {
-      "code": "auth",
-      "message": "invalid x-api-key",
-      "fix": "The ANTHROPIC_API_KEY secret is invalid or was revoked. Create a new key at https://platform.claude.com/settings/keys and update the secret in GitHub (Settings → Secrets and variables → Actions).",
-      "keyCheck": "doesn't start with sk-ant-, so it isn't an Anthropic API key (maybe the key's name or ID was pasted instead of the key itself); length 31 characters (a full key is usually about 108)"
+      "code": "bad_request",
+      "message": "This API key is not scoped to a workspace, so this request must include the anthropic-workspace-id header with the ID of the workspace to use. Add the header, or use an API key that is scoped to a workspace.",
+      "fix": "Anthropic rejected the request. See the error text above."
     }
   ],
   "counts": {}
