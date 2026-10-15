@@ -152,6 +152,7 @@ export default function App() {
   );
 
   const [editions, setEditions] = useState({ list: [], viewing: "latest", latestDate: null });
+  const [engine, setEngine] = useState(null); // public/data/status.json from the news engine
 
   // Put an edition (today's or an archived day) into every channel.
   function applyEdition(edition, mode) {
@@ -186,7 +187,12 @@ export default function App() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const [latest, index] = await Promise.all([fetchStatic("/data/latest.json"), fetchStatic("/data/index.json")]);
+      const [latest, index, status] = await Promise.all([
+        fetchStatic("/data/latest.json"),
+        fetchStatic("/data/index.json"),
+        fetchStatic("/data/status.json"),
+      ]);
+      if (!cancelled && status) setEngine(status);
       if (cancelled || !latest?.channels) return; // no edition yet: the saved briefing stays
       applyEdition(latest, "daily");
       setEditions({ list: index?.editions || [{ date: latest.date }], viewing: "latest", latestDate: latest.date });
@@ -733,6 +739,14 @@ export default function App() {
       <footer className="site-foot">
         <div className="wrap foot-inner">
           <div className="foot-brand"><Logo /> {SITE_NAME}</div>
+          {engine && (
+            <p className={`engine-status ${engine.lastRunOk ? "ok" : "warn"}`} role="status">
+              <span className="dot-live" aria-hidden="true" />
+              {engine.lastSuccessAt ? `News last updated ${fmtTime(engine.lastSuccessAt)}` : "News engine hasn't completed a run yet"}
+              {engine.nextRunAt && ` · next check ${fmtTime(engine.nextRunAt)}`}
+              {!engine.lastRunOk && ` · the latest run (${fmtTime(engine.lastRunAt)}) needs attention`}
+            </p>
+          )}
           <p>
             Informational only, not medical advice.{" "}
             {channelId === "gainer"

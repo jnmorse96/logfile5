@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   const prompt = buildBriefingPrompt({ channel, focus, region, lang, max: 6 });
 
   try {
-    const { text } = await askClaude(prompt, { search: true, maxTokens: 6000 });
+    const { text } = await askClaude(prompt, { search: true, maxTokens: 6000, attempts: 2, timeoutMs: 100000 });
     const parsed = extractJSON(text);
     const stories = (parsed.stories || []).map(cleanStory).filter((s) => s.title && s.summary);
     if (!stories.length) return sendError(res, 502, "The scan didn't find any usable recent stories. Try different focus areas.");

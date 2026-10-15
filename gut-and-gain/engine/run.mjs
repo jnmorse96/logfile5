@@ -41,9 +41,19 @@ import { buildBriefingPrompt } from "../api/_prompts.js";
 import { BEATS, EDITION, REGION_ROTATION } from "./beats.js";
 import { isDuplicate, ageDays, checkLink, mapLimit, selectEdition, storyId } from "./lib.mjs";
 import { runTrials } from "./trials.mjs";
+import { preflight, FATAL, FIX } from "./doctor.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const env = process.env;
+// Command-line flags work on every OS (Windows can't use `VAR=1 node ...`):
+//   --mock  --dry-run  --skip-links  --channels=ibd,trials
+const argv = process.argv.slice(2);
+const flag = (name) => argv.includes(`--${name}`);
+const opt = (name) => (argv.find((a) => a.startsWith(`--${name}=`)) || "").split("=")[1];
+const env = { ...process.env };
+if (flag("mock")) env.ENGINE_MOCK = "1";
+if (flag("dry-run")) env.ENGINE_DRY_RUN = "1";
+if (flag("skip-links")) env.ENGINE_SKIP_LINKCHECK = "1";
+if (opt("channels")) env.ENGINE_CHANNELS = opt("channels");
 const OUT = path.resolve(ROOT, env.ENGINE_OUT || "public/data");
 const NOW = env.ENGINE_NOW || (env.ENGINE_TODAY ? `${env.ENGINE_TODAY}T10:17:00.000Z` : new Date().toISOString());
 const TODAY = NOW.slice(0, 10);
@@ -101,11 +111,28 @@ async function runBeat(channel, beat, exclude, regionId) {
   let lastErr;
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
-      const { text } = await ask(prompt, { search: true, maxTokens: 6000, channel: channel.id, beat: beat.id });
-      const parsed = extractJSON(text);
+      const { text } = await ask(prompt, { search: true, maxTokens: 8000, channel: channel.id, beat: beat.id });
+      let parsed;
+      try {
+        parsed = extractJSON(text);
+        if (!Array.isArray(parsed.stories)) throw new Error("no stories array");
+      } catch {
+        // Claude answered in prose or broke the format: ask it (cheaply, no search)
+        // to convert its own answer into the required JSON instead of losing the beat.
+        log(`  ${channel.id}/${beat.id}: answer wasn't valid JSON; repairing`);
+        parsed = extractJSON(
+          (
+            await ask(
+              `Convert the news findings below into JSON with this exact shape and nothing else: {"stories":[{"title":"","summary":"","tag":"","track":"","condition":"","region":"","originalLanguage":"","evidence":"strong|emerging|early","whyItMatters":"","source":"","sourceType":"Journal|Conference|Regulator|Patient group|Company|News","date":"","published":"YYYY-MM-DD","url":"https://..."}]}. Use only facts and URLs present in the text; drop any item without a URL.\n\n${String(text).slice(0, 12000)}`,
+              { maxTokens: 6000, repair: true }
+            )
+          ).text
+        );
+      }
       return (parsed.stories || []).map((s) => ({ ...cleanStory(s), beat: beat.id, foundIn: region.label }));
     } catch (err) {
       lastErr = err;
+      if (FATAL.has(err.code) || err.code === "web_search_disabled") throw err; // retrying won't help
       log(`  ${channel.id}/${beat.id} attempt ${attempt} failed: ${err.message}`);
       if (attempt === 1) await new Promise((r) => setTimeout(r, MOCK ? 10 : 8000));
     }
@@ -146,6 +173,10 @@ async function runChannel(id, history, report, channelIndex) {
       gathered.push(...got);
     } catch (err) {
       row.error = err.message;
+      row.code = err.code || null;
+      report.beats.push(row);
+      if (FATAL.has(err.code) || err.code === "web_search_disabled") throw err;
+      continue;
     }
     report.beats.push(row);
   }
@@ -218,19 +249,66 @@ async function runChannel(id, history, report, channelIndex) {
 }
 
 // ---- main ---------------------------------------------------------------------------
-async function main() {
-  if (!MOCK && !env.ANTHROPIC_API_KEY) {
-    console.error("ANTHROPIC_API_KEY is not set. Add it as a repository secret (see README).");
-    process.exit(1);
+// ---- run status: public/data/status.json + GitHub run summary ----------------------
+async function writeStatus(status) {
+  const file = path.join(OUT, "status.json");
+  const prev = await readJSON(file, {});
+  const next = {
+    lastRunAt: NOW,
+    lastRunOk: status.ok,
+    lastSuccessAt: status.ok ? NOW : prev.lastSuccessAt || null,
+    nextRunAt: new Date(Date.parse(NOW) + EDITION.runHours * 3600000).toISOString(),
+    message: status.message,
+    problems: status.problems || [],
+    counts: status.counts || prev.counts || {},
+  };
+  if (!DRY) await writeJSON(file, next);
+  const summary = process.env.GITHUB_STEP_SUMMARY;
+  if (summary) {
+    const rows = (status.beats || []).map((b) => `| ${b.channel} | ${b.beat} | ${b.region || ""} | ${b.found} | ${b.kept} | ${b.error ? `❌ ${b.error.slice(0, 90)}` : "✅"} |`);
+    const md = [
+      `## ${status.ok ? "✅" : "❌"} Gut & Gain news engine`,
+      "",
+      status.message,
+      "",
+      ...(status.problems?.length ? ["### What needs attention", ...status.problems.map((p) => `- **${p.message}**${p.fix ? `  \n  ${p.fix}` : ""}`), ""] : []),
+      ...(status.preflight?.length ? ["### Preflight", "```", ...status.preflight, "```", ""] : []),
+      ...(rows.length ? ["### Searches", "| Section | Beat | Region | Found | Added | Result |", "|---|---|---|---|---|---|", ...rows, ""] : []),
+      ...(status.trials ? [`### Trial Tracker`, `Registry: ${status.trials.registryFetched} fetched, ${status.trials.newTrials} new, ${status.trials.updatedTrials} updated · PubMed: ${status.trials.resultsFetched} fetched, ${status.trials.newResults} new${status.trials.errors?.length ? ` · ⚠ ${status.trials.errors.join("; ")}` : ""}`, ""] : []),
+    ].join("\n");
+    await fs.appendFile(summary, md + "\n").catch(() => {});
   }
+  return next;
+}
+
+async function main() {
   const startedAt = new Date().toISOString();
   log(`starting · channels: ${CHANNEL_IDS.join(", ")}${MOCK ? " · MOCK" : ""}${DRY ? " · DRY RUN" : ""}`);
+
+  // Preflight: fail fast, in plain English, if the setup is broken.
+  const pre = await preflight({ mock: MOCK });
+  for (const line of pre.lines) log(line);
+  if (!pre.ok) {
+    const st = await writeStatus({ ok: false, message: "The engine couldn't start: " + pre.problems.map((p) => p.message).join("; "), problems: pre.problems, preflight: pre.lines });
+    console.error(`\nENGINE NOT RUN. ${pre.problems.map((p) => p.fix).join(" ")}`);
+    process.exitCode = 1;
+    return st;
+  }
+
   const history = await loadHistory();
-  const report = { beats: [] };
+  const report = { beats: [], problems: [...pre.problems] };
 
   const channels = {};
-  const storyChannels = CHANNEL_IDS.filter((id) => BEATS[id]);
-  for (const [i, id] of storyChannels.entries()) channels[id] = await runChannel(id, history, report, i);
+  const storyChannels = pre.canSearch ? CHANNEL_IDS.filter((id) => BEATS[id]) : [];
+  if (!pre.canSearch) log("web search unavailable: skipping news searches this run; the Trial Tracker still updates");
+  try {
+    for (const [i, id] of storyChannels.entries()) channels[id] = await runChannel(id, history, report, i);
+  } catch (err) {
+    // A fatal error mid-run (key revoked, credit ran out): keep what we have, report it.
+    const code = err.code || "bad_request";
+    report.problems.push({ code, message: err.message, fix: FIX[code] });
+    log(`stopping searches: ${err.message}`);
+  }
 
   if (CHANNEL_IDS.includes("trials")) {
     const t = await runTrials({ nowISO: NOW, previous: history.latest?.channels?.trials, ask, extractJSON, mock: MOCK, log });
@@ -253,15 +331,19 @@ async function main() {
   for (const [id, ch] of Object.entries(history.latest?.channels || {})) if (!channels[id]) channels[id] = ch;
 
   const anyStories = Object.values(channels).some((c) => (c.stories?.length || c.registry?.length) && c.status !== "kept-previous" && c.status !== "empty");
+  const beatErrors = report.beats.filter((b) => b.error);
   if (!anyStories) {
-    const allFailed = report.beats.every((b) => b.error) && (!report.trials || report.trials.errors.length === 2);
+    const allFailed = (!report.beats.length || report.beats.every((b) => b.error)) && (!report.trials || report.trials.errors.length === 2);
     if (allFailed) {
-      // Exit with an error so the scheduled run shows as failed and you get notified.
-      console.error("Every scan failed this run. Leaving the current edition in place.");
+      // Mark the run failed so GitHub emails you; the site keeps the current feed.
+      console.error("Every source failed this run. Leaving the current feed in place.");
       console.error(JSON.stringify(report.beats, null, 2));
-      process.exit(1);
+      await writeStatus({ ok: false, message: "Every source failed this run, so the site kept its previous stories.", problems: report.problems, beats: report.beats, trials: report.trials, preflight: pre.lines });
+      process.exitCode = 1;
+      return;
     }
-    log("No new stories this run and nothing fresh to carry over. Keeping the current edition.");
+    log("No new stories this run and nothing fresh to carry over. Keeping the current feed.");
+    await writeStatus({ ok: true, message: "Checked all sources; nothing new this run.", problems: report.problems, beats: report.beats, trials: report.trials, preflight: pre.lines });
     return;
   }
 
@@ -288,6 +370,26 @@ async function main() {
     .slice(0, EDITION.archiveKeep);
   await writeJSON(path.join(OUT, "index.json"), { updated: edition.generatedAt, editions });
   log(`published ${path.relative(ROOT, OUT)}/latest.json and archive/${TODAY}.json`);
+
+  const counts = Object.fromEntries(Object.entries(channels).map(([id, c]) => [id, { stories: (c.stories || []).length, new: (c.stories || []).filter((x) => x.isNew).length, trials: (c.registry || []).length }]));
+  const added = Object.values(counts).reduce((a, c) => a + c.new, 0);
+  // Setup problems (e.g. web search switched off, key revoked mid-run) still publish
+  // what we could, but mark the run as needing attention so GitHub emails you.
+  const attention = report.problems.filter((p) => p.code !== "source_unreachable" && p.code !== "overloaded" && p.code !== "rate_limit" && p.code !== "timeout" && p.code !== "server");
+  const sections = Object.keys(channels).length;
+  await writeStatus({
+    ok: attention.length === 0,
+    message: `${attention.length ? "Partly updated" : "Updated"}: ${added} new item${added === 1 ? "" : "s"} across ${sections} section${sections === 1 ? "" : "s"}.${beatErrors.length ? ` ${beatErrors.length} of ${report.beats.length} searches failed and will retry next run.` : ""}${attention.length ? ` Needs attention: ${attention.map((p) => p.fix || p.message).join(" ")}` : ""}`,
+    problems: report.problems,
+    beats: report.beats,
+    trials: report.trials,
+    counts,
+    preflight: pre.lines,
+  });
+  if (attention.length) {
+    console.error(`\nNEEDS ATTENTION: ${attention.map((p) => p.fix || p.message).join(" ")}`);
+    process.exitCode = 1;
+  }
 }
 
 main().catch((err) => {

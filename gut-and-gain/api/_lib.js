@@ -4,6 +4,7 @@
 import { EVIDENCE, TRACKS, SOURCE_TYPES } from "../src/channels.js";
 
 const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
+const API_BASE = (process.env.ANTHROPIC_BASE_URL || "https://api.anthropic.com").replace(/\/+$/, "");
 
 // ---- best-effort per-instance rate limit (use Upstash/WAF for real limits) --
 const hits = new Map();
@@ -22,42 +23,96 @@ export function sendError(res, status, message) {
   return res.status(status).json({ error: message });
 }
 
-// ---- call Claude, following pause_turn continuations from server tools ------
-export async function askClaude(prompt, { search = false, maxTokens = 4000 } = {}) {
+// ---- call Claude ------------------------------------------------------------
+// Hardened for unattended runs:
+//  - retries overloaded (529), rate-limit (429), timeout and 5xx errors with
+//    exponential backoff, honoring the retry-after header
+//  - a per-request timeout so one stuck call can't freeze a scheduled run
+//  - safe handling of non-JSON error bodies
+//  - follows pause_turn continuations from long web searches
+//  - errors carry a `code` so the engine can explain failures in plain English
+
+const RETRYABLE = new Set([408, 409, 429, 500, 502, 503, 504, 529]);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+export function classifyApiError(status, message = "") {
+  const m = String(message).toLowerCase();
+  if (status === 401 || status === 403) return "auth";
+  if (m.includes("credit balance")) return "credit";
+  if (m.includes("web search") && (m.includes("not enabled") || m.includes("disabled"))) return "web_search_disabled";
+  if (status === 404 && m.includes("model")) return "model";
+  if (status === 529 || m.includes("overloaded")) return "overloaded";
+  if (status === 429) return "rate_limit";
+  if (status === 408 || status === 504) return "timeout";
+  if (status >= 500) return "server";
+  return "bad_request";
+}
+
+async function postOnce(body, key, timeoutMs) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const r = await fetch(`${API_BASE}/v1/messages`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify(body),
+      signal: ctrl.signal,
+    });
+    const raw = await r.text();
+    let data = null;
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      /* non-JSON body (gateway page, etc.) */
+    }
+    return { status: r.status, ok: r.ok, data, raw, retryAfter: Number(r.headers.get("retry-after")) || 0 };
+  } catch (err) {
+    return { status: err.name === "AbortError" ? 408 : 503, ok: false, data: null, raw: err.message, retryAfter: 0, network: true };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function postWithRetry(body, key, { attempts = 5, timeoutMs } = {}) {
+  let last;
+  for (let i = 1; i <= attempts; i++) {
+    const res = await postOnce(body, key, timeoutMs);
+    if (res.ok && res.data) return res.data;
+    const message = res.data?.error?.message || (res.network ? `network error: ${res.raw}` : `HTTP ${res.status}`);
+    const code = classifyApiError(res.status, message);
+    last = Object.assign(new Error(message), { code, httpStatus: res.status });
+    if (!RETRYABLE.has(res.status) || i === attempts) break;
+    const wait = res.retryAfter ? res.retryAfter * 1000 : Math.min(60000, 2000 * 2 ** (i - 1)) + Math.random() * 1000;
+    if (process.env.ENGINE_VERBOSE !== "0") console.log(`  … Anthropic ${code} (HTTP ${res.status}); retrying in ${Math.round(wait / 1000)}s (attempt ${i + 1}/${attempts})`);
+    await sleep(wait);
+  }
+  last.status = last.code === "auth" ? 500 : 502; // status for the website's API routes
+  throw last;
+}
+
+export async function askClaude(prompt, { search = false, maxTokens = 4000, timeoutMs, attempts } = {}) {
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) {
-    const err = new Error("The server is missing its ANTHROPIC_API_KEY environment variable.");
-    err.status = 500;
-    throw err;
+    throw Object.assign(new Error("ANTHROPIC_API_KEY is not set."), { status: 500, code: "missing_key" });
   }
+  const perRequest = timeoutMs || Number(process.env.ANTHROPIC_TIMEOUT_MS) || (search ? 240000 : 120000);
+  const tries = attempts || Number(process.env.ANTHROPIC_ATTEMPTS) || 5;
 
   const messages = [{ role: "user", content: prompt }];
   let data;
-  for (let turn = 0; turn < 4; turn++) {
-    const r = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": key,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
+  for (let turn = 0; turn < 5; turn++) {
+    data = await postWithRetry(
+      {
         model: MODEL,
         max_tokens: maxTokens,
         messages,
-        ...(search
-          ? { tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }] }
-          : {}),
-      }),
-    });
-    data = await r.json();
-    if (!r.ok) {
-      const err = new Error(data?.error?.message || `Anthropic API error (${r.status})`);
-      err.status = r.status === 401 ? 500 : 502;
-      throw err;
-    }
+        ...(search ? { tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 6 }] } : {}),
+      },
+      key,
+      { attempts: tries, timeoutMs: perRequest }
+    );
     if (data.stop_reason !== "pause_turn") break;
-    // Long searches can pause; hand the partial turn back so Claude continues.
+    // Long searches can pause; hand the partial turn back unchanged so Claude continues.
     messages.push({ role: "assistant", content: data.content });
   }
 
@@ -70,7 +125,11 @@ export async function askClaude(prompt, { search = false, maxTokens = 4000 } = {
   });
   const tail = blocks.slice(lastTool + 1).filter((b) => b.type === "text");
   const use = tail.length ? tail : blocks.filter((b) => b.type === "text");
-  return { text: use.map((b) => b.text).join(""), truncated: data.stop_reason === "max_tokens" };
+  return {
+    text: use.map((b) => b.text).join(""),
+    truncated: data.stop_reason === "max_tokens",
+    searches: data.usage?.server_tool_use?.web_search_requests || 0,
+  };
 }
 
 export function extractJSON(text, open = "{", close = "}") {

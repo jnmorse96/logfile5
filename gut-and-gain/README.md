@@ -31,7 +31,9 @@ Twice a day the engine adds new stories from around the world to every section a
 
 **Safety nets:** a section never publishes empty (it keeps its last stories); if every source fails, nothing is written and the run is marked failed so GitHub emails you; a run with nothing new keeps the current feed.
 
-**Schedule** (`.github/workflows/daily-engine.yml`): every 12 hours, at 10:17 and 22:17 UTC (about 6:17 a.m. and 6:17 p.m. New York). It commits the update and Vercel redeploys automatically. Set it up once:
+**Reliability:** every run starts with a preflight check (API key, credit, web search access, ClinicalTrials.gov and PubMed). Setup problems stop the run in seconds with a plain-English fix. Anthropic "overloaded" and rate-limit errors are retried with backoff; each request has a timeout; if Claude answers in prose instead of the expected format, the engine asks it to convert its own answer rather than losing the search. Each run writes `public/data/status.json`, which the site's footer shows ("News last updated … · next check …", or a warning if the latest run needs attention), and a summary table on the GitHub run page.
+
+**Schedule** (`.github/workflows/news-engine.yml` at the top of the repository, outside this folder): every 12 hours, at 10:17 and 22:17 UTC (about 6:17 a.m. and 6:17 p.m. New York). It commits the update and Vercel redeploys automatically. Set it up once:
 
 1. Push the project to GitHub (the same repo Vercel deploys).
 2. In the repo: **Settings → Secrets and variables → Actions**
@@ -46,11 +48,18 @@ To change the timing, edit the `cron` line (UTC) and `runHours` in `engine/beats
 **Run it yourself:**
 
 ```bash
-npm run engine        # real run (needs ANTHROPIC_API_KEY), writes public/data
-npm run engine:test   # mock run: no API calls, prints the result instead of writing it
+npm run engine         # real run (needs ANTHROPIC_API_KEY), writes public/data
+npm run engine:doctor  # preflight checks only: key, credit, web search, trial sources
+npm run engine:test    # mock run: no API calls, prints the result instead of writing it
 ```
 
-Options: `ENGINE_CHANNELS=trials` runs one section; `ENGINE_DRY_RUN=1` prints without writing; `ENGINE_SKIP_LINKCHECK=1` skips link checks.
+These work on Windows, macOS and Linux. Options (as flags): `--channels=trials` runs one section; `--dry-run` prints without writing; `--skip-links` skips link checks.
+
+### Troubleshooting
+
+- **The Actions tab shows no "News engine" workflow.** The workflow file must be at `.github/workflows/news-engine.yml` at the top of the repository. Uploading through GitHub's website can silently skip folders whose names start with a dot (`.github`). Upload it with GitHub Desktop or git, or create the file in the browser via **Add file → Create new file** and paste its contents.
+- **A run is red.** Open the run and read the **Summary**: it names the problem and the fix (missing or invalid key, no credit, web search turned off).
+- **Runs are green but the site doesn't change.** Check that Vercel is connected to this repository (Vercel → Project → Settings → Git) with **Root Directory** set to `gut-and-gain`.
 
 **Rolling back a bad update:** revert the "News update" commit on GitHub, and Vercel redeploys the previous one.
 
