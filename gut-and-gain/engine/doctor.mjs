@@ -2,7 +2,7 @@
 // run (and on its own with `npm run engine:doctor`), so a broken setup fails
 // in seconds with a plain-English fix instead of failing every search.
 
-import { askClaude } from "../api/_lib.js";
+import { askClaude, describeKey } from "../api/_lib.js";
 
 export const FIX = {
   missing_key:
@@ -50,6 +50,11 @@ export async function preflight({ mock = false, checkSources = true } = {}) {
     const code = err.code || "bad_request";
     problems.push({ code, message: err.message, fix: FIX[code] });
     lines.push(`✗ Anthropic API: ${err.message}\n   → ${FIX[code]}`);
+    if (code === "auth") {
+      const shape = describeKey();
+      problems[problems.length - 1].keyCheck = shape;
+      lines.push(`   Key check: the saved secret ${shape}.`);
+    }
     return { ok: false, canSearch: false, problems, lines };
   }
 

@@ -271,7 +271,7 @@ async function writeStatus(status) {
       "",
       status.message,
       "",
-      ...(status.problems?.length ? ["### What needs attention", ...status.problems.map((p) => `- **${p.message}**${p.fix ? `  \n  ${p.fix}` : ""}`), ""] : []),
+      ...(status.problems?.length ? ["### What needs attention", ...status.problems.map((p) => `- **${p.message}**${p.fix ? `  \n  ${p.fix}` : ""}${p.keyCheck ? `  \n  Key check: the saved secret ${p.keyCheck}.` : ""}`), ""] : []),
       ...(status.preflight?.length ? ["### Preflight", "```", ...status.preflight, "```", ""] : []),
       ...(rows.length ? ["### Searches", "| Section | Beat | Region | Found | Added | Result |", "|---|---|---|---|---|---|", ...rows, ""] : []),
       ...(status.trials ? [`### Trial Tracker`, `Registry: ${status.trials.registryFetched} fetched, ${status.trials.newTrials} new, ${status.trials.updatedTrials} updated · PubMed: ${status.trials.resultsFetched} fetched, ${status.trials.newResults} new${status.trials.errors?.length ? ` · ⚠ ${status.trials.errors.join("; ")}` : ""}`, ""] : []),

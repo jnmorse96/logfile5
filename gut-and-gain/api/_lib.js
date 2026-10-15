@@ -90,8 +90,28 @@ async function postWithRetry(body, key, { attempts = 5, timeoutMs } = {}) {
   throw last;
 }
 
+// Pasted secrets often carry stray spaces, line breaks or quotes; strip them.
+export function readKey() {
+  return String(process.env.ANTHROPIC_API_KEY || "").replace(/\s+/g, "").replace(/^["'`]+|["'`]+$/g, "");
+}
+
+// Describes the key's shape without revealing it (only the public prefix and length).
+export function describeKey() {
+  const raw = String(process.env.ANTHROPIC_API_KEY || "");
+  const k = readKey();
+  const notes = [];
+  if (raw !== k) notes.push("had spaces, line breaks or quotes (removed automatically)");
+  if (k.startsWith("sk-ant-api")) notes.push("looks like a normal API key (sk-ant-api…)");
+  else if (k.startsWith("sk-ant-admin")) notes.push("is an ADMIN key (sk-ant-admin…), which can't send messages; create a regular API key instead");
+  else if (k.startsWith("sk-ant-oat") || k.startsWith("sk-ant-ort")) notes.push("is a Claude subscription/Claude Code login token, not an API key; create an API key in the Claude Console");
+  else if (k.startsWith("sk-")) notes.push("starts with sk- but not sk-ant-, so it's likely from another provider");
+  else notes.push("doesn't start with sk-ant-, so it isn't an Anthropic API key (maybe the key's name or ID was pasted instead of the key itself)");
+  notes.push(`length ${k.length} characters (a full key is usually about 108)`);
+  return notes.join("; ");
+}
+
 export async function askClaude(prompt, { search = false, maxTokens = 4000, timeoutMs, attempts } = {}) {
-  const key = process.env.ANTHROPIC_API_KEY;
+  const key = readKey();
   if (!key) {
     throw Object.assign(new Error("ANTHROPIC_API_KEY is not set."), { status: 500, code: "missing_key" });
   }
