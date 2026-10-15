@@ -1,14 +1,14 @@
 {
-  "lastRunAt": "2026-10-15T17:53:58.073Z",
+  "lastRunAt": "2026-10-15T18:01:14.561Z",
   "lastRunOk": false,
   "lastSuccessAt": null,
-  "nextRunAt": "2026-10-16T05:53:58.073Z",
-  "message": "The engine couldn't start: ANTHROPIC_API_KEY is not set.",
+  "nextRunAt": "2026-10-16T06:01:14.561Z",
+  "message": "The engine couldn't start: invalid x-api-key",
   "problems": [
     {
-      "code": "missing_key",
-      "message": "ANTHROPIC_API_KEY is not set.",
-      "fix": "Add your Anthropic API key as a repository secret: GitHub repo → Settings → Secrets and variables → Actions → New repository secret, named ANTHROPIC_API_KEY."
+      "code": "auth",
+      "message": "invalid x-api-key",
+      "fix": "The ANTHROPIC_API_KEY secret is invalid or was revoked. Create a new key at https://platform.claude.com/settings/keys and update the secret in GitHub (Settings → Secrets and variables → Actions)."
     }
   ],
   "counts": {}
