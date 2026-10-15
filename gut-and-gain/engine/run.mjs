@@ -43,6 +43,19 @@ import { isDuplicate, ageDays, checkLink, mapLimit, selectEdition, storyId } fro
 import { runTrials } from "./trials.mjs";
 import { preflight, FATAL, FIX } from "./doctor.mjs";
 
+// Next scheduled run, matching the cron in .github/workflows/news-engine.yml
+// (minute 17 at 10:00 and 22:00 UTC). Override with ENGINE_SCHEDULE_UTC="10:17,22:17".
+function nextScheduled(nowISO) {
+  const slots = (process.env.ENGINE_SCHEDULE_UTC || "10:17,22:17").split(",").map((t) => t.trim().split(":").map(Number));
+  const now = Date.parse(nowISO);
+  const day = new Date(now); day.setUTCHours(0, 0, 0, 0);
+  for (let d = 0; d < 2; d++) for (const [h, m] of slots) {
+    const t = day.getTime() + d * 86400000 + (h * 60 + m) * 60000;
+    if (t > now + 60000) return new Date(t).toISOString();
+  }
+  return new Date(now + EDITION.runHours * 3600000).toISOString();
+}
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 // Command-line flags work on every OS (Windows can't use `VAR=1 node ...`):
 //   --mock  --dry-run  --skip-links  --channels=ibd,trials
@@ -257,7 +270,7 @@ async function writeStatus(status) {
     lastRunAt: NOW,
     lastRunOk: status.ok,
     lastSuccessAt: status.ok ? NOW : prev.lastSuccessAt || null,
-    nextRunAt: new Date(Date.parse(NOW) + EDITION.runHours * 3600000).toISOString(),
+    nextRunAt: nextScheduled(NOW),
     message: status.message,
     problems: status.problems || [],
     counts: status.counts || prev.counts || {},
@@ -350,7 +363,7 @@ async function main() {
   const edition = {
     date: TODAY,
     generatedAt: NOW,
-    nextRunAt: new Date(Date.parse(NOW) + EDITION.runHours * 3600000).toISOString(),
+    nextRunAt: nextScheduled(NOW),
     run: { startedAt, finishedAt: new Date().toISOString(), model: MOCK ? "mock" : env.ANTHROPIC_MODEL || "default", beats: report.beats, trials: report.trials || null },
     channels,
   };
