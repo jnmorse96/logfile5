@@ -37,6 +37,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export function classifyApiError(status, message = "") {
   const m = String(message).toLowerCase();
+  if (m.includes("scoped to a workspace") || m.includes("anthropic-workspace-id")) return "workspace";
   if (status === 401 || status === 403) return "auth";
   if (m.includes("credit balance")) return "credit";
   if (m.includes("web search") && (m.includes("not enabled") || m.includes("disabled"))) return "web_search_disabled";
@@ -54,7 +55,12 @@ async function postOnce(body, key, timeoutMs) {
   try {
     const r = await fetch(`${API_BASE}/v1/messages`, {
       method: "POST",
-      headers: { "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": key,
+        "anthropic-version": "2023-06-01",
+        ...(process.env.ANTHROPIC_WORKSPACE_ID ? { "anthropic-workspace-id": process.env.ANTHROPIC_WORKSPACE_ID.trim() } : {}),
+      },
       body: JSON.stringify(body),
       signal: ctrl.signal,
     });

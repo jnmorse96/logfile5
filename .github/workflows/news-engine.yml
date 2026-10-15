@@ -10,6 +10,7 @@
 #   Secret   ANTHROPIC_API_KEY   (required)
 #   Secret   NCBI_API_KEY        (optional, raises PubMed's rate limit)
 #   Variable ANTHROPIC_MODEL     (optional model override)
+#   Variable ANTHROPIC_WORKSPACE_ID (optional; only for keys made for "All workspaces")
 #   Variable ENGINE_LANGUAGES    (optional, e.g. "es,nl,pt" to pre-translate)
 #   Variable NCBI_EMAIL          (optional contact for NCBI)
 # Run it any time from the Actions tab → News engine → Run workflow.
@@ -59,6 +60,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
           ENGINE_LANGUAGES: ${{ vars.ENGINE_LANGUAGES }}
           ENGINE_CHANNELS: ${{ github.event.inputs.channels }}
           NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
