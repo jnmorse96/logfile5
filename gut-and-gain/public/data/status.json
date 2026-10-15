@@ -1,15 +1,30 @@
 {
-  "lastRunAt": "2026-10-15T18:08:54.802Z",
-  "lastRunOk": false,
-  "lastSuccessAt": null,
-  "nextRunAt": "2026-10-16T06:08:54.802Z",
-  "message": "The engine couldn't start: This API key is not scoped to a workspace, so this request must include the anthropic-workspace-id header with the ID of the workspace to use. Add the header, or use an API key that is scoped to a workspace.",
-  "problems": [
-    {
-      "code": "bad_request",
-      "message": "This API key is not scoped to a workspace, so this request must include the anthropic-workspace-id header with the ID of the workspace to use. Add the header, or use an API key that is scoped to a workspace.",
-      "fix": "Anthropic rejected the request. See the error text above."
+  "lastRunAt": "2026-10-15T18:12:46.285Z",
+  "lastRunOk": true,
+  "lastSuccessAt": "2026-10-15T18:12:46.285Z",
+  "nextRunAt": "2026-10-16T06:12:46.285Z",
+  "message": "Updated: 34 new items across 4 sections.",
+  "problems": [],
+  "counts": {
+    "reality": {
+      "stories": 8,
+      "new": 8,
+      "trials": 0
+    },
+    "ibd": {
+      "stories": 8,
+      "new": 8,
+      "trials": 0
+    },
+    "gainer": {
+      "stories": 8,
+      "new": 8,
+      "trials": 0
+    },
+    "trials": {
+      "stories": 10,
+      "new": 10,
+      "trials": 33
     }
-  ],
-  "counts": {}
+  }
 }
