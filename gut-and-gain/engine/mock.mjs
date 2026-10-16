@@ -93,7 +93,7 @@ function study({ id, title, status = "RECRUITING", phases = ["PHASE3"], types = 
 
 export async function mockRegistry(nowISO) {
   const d = (n) => new Date(Date.parse(nowISO) - n * 86400000).toISOString().slice(0, 10);
-  const slot = Math.floor(Date.parse(nowISO) / (12 * 3600000)); // changes every 12 hours
+  const slot = Math.floor(Date.parse(nowISO) / (24 * 3600000)); // changes every run (daily)
   return [
     study({ id: "NCT90000001", title: "Oral TL1A Inhibitor for Crohn's Disease", posted: d(3) }),
     study({ id: "NCT90000002", title: "Hypnotherapy for Bowel Urgency in Ulcerative Colitis", types: ["BEHAVIORAL"], phases: ["NA"], cond: ["Ulcerative Colitis"], sponsorClass: "OTHER", countries: ["United Kingdom"], posted: d(5) }),

@@ -1,4 +1,4 @@
-// What the engine searches for. It runs every 12 hours; each channel runs a few
+// What the engine searches for. It runs once a day; each channel runs a few
 // focused "beats" (combinations of its focus areas) so every category is
 // covered on every run. Edit freely: ids must match the category ids in
 // src/channels.js.
@@ -41,8 +41,8 @@ export const BEATS = {
 
 // Edition shape per channel.
 export const EDITION = {
-  runHours: 12,     // how often the engine runs (set the matching cron in .github/workflows)
-  newHours: 24,     // stories first seen within this window get the "New" badge
+  runHours: 24,     // how often the engine runs (set the matching cron in .github/workflows)
+  newHours: 30,     // stories first seen within this window get the "New" badge
   target: 14,       // stories per channel in the rolling feed (newest first)
   perRun: 8,        // max new stories added per channel per run
   carryDays: 7,     // how long a story stays in the feed

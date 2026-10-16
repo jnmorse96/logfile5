@@ -1,5 +1,5 @@
 # Gut & Gain news engine
-# Runs every 12 hours. Adds new stories from around the world to every section,
+# Runs once a day. Adds new stories from around the world to every section,
 # refreshes the Trial Tracker from ClinicalTrials.gov and PubMed, and commits
 # the result to gut-and-gain/public/data/. Vercel redeploys automatically.
 #
@@ -19,8 +19,8 @@ name: News engine
 
 on:
   schedule:
-    # Every 12 hours: 10:17 and 22:17 UTC (6:17 a.m./p.m. New York in summer)
-    - cron: "17 10,22 * * *"
+    # Once a day: 10:17 UTC (6:17 a.m. New York in summer, 5:17 a.m. in winter)
+    - cron: "17 10 * * *"
   workflow_dispatch:
     inputs:
       channels:

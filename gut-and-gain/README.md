@@ -11,13 +11,13 @@ To rename the site, change `SITE_NAME` in `src/channels.js` and the `<title>` in
 
 The site opens with a **saved briefing** of real, linked studies (in `src/seedData.js`), so it works with no setup. Once it's deployed with an Anthropic API key, **Run a live scan** searches the web for new developments, and **translation** and **deep dives** turn on.
 
-## News engine (every 12 hours)
+## News engine (once a day)
 
-Twice a day the engine adds new stories from around the world to every section and refreshes the Trial Tracker. The site loads the latest feed first, falls back to the saved briefing if the engine hasn't run yet, and lets readers browse earlier days with the edition picker.
+Once a day the engine adds new stories from around the world to every section and refreshes the Trial Tracker. The site loads the latest feed first, falls back to the saved briefing if the engine hasn't run yet, and lets readers browse earlier days with the edition picker.
 
 **What each run does** (`engine/run.mjs`):
 
-1. **Gather, rotating around the world.** Each section runs focused searches ("beats"), defined in `engine/beats.js`. On every run, each beat searches a different region: worldwide, Europe, Asia-Pacific, North America, the Netherlands and Belgium, and Latin America. Within three days, every topic has been searched in every region. IBD Watch includes a dedicated **"New trials & symptom management"** beat (urgency, pain, fatigue, perianal disease, joint and skin symptoms, sleep, mental health), covering drugs as well as devices, diet, exercise and psychological programs.
+1. **Gather, rotating around the world.** Each section runs focused searches ("beats"), defined in `engine/beats.js`. On every run, each beat searches a different region: worldwide, Europe, Asia-Pacific, North America, the Netherlands and Belgium, and Latin America. Within six days, every topic has been searched in every region. IBD Watch includes a dedicated **"New trials & symptom management"** beat (urgency, pain, fatigue, perianal disease, joint and skin symptoms, sleep, mental health), covering drugs as well as devices, diet, exercise and psychological programs.
 2. **Clean.** Drops stories with missing fields or no link, anything published more than 12 months ago, and impossible future dates.
 3. **Dedupe.** Removes repeats within the run and anything already published in the last 30 days (matching cleaned-up links and near-identical titles).
 4. **Verify.** Checks every source link and drops clear 404s. Paywalls and bot-blocks are kept.
@@ -33,7 +33,7 @@ Twice a day the engine adds new stories from around the world to every section a
 
 **Reliability:** every run starts with a preflight check (API key, credit, web search access, ClinicalTrials.gov and PubMed). Setup problems stop the run in seconds with a plain-English fix. Anthropic "overloaded" and rate-limit errors are retried with backoff; each request has a timeout; if Claude answers in prose instead of the expected format, the engine asks it to convert its own answer rather than losing the search. Each run writes `public/data/status.json`, which the site's footer shows ("News last updated … · next check …", or a warning if the latest run needs attention), and a summary table on the GitHub run page.
 
-**Schedule** (`.github/workflows/news-engine.yml` at the top of the repository, outside this folder): every 12 hours, at 10:17 and 22:17 UTC (about 6:17 a.m. and 6:17 p.m. New York). It commits the update and Vercel redeploys automatically. Set it up once:
+**Schedule** (`.github/workflows/news-engine.yml` at the top of the repository, outside this folder): once a day, at 10:17 UTC (6:17 a.m. New York in summer, 5:17 a.m. in winter). It commits the update and Vercel redeploys automatically. Set it up once:
 
 1. Push the project to GitHub (the same repo Vercel deploys).
 2. In the repo: **Settings → Secrets and variables → Actions**
@@ -43,7 +43,7 @@ Twice a day the engine adds new stories from around the world to every section a
 
 To change the timing, edit the `cron` line (UTC) and `runHours` in `engine/beats.js`.
 
-**Cost:** 10 web-search scans per run, so 20 a day, plus 1–2 cheap plain-language calls for the Trial Tracker. Roughly $1–3 a day depending on the model. ClinicalTrials.gov and PubMed are free. Set a monthly limit in the Anthropic Console.
+**Cost:** 10 web-search scans per run, once a day, plus 1–2 cheap plain-language calls for the Trial Tracker. Roughly $0.50–1.50 a day depending on the model. ClinicalTrials.gov and PubMed are free. Set a monthly limit in the Anthropic Console.
 
 **Run it yourself:**
 
@@ -132,13 +132,13 @@ Rough cost: a few cents per uncached scan with web search. Cached repeats are fr
 | `api/deepdive.js` | Deeper analysis of one story (cached GET) |
 | `api/_lib.js` | Calls Claude, handles paused searches, cleans and validates output |
 | `api/_prompts.js` | Scan instructions shared by the live scan and the daily engine |
-| `engine/run.mjs` | The news engine (runs every 12 hours) |
+| `engine/run.mjs` | The news engine (runs once a day) |
 | `engine/beats.js` | What the engine searches for, region rotation, and feed settings |
 | `engine/trials.mjs` | Trial Tracker: ClinicalTrials.gov and PubMed |
 | `src/Trials.jsx` | Trial Tracker list and filters |
 | `engine/lib.mjs` | Dedupe, link checks and ranking |
 | `engine/mock.mjs` | Canned responses for testing without API calls |
-| `.github/workflows/daily-engine.yml` | Runs the engine every 12 hours |
+| `.github/workflows/daily-engine.yml` | Runs the engine once a day |
 | `public/data/` | Published feed and archive (written by the engine) |
 
 To change the model, set `ANTHROPIC_MODEL` in Vercel's environment variables.
