@@ -1,13 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { CHANNELS, REGIONS, LANGUAGES, SITE_NAME, SITE_TAGLINE, TRACKS } from "./channels.js";
+import { CHANNELS, LANGUAGES, SITE_NAME, SITE_TAGLINE, TRACKS } from "./channels.js";
 import { SEED, SEED_UPDATED, PLAYBOOK, FIELD_GUIDE } from "./seedData.js";
 import { EVIDENCE_LABELS, WHY_LABELS, ACTION_LABELS, SOURCE_LABELS } from "./i18n.js";
 import VilliBackground from "./VilliBackground.jsx";
 import { TrialsSide, TrialList, filterTrials, EMPTY_TRIAL_FILTER } from "./Trials.jsx";
 
 const today = () => new Date().toISOString().slice(0, 10);
-const STORE_KEY = (ch) => `lw:last:${ch}`;
-const MAX_AGE_MS = 36 * 3600 * 1000;
 const LEVEL = { strong: 3, emerging: 2, early: 1 };
 const LEVELS = ["strong", "emerging", "early"];
 const isIndustry = (s) => s.sourceType === "Company";
@@ -17,33 +15,17 @@ const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch { /* storage unavailable */ } },
 };
-function loadSaved(channelId) {
-  try {
-    const v = JSON.parse(store.get(STORE_KEY(channelId)) || "null");
-    if (!v?.stories?.length || Date.now() - new Date(v.generatedAt).getTime() > MAX_AGE_MS) return null;
-    return v;
-  } catch {
-    return null;
-  }
-}
-
 function initialState(channel) {
-  const saved = channel.isTrials ? null : loadSaved(channel.id);
   return {
-    selected: channel.defaultSelected,
-    region: "worldwide",
-    language: saved?.lang || "en",
-    byLang: saved ? { [saved.lang]: saved.stories } : { en: SEED[channel.id] },
-    activeLang: saved?.lang || "en",
-    baseLang: saved?.lang || "en",
-    mode: saved ? "live" : "saved",
-    generatedAt: saved?.generatedAt || null,
-    loading: false,
+    byLang: { en: SEED[channel.id] },
+    activeLang: "en",
+    baseLang: "en",
+    mode: "saved",
+    generatedAt: null,
     translating: false,
     notice: null,
     expanded: {},
     view: channel.isTrials ? "trials" : "news",
-    showSettings: false,
     evidence: null,
     facet: "All",
     hideIndustry: false,
@@ -74,7 +56,7 @@ async function getJSON(url, options = {}, timeoutMs = 150_000) {
   return data;
 }
 const NO_BACKEND_TEXT =
-  "Live scans, translation and deep dives turn on once the site is deployed with its API key (see README). You're reading the saved briefing.";
+  "Translation and deep dives turn on once the site is deployed with its API key (see README). You're reading the saved briefing.";
 
 // The daily engine publishes static files under /data (see engine/run.mjs).
 async function fetchStatic(url) {
@@ -161,8 +143,6 @@ export default function App() {
       for (const [id, ch] of Object.entries(edition.channels || {})) {
         if (!next[id] || !(ch?.stories?.length || ch?.registry?.length)) continue;
         const cur = next[id];
-        // A visitor's own live scan that is newer than today's edition stays on screen.
-        if (mode === "daily" && cur.mode === "live" && cur.generatedAt && cur.generatedAt > edition.generatedAt) continue;
         const byLang = { en: ch.stories || [], ...(ch.translations || {}) };
         next[id] = {
           ...cur,
@@ -250,40 +230,6 @@ export default function App() {
   const filtersOn = cs.evidence || cs.facet !== "All" || cs.hideIndustry;
   const clearFilters = () => patch({ evidence: null, facet: "All", hideIndustry: false });
 
-  const toggleFocus = (id) =>
-    patch((s) => ({ selected: s.selected.includes(id) ? s.selected.filter((x) => x !== id) : [...s.selected, id] }));
-  const errNotice = (e) =>
-    e instanceof NoBackend ? { kind: "info", text: NO_BACKEND_TEXT } : { kind: "error", text: e.message };
-
-  async function runBriefing() {
-    const id = channelId;
-    const p = patchFor(id);
-    p({ loading: true, notice: null, showSettings: false });
-    const qs = new URLSearchParams({
-      channel: id,
-      region: cs.region,
-      lang: cs.language,
-      focus: [...cs.selected].sort().join(","),
-      d: today(),
-    });
-    try {
-      const data = await getJSON(`/api/briefing?${qs}`);
-      store.set(STORE_KEY(id), JSON.stringify({ stories: data.stories, generatedAt: data.generatedAt, lang: cs.language }));
-      p({
-        loading: false,
-        mode: "live",
-        byLang: { [cs.language]: data.stories },
-        activeLang: cs.language,
-        baseLang: cs.language,
-        generatedAt: data.generatedAt,
-        expanded: {},
-        view: "news",
-      });
-    } catch (e) {
-      p({ loading: false, notice: errNotice(e) });
-    }
-  }
-
   async function showLanguage(code) {
     if (cs.byLang[code]) return patch({ activeLang: code, expanded: {} });
     const id = channelId;
@@ -321,9 +267,7 @@ export default function App() {
   }
 
   const stamp =
-    cs.mode === "live" && cs.generatedAt
-      ? `Live scan · ${fmtTime(cs.generatedAt)}`
-      : cs.mode === "daily"
+    cs.mode === "daily"
         ? `Updated ${fmtTime(cs.generatedAt)}${cs.nextRunAt ? ` · next check ${fmtTime(cs.nextRunAt)}` : ""}`
         : cs.mode === "archive"
           ? `Edition of ${fmtDate(cs.editionDate)}`
@@ -400,61 +344,11 @@ export default function App() {
               <a href="https://clinicaltrials.gov" target="_blank" rel="noopener noreferrer">ClinicalTrials.gov ↗</a>
               <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">PubMed ↗</a>
             </div>
-          ) : (
-          <div className="sec-actions">
-            <button className="btn primary" onClick={runBriefing} disabled={cs.loading}>
-              {cs.loading ? "Scanning…" : "Run live scan"}
-            </button>
-            <button
-              className={`btn ghost ${cs.showSettings ? "is-on" : ""}`}
-              aria-expanded={cs.showSettings}
-              onClick={() => patch({ showSettings: !cs.showSettings })}
-            >
-              Scan settings
-            </button>
-          </div>
-          )}
+          ) : null}
         </section>
 
-        {(cs.showSettings || cs.loading || cs.notice) && (
+        {cs.notice && (
           <div className="sec-extra">
-            {cs.showSettings && (
-              <section className="settings" aria-label="Scan settings">
-                <div className="label">Focus</div>
-                <div className="chips">
-                  {channel.categories.map((c) => (
-                    <button
-                      key={c.id}
-                      className={`chip ${cs.selected.includes(c.id) ? "is-on" : ""}`}
-                      aria-pressed={cs.selected.includes(c.id)}
-                      title={c.hint}
-                      onClick={() => toggleFocus(c.id)}
-                    >
-                      {c.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="set-row">
-                  <label className="field">
-                    <span className="label">Where to look</span>
-                    <select value={cs.region} onChange={(e) => patch({ region: e.target.value })}>
-                      {REGIONS.map((r) => <option key={r.id} value={r.id}>{r.label}</option>)}
-                    </select>
-                  </label>
-                  <label className="field">
-                    <span className="label">Write it in</span>
-                    <select value={cs.language} onChange={(e) => patch({ language: e.target.value })}>
-                      {LANGUAGES.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
-                    </select>
-                  </label>
-                </div>
-              </section>
-            )}
-            {cs.loading && (
-              <div className="notice info" role="status">
-                Searching journals, regulators and conference news worldwide. This takes 30–90 seconds.
-              </div>
-            )}
             {cs.notice && <div className={`notice ${cs.notice.kind}`} role="status">{cs.notice.text}</div>}
           </div>
         )}

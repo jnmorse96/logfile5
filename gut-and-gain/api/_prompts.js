@@ -1,5 +1,4 @@
-// Shared scan instructions, used by the live-scan endpoint (api/briefing.js)
-// and the daily engine (engine/run.mjs), so both follow exactly the same rules.
+// Shared scan instructions used by the news engine (engine/run.mjs).
 
 export const SPECIFIC = {
   reality: `Topic: the unwelcome but true news people with Crohn's disease or ulcerative colitis should brace for, especially those who go out at night or train in the gym.
