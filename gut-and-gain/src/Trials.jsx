@@ -103,7 +103,7 @@ export function TrialsSide({ registry, f, setF }) {
         <div className="panel-title">About the tracker</div>
         <p style={{ marginTop: 0, paddingTop: 0, borderTop: 0 }}>
           Trials come from the ClinicalTrials.gov registry, which lists studies run around the world, and results from
-          newly indexed PubMed trials. Both are checked every 12 hours. Interested in joining a trial? Ask your IBD team;
+          newly indexed PubMed trials. Both are checked daily. Interested in joining a trial? Ask your IBD team;
           the listing shows contacts for each site.
         </p>
       </div>

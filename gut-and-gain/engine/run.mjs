@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Gut & Gain news engine.
 //
-// Runs every 12 hours (GitHub Actions, see .github/workflows/daily-engine.yml)
+// Runs once a day (GitHub Actions, see .github/workflows/daily-engine.yml)
 // or by hand with `npm run engine`. Each run ADDS new stories to a rolling feed
 // for every channel; nothing good is thrown away between runs. For every
 // channel it runs the beats in engine/beats.js (rotating each beat through a
@@ -44,9 +44,9 @@ import { runTrials } from "./trials.mjs";
 import { preflight, FATAL, FIX } from "./doctor.mjs";
 
 // Next scheduled run, matching the cron in .github/workflows/news-engine.yml
-// (minute 17 at 10:00 and 22:00 UTC). Override with ENGINE_SCHEDULE_UTC="10:17,22:17".
+// (10:17 UTC daily). Override with ENGINE_SCHEDULE_UTC, e.g. "10:17,22:17".
 function nextScheduled(nowISO) {
-  const slots = (process.env.ENGINE_SCHEDULE_UTC || "10:17,22:17").split(",").map((t) => t.trim().split(":").map(Number));
+  const slots = (process.env.ENGINE_SCHEDULE_UTC || "10:17").split(",").map((t) => t.trim().split(":").map(Number));
   const now = Date.parse(nowISO);
   const day = new Date(now); day.setUTCHours(0, 0, 0, 0);
   for (let d = 0; d < 2; d++) for (const [h, m] of slots) {
