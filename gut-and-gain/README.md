@@ -9,7 +9,7 @@ Four sections, rated by strength of evidence and readable in 10 languages:
 
 To rename the site, change `SITE_NAME` in `src/channels.js` and the `<title>` in `index.html`.
 
-The site opens with a **saved briefing** of real, linked studies (in `src/seedData.js`), so it works with no setup. Once it's deployed with an Anthropic API key, **Run a live scan** searches the web for new developments, and **translation** and **deep dives** turn on.
+The site opens with a **saved briefing** of real, linked studies (in `src/seedData.js`), so it works with no setup. New stories come only from the daily news engine; there are no on-demand scans, so visitors can't run up API costs. With an Anthropic API key in Vercel, **translation** and **deep dives** turn on.
 
 ## News engine (once a day)
 
@@ -75,9 +75,9 @@ Built like a news product, borrowing information-design ideas from Ground News:
 - Typefaces are bundled with the site (Schibsted Grotesk, Public Sans, IBM Plex Mono), so nothing loads from Google.
 - **3D background** (`src/VilliBackground.jsx`, `src/villiScene.js`): a field of intestinal villi, the folds that line the gut and absorb nutrients, built with three.js. The villi sway, and scrolling moves the camera along the lining. It takes its colors from the page, so it follows light and dark mode and each section's accent, and fades into fog behind the headlines. It loads after the news (123 KB, gzipped), pauses when the tab is hidden, uses fewer villi on phones, shows a still frame for people who have reduced motion turned on, and falls back to the plain background if WebGL isn't available. To make it stronger or fainter, change `--bg-strength` in `src/styles.css`.
 
-## Freshness rules for live scans
+## Freshness rules for the engine
 
-Live scans only include items published in the last 12 months, report setbacks and safety warnings as well as good news, never give dosing for recreational substances, prefer journals and medical societies over press releases, cap any single company at 2 stories, and return fewer stories rather than padding with old ones.
+The engine only includes items published in the last 12 months, report setbacks and safety warnings as well as good news, never give dosing for recreational substances, prefer journals and medical societies over press releases, cap any single company at 2 stories, and return fewer stories rather than padding with old ones.
 
 ## Why it said "can't assemble briefing" before
 
@@ -99,10 +99,10 @@ The page asked a backend (`/api/...`) for every briefing. That backend only exis
 
 ```bash
 npm install
-npm run dev          # front end only: saved briefings work, live scans show the setup note
+npm run dev          # front end only: saved briefings work; translation and deep dives show the setup note
 ```
 
-For live scans locally:
+For translation and deep dives locally:
 
 ```bash
 npm i -g vercel
@@ -112,7 +112,7 @@ vercel dev
 
 ## How cost is kept down
 
-- **Shared daily cache.** `/api/briefing` is a GET request whose URL includes the channel, region, language, focus areas and today's date. Vercel's CDN caches the response for 12 hours, so everyone who asks for the same briefing that day shares one scan. Deep dives are cached the same way.
+- **Engine-only news.** There is no on-demand scan endpoint; all web searching happens in the once-a-day engine.
 - **No open prompt proxy.** The server builds every prompt itself from whitelisted options in `src/channels.js`. Visitors can't send arbitrary prompts on your key.
 - **Rate limit.** A simple per-IP limit runs in each function instance. For a big public launch, add Vercel WAF rate limiting or Upstash Redis.
 - **Searches capped** at 6 per scan.
@@ -127,11 +127,10 @@ Rough cost: a few cents per uncached scan with web search. Cached repeats are fr
 | `src/channels.js` | Channels, focus areas, regions, languages (shared with the server) |
 | `src/seedData.js` | The saved briefings (real studies with source links), the hard gainer playbook and the Reality Check field guide. Update whenever you like |
 | `src/i18n.js` | Interface labels in 10 languages |
-| `api/briefing.js` | Live scan (cached GET) |
 | `api/translate.js` | Translates a briefing |
 | `api/deepdive.js` | Deeper analysis of one story (cached GET) |
 | `api/_lib.js` | Calls Claude, handles paused searches, cleans and validates output |
-| `api/_prompts.js` | Scan instructions shared by the live scan and the daily engine |
+| `api/_prompts.js` | Scan instructions used by the daily engine |
 | `engine/run.mjs` | The news engine (runs once a day) |
 | `engine/beats.js` | What the engine searches for, region rotation, and feed settings |
 | `engine/trials.mjs` | Trial Tracker: ClinicalTrials.gov and PubMed |
