@@ -1,29 +1,29 @@
 {
-  "lastRunAt": "2026-10-17T13:45:50.288Z",
+  "lastRunAt": "2026-10-18T14:02:53.312Z",
   "lastRunOk": true,
-  "lastSuccessAt": "2026-10-17T13:45:50.288Z",
-  "nextRunAt": "2026-10-18T10:17:00.000Z",
-  "message": "Updated: 25 new items across 4 sections.",
+  "lastSuccessAt": "2026-10-18T14:02:53.312Z",
+  "nextRunAt": "2026-10-19T10:17:00.000Z",
+  "message": "Updated: 44 new items across 4 sections.",
   "problems": [],
   "counts": {
     "reality": {
       "stories": 14,
-      "new": 8,
+      "new": 14,
       "trials": 0
     },
     "ibd": {
       "stories": 14,
-      "new": 8,
+      "new": 14,
       "trials": 0
     },
     "gainer": {
       "stories": 14,
-      "new": 8,
+      "new": 14,
       "trials": 0
     },
     "trials": {
-      "stories": 12,
-      "new": 1,
+      "stories": 13,
+      "new": 2,
       "trials": 34
     }
   }
