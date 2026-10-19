@@ -1,0 +1,3022 @@
+{
+  "date": "2026-10-19",
+  "generatedAt": "2026-10-19T16:59:47.838Z",
+  "nextRunAt": "2026-10-20T10:17:00.000Z",
+  "run": {
+    "startedAt": "2026-10-19T16:59:47.839Z",
+    "finishedAt": "2026-10-19T17:04:35.005Z",
+    "model": "default",
+    "beats": [
+      {
+        "channel": "reality",
+        "beat": "nightlife",
+        "region": "namerica",
+        "found": 3,
+        "kept": 2,
+        "error": null
+      },
+      {
+        "channel": "reality",
+        "beat": "gym",
+        "region": "netherlands",
+        "found": 3,
+        "kept": 3,
+        "error": null
+      },
+      {
+        "channel": "reality",
+        "beat": "meds-access",
+        "region": "latam",
+        "found": 3,
+        "kept": 3,
+        "error": null
+      },
+      {
+        "channel": "ibd",
+        "beat": "treatments",
+        "region": "latam",
+        "found": 4,
+        "kept": 2,
+        "error": null
+      },
+      {
+        "channel": "ibd",
+        "beat": "surgery-care",
+        "region": "worldwide",
+        "found": 4,
+        "kept": 2,
+        "error": null
+      },
+      {
+        "channel": "ibd",
+        "beat": "diet-living",
+        "region": "europe",
+        "found": 4,
+        "kept": 2,
+        "error": null
+      },
+      {
+        "channel": "ibd",
+        "beat": "symptoms",
+        "region": "asia",
+        "found": 4,
+        "kept": 2,
+        "error": null
+      },
+      {
+        "channel": "gainer",
+        "beat": "eating",
+        "region": "europe",
+        "found": 3,
+        "kept": 3,
+        "error": null
+      },
+      {
+        "channel": "gainer",
+        "beat": "training",
+        "region": "asia",
+        "found": 3,
+        "kept": 3,
+        "error": null
+      },
+      {
+        "channel": "gainer",
+        "beat": "gut",
+        "region": "namerica",
+        "found": 4,
+        "kept": 2,
+        "error": null
+      }
+    ],
+    "trials": {
+      "registryFetched": 32,
+      "newTrials": 1,
+      "updatedTrials": 0,
+      "resultsFetched": 12,
+      "newResults": 0,
+      "errors": []
+    }
+  },
+  "channels": {
+    "reality": {
+      "status": "updated",
+      "stories": [
+        {
+          "title": "First PANCCO consensus on biosimilars: Latin American experts back them as a way to widen access",
+          "summary": "The Pan American Crohn's and Colitis Organisation (PANCCO) published its first biosimilar consensus on 14 October 2026. It gives 11 final statements. The statements say biosimilars have similar efficacy and safety to the original biologics. They also say lower prices could give more IBD patients access. The paper notes that many newer therapies are costly and that public systems often cannot supply them.",
+          "tag": "Biosimilars",
+          "condition": "IBD",
+          "track": "Access",
+          "region": "Latin America",
+          "originalLanguage": "Spanish",
+          "evidence": "emerging",
+          "whyItMatters": "If your clinic proposes switching to a biosimilar, ask which product, whether the switch is your doctor's decision, and how you will be monitored afterwards. Also ask whether a biosimilar would make an advanced therapy affordable for you.",
+          "source": "Revista de Gastroenterología de México (PANCCO)",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-14",
+          "url": "https://www.revistagastroenterologiamexico.org/es-i-consenso-sobre-biosimilares-organizacion-articulo-S037509062600176X",
+          "beat": "meds-access",
+          "foundIn": "Latin America",
+          "linkStatus": "ok",
+          "id": "2b47e872e395",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Brazil: IBD prevalence rose from 30 to 158 per 100,000 in 13 years, and drug costs are a strain on the system",
+          "summary": "A study presented at Brazil's 74th Coloproctology Congress used SUS (public health system) records. It found 337,539 people with IBD, about 207,000 with ulcerative colitis and 99,000 with Crohn's. Prevalence rose from 30 to 158 per 100,000 between 2012 and 2025, and the team projects a further 67% rise by 2035. The results are preliminary and not yet peer-reviewed. Part of the rise may be better diagnosis rather than only more disease. One researcher put drug costs at up to R$500,000 per patient per year.",
+          "tag": "Access & costs",
+          "condition": "IBD",
+          "track": "Access",
+          "region": "Brazil",
+          "originalLanguage": "Portuguese",
+          "evidence": "emerging",
+          "whyItMatters": "Growing demand makes it more important to know how your own treatment is funded (SUS or private plan) and what the options are if a product is switched or delayed. Ask your care team or patient association (ABCDII) about this early.",
+          "source": "74th Brazilian Congress of Coloproctology (via ES Hoje / Agência Brasil)",
+          "sourceType": "Conference",
+          "date": "September 2026",
+          "published": "2026-09-25",
+          "url": "https://eshoje.com.br/saude/2026/09/doencas-inflamatorias-intestinais/",
+          "beat": "meds-access",
+          "foundIn": "Latin America",
+          "linkStatus": "ok",
+          "id": "2a7641bc8313",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Creatine in Crohn's: a lifter's staple with only early, mostly lab-based gut data",
+          "summary": "A narrative review in the journal Muscles (October 2026) looks at creatine for Crohn's symptoms and muscle integrity. It describes work linking changes in the body's creatine handling to colitis susceptibility, and reduced creatine-transporter levels in IBD tissue. The evidence it draws on comes mainly from cells, animals and case reports. A small US pilot trial in ulcerative colitis is listed as withdrawn, so I found no completed controlled trial.",
+          "tag": "Creatine",
+          "condition": "Crohn's",
+          "track": "Gym",
+          "region": "International",
+          "originalLanguage": "English",
+          "evidence": "early",
+          "whyItMatters": "Creatine is common in gyms, but nobody has shown it treats or protects the gut in IBD. Ask your gastroenterologist or dietitian before adding it, especially if you have kidney issues, a stoma or high-output diarrhoea.",
+          "source": "Muscles (MDPI)",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-04",
+          "url": "https://doi.org/10.3390/muscles5040071",
+          "beat": "gym",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "unknown",
+          "id": "557daed9dda6",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "NVWA 'Blocklist' names online supplements with hidden drugs",
+          "summary": "The Dutch food safety authority (NVWA) published a searchable Blocklist of supplements sold online that contain undeclared pharmacologically active ingredients. Examples include sildenafil and sibutramine. The NVWA says these can cause cardiovascular problems and liver and kidney damage. The authority says the list will be extended as new products appear. The examples given are mainly slimming and libido products, though the NVWA says sports-performance products are also offered this way.",
+          "tag": "Supplement contamination",
+          "condition": "IBD",
+          "track": "Gym",
+          "region": "Netherlands",
+          "originalLanguage": "Dutch",
+          "evidence": "strong",
+          "whyItMatters": "People on immunosuppressants already carry extra liver and infection risks. Check any online sports or slimming supplement on the NVWA Blocklist before buying, and tell your care team about everything you take.",
+          "source": "NVWA",
+          "sourceType": "Regulator",
+          "date": "January 2026",
+          "published": "2026-01-22",
+          "url": "https://www.nvwa.nl/actueel/nieuws/2026/01/22/nvwa-publiceert-blocklist-van-supplementen-met-verborgen-gevaarlijke-stoffen",
+          "beat": "gym",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "ok",
+          "id": "518be2bb7a11",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Brazil's ANVISA extends Stelara (ustekinumab) to children with moderate-to-severe Crohn's from age 2",
+          "summary": "ANVISA approved a broader indication for ustekinumab (Stelara). It now covers paediatric patients aged 2 and older with moderate-to-severe active Crohn's disease. The report says the drug's safety and efficacy are already established in adults. It also says young children previously had few regulated treatment options after conventional therapies failed. The exact publication day was not shown in the search result.",
+          "tag": "Paediatric label",
+          "condition": "Crohn's",
+          "track": "Access",
+          "region": "Brazil",
+          "originalLanguage": "Portuguese",
+          "evidence": "strong",
+          "whyItMatters": "Parents of young children with Crohn's can ask the paediatric gastroenterologist whether this label change applies to their child. They can also ask how it will be covered by SUS or a private plan and what monitoring is needed.",
+          "source": "Poa24horas (reporting an ANVISA decision)",
+          "sourceType": "News",
+          "date": "June 2026",
+          "published": "2026-06",
+          "url": "https://poa24horas.com.br/saude/2026/06/anvisa-aprova-medicamento-para-tratamento-de-criancas-com-doenca-de-crohn/",
+          "beat": "meds-access",
+          "foundIn": "Latin America",
+          "linkStatus": "ok",
+          "id": "e3e15b7bf26e",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Substance use disorders are rising among US hospital patients with IBD, and are most common in Crohn's",
+          "summary": "An 11-year US nationwide analysis (2010–2020) found that alcohol, opioid and cannabis use disorders all rose among people hospitalised with IBD. Rates were consistently higher in Crohn's than in UC or in non-IBD admissions. Over time the mix shifted from alcohol toward opioid and cannabis use disorders. The authors note earlier work linking substance use disorder in IBD to worse abdominal pain, more flares and longer hospital stays. The snippet I found gave no exact percentages.",
+          "tag": "Substance use",
+          "condition": "IBD",
+          "track": "Nightlife",
+          "region": "United States",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "If alcohol, opioids or cannabis are affecting your gut symptoms or sleep, tell your IBD team plainly. They can adjust pain and sleep plans and refer you to support without judgement.",
+          "source": "Journal of Clinical Gastroenterology",
+          "sourceType": "Journal",
+          "date": "August 2026",
+          "published": "2026-08",
+          "url": "https://www.ovid.com/jnls/jcge/fulltext/10.1097/mcg.0000000000002205~trends-in-substance-use-disorder-among-hospitalized-patients",
+          "beat": "nightlife",
+          "foundIn": "North America",
+          "linkStatus": "ok",
+          "id": "7518526ed76a",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Cannabis users with IBD report better symptoms, but this is a self-reported survey with no control group",
+          "summary": "A University of Florida survey of 108 people with Crohn's (79.6%) or UC (20.4%) who use marijuana found that 87.6% said it improved their quality of life. Nearly 7 in 10 used it daily or almost daily, and about 60% mainly inhaled or smoked it. Heavy users reported relief from nausea (82.1%), joint pain (81%) and insomnia (80%). This is patient perception, not proof of benefit; a June 2026 systematic review found no consistent effect on remission or endoscopy scores.",
+          "tag": "Cannabis",
+          "condition": "IBD",
+          "track": "Nightlife",
+          "region": "United States",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Smoking or inhaling cannabis is not the same as a trial-tested treatment. Ask your GI team how it fits with your medicines, sleep and symptoms, and don't use it in place of prescribed therapy.",
+          "source": "Medical Cannabis and Cannabinoids (University of Florida)",
+          "sourceType": "Journal",
+          "date": "July 2026",
+          "published": "2026-07-07",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13466465/",
+          "beat": "nightlife",
+          "foundIn": "North America",
+          "linkStatus": "ok",
+          "id": "c911299e8823",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Dutch RIVM report on performance-enhancing products: pre-workouts often carry strong stimulants",
+          "summary": "A 2026 RIVM report reviews how common and how safe performance-enhancing products are in the Netherlands. It notes that pre-workout products often contain high concentrations of stimulants such as caffeine. These can raise blood pressure and cause headache and restlessness. It also notes that some banned stimulants can be dangerous with caffeine or medicines. The report adds that protein, pre-workout and post-workout products are missing from the national survey questions, so consumers and researchers lack clear data on what people take. The report is not specific to IBD.",
+          "tag": "Supplements",
+          "condition": "IBD",
+          "track": "Gym",
+          "region": "Netherlands",
+          "originalLanguage": "Dutch",
+          "evidence": "emerging",
+          "whyItMatters": "Stimulant-heavy pre-workouts can add to sleep loss, palpitations and dehydration, and they may interact with your IBD medicines. Show your pharmacist or IBD nurse the product label before using it. The publication date is approximate, based on the page's age metadata.",
+          "source": "RIVM",
+          "sourceType": "Regulator",
+          "date": "About March 2026",
+          "published": "2026-03",
+          "url": "https://www.rivm.nl/bibliotheek/rapporten/KN-2026-0028.pdf",
+          "beat": "gym",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "ok",
+          "id": "83f17ceb8d91",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Nearly half of people with an ileostomy looked dehydrated in a three-country survey",
+          "summary": "A preprint survey of people with an ileostomy in the UK, Ireland and Australia found that about a third had a high-output stoma. By self-reported urine colour, 48% were dehydrated. Dehydration symptoms went with eating fewer fruits and vegetables, taking more medicines and facing more barriers to drinking. The paper has not been peer reviewed, and it is not North American data.",
+          "tag": "Dehydration",
+          "condition": "IBD",
+          "track": "Nightlife",
+          "region": "UK, Ireland, Australia",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Alcohol, heat and hard training all raise fluid losses, so ask your stoma nurse or IBD team what a safe fluid and electrolyte plan looks like for nights out and workouts. Check your urine colour and ask whether any of your medicines add to the risk.",
+          "source": "Research Square (preprint, not peer reviewed)",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10",
+          "url": "https://www.researchsquare.com/article/rs-11113311/v1",
+          "beat": "gym",
+          "foundIn": "North America",
+          "linkStatus": "ok",
+          "id": "0393bcbd6e78",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Dutch drug bulletin review of mirikizumab: most people still don't reach remission",
+          "summary": "A Dutch Geneesmiddelenbulletin review looks at mirikizumab, an IL-23 blocker used in both Crohn's and UC. In Crohn's (VIVID-1), 45.4% on the drug (263 of 579) met the first co-primary endpoint, against 19.6% on placebo. In UC (LUCENT-1), week-12 clinical remission was 24.2% versus 13.3% on placebo. The authors conclude it is a useful addition, but the numbers show many patients still don't reach remission.",
+          "tag": "Mirikizumab",
+          "condition": "IBD",
+          "track": "Meds",
+          "region": "Netherlands",
+          "originalLanguage": "Dutch",
+          "evidence": "strong",
+          "whyItMatters": "Ask your IBD team what the realistic chance of remission is for each option on the table, and which backup plan applies if the first drug doesn't work. If you drink or smoke, say so, because that can shape which drug is chosen.",
+          "source": "Geneesmiddelenbulletin (Gebu)",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-20",
+          "url": "https://www.ge-bu.nl/artikel/nieuw-geneesmiddel-mirikizumab-bij-de-ziekte-van-crohn-en-colitis-ulcerosa",
+          "beat": "meds-access",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "ok",
+          "id": "9ad3b020720f",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Chinese expert consensus on IBD lifestyle: no alcohol during flares, and limits even in remission",
+          "summary": "A Chinese health-education post from 28 September 2026 summarises the Chinese expert consensus on lifestyle management in IBD. Alcohol can weaken the gut lining, change gut bacteria and worsen pain and diarrhoea during active disease. In remission, heavy drinking is linked to more relapses and hospital readmissions. It advises quitting smoking through a hospital cessation clinic and says abstaining is the safest choice. The post is a secondary summary and gives no study numbers of its own, so check the consensus text itself.",
+          "tag": "Alcohol",
+          "condition": "IBD",
+          "track": "Nightlife",
+          "region": "China",
+          "originalLanguage": "Chinese",
+          "evidence": "emerging",
+          "whyItMatters": "Ask your IBD team whether alcohol is sensible while you are flaring or on your current medicines, and plan a drink-free approach for nights out. If you smoke, ask about a formal cessation clinic.",
+          "source": "Sohu (health-education post citing the Chinese expert consensus on IBD lifestyle management)",
+          "sourceType": "News",
+          "date": "September 2026",
+          "published": "2026-09-28",
+          "url": "https://www.sohu.com/a/1081889319_121912641",
+          "beat": "nightlife",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "94dc58394848",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Dutch adult IBD guideline: drug-treatment modules updated in September 2026",
+          "summary": "The Dutch Richtlijnendatabase lists a batch of updated modules dated 3 September 2026. They cover biologicals and JAK inhibitors in UC, biologicals and JAK inhibitors in Crohn's, and drug treatment for both diseases, plus a surveillance module. The listing gives no details of what changed, so the exact consequences for reimbursement or drug order aren't clear from this page.",
+          "tag": "NL guideline",
+          "condition": "IBD",
+          "track": "Access",
+          "region": "Netherlands",
+          "originalLanguage": "Dutch",
+          "evidence": "strong",
+          "whyItMatters": "Ask your gastroenterologist or IBD nurse whether the updated guideline changes your current drug, the order of therapies, or monitoring. It is also worth asking how it affects what your insurer will cover.",
+          "source": "Richtlijnendatabase (Federatie Medisch Specialisten)",
+          "sourceType": "Patient group",
+          "date": "September 2026",
+          "published": "2026-09-03",
+          "url": "https://richtlijnendatabase.nl/richtlijn/inflammatoire_darmziekten_ibd_volwassenen/startpagina_-_inflammatoire_darmziekten_volwassenen.html",
+          "beat": "meds-access",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "ok",
+          "id": "07514cf34da4",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Steroid-treated IBD: meta-analysis of 27,716 people finds more bone loss, but a less clear rise in osteoporosis",
+          "summary": "A meta-analysis of 18 studies and 27,716 participants linked glucocorticoid use in IBD to higher odds of abnormal bone density (odds ratio 2.31). The pooled osteoporosis odds ratio for IBD was 1.62. The authors still conclude there was no significant rise in osteoporosis by strict criteria (T-score of −2.5 or lower), especially in UC, despite a tendency toward lower bone density. The results varied a lot between studies. Steroids can also cause muscle weakness.",
+          "tag": "Steroids & bone",
+          "condition": "IBD",
+          "track": "Meds",
+          "region": "China / international",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "If you take or have taken prednisone, ask whether you need a bone-density scan and vitamin D and calcium checks. Also ask if you can move to a steroid-sparing treatment, because heavy lifting is only as safe as the bones and muscles under it.",
+          "source": "Medicine (Baltimore)",
+          "sourceType": "Journal",
+          "date": "January 2026",
+          "published": "2026-01-16",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41560068/",
+          "beat": "gym",
+          "foundIn": "North America",
+          "linkStatus": "ok",
+          "id": "8d3f46ba62ff",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Supervised exercise trial in active IBD shows no quality-of-life gain, and few could stick with it",
+          "summary": "The IBD-FITT trial in Denmark randomised 44 adults with active IBD to 12 weeks of moderate exercise or usual care. Mean IBDQ scores at week 12 were 172 with exercise and 164 with usual care, which is not statistically different. Only 11 of 22 attended more than half of the sessions, mostly because of scheduling clashes with work. The trial was small, so it can't rule out a benefit.",
+          "tag": "Exercise",
+          "condition": "IBD",
+          "track": "Gym",
+          "region": "Denmark",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Training is not a substitute for medication when your disease is active. Choose a routine you can keep up, and ask the care team or a physiotherapist how hard to push during a flare, especially with fatigue, anaemia or steroid use.",
+          "source": "Journal of Clinical Medicine",
+          "sourceType": "Journal",
+          "date": "March 2026",
+          "published": "2026-03-10",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41899032/",
+          "beat": "meds-access",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "ok",
+          "id": "0b01b4d80972",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        }
+      ],
+      "translations": {},
+      "stats": {
+        "gathered": 9,
+        "new": 8,
+        "carried": 6,
+        "drops": {
+          "invalid": 0,
+          "old": 0,
+          "future": 0,
+          "duplicate": 0,
+          "deadLink": 0,
+          "cap": 0
+        }
+      }
+    },
+    "ibd": {
+      "status": "updated",
+      "stories": [
+        {
+          "title": "Antibody patterns detected up to 10 years before IBD diagnosis",
+          "summary": "Researchers analysed 2,000 stored blood samples from 500 people: 200 who later developed Crohn's, 200 who later developed UC and 100 healthy controls. Samples were taken at diagnosis and about 2, 4 and 10 years earlier. Distinct antibody profiles appeared years before diagnosis, and in Crohn's they separated later complicated from non-complicated disease (AUC 0.85). The authors call it an initial proof of concept, and more research is needed before it could become a screening test.",
+          "tag": "Preclinical IBD biomarkers",
+          "condition": "IBD",
+          "track": "",
+          "region": "Europe / USA (UMC Groningen, Mount Sinai)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "It points toward earlier risk detection and better prediction of disease course in future. It is not a test people can use today.",
+          "source": "UEG Week 2026 (Barcelona), via EurekAlert",
+          "sourceType": "Conference",
+          "date": "October 19, 2026",
+          "published": "2026-10-19",
+          "url": "https://www.eurekalert.org/news-releases/1146879",
+          "beat": "treatments",
+          "foundIn": "Latin America",
+          "linkStatus": "ok",
+          "id": "67e5460c0a37",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Antibody patterns in blood appear up to 10 years before an IBD diagnosis (UEG Week 2026)",
+          "summary": "Researchers analysed 2,000 stored serum samples from 500 people: 200 who later developed Crohn's, 200 who later developed UC, and 100 healthy matched controls. They found distinct antibody patterns up to 10 years before diagnosis. The authors suggest antibody profiling could support earlier risk detection and help predict disease course. This is a conference report, and I found no peer-reviewed publication.",
+          "tag": "Pre-diagnosis biomarkers",
+          "condition": "IBD",
+          "track": "",
+          "region": "Europe (UEG Week, Barcelona)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "It points toward blood tests that could flag IBD risk years early, though nothing is ready for clinical use. People with a family history should not take this as a screening test.",
+          "source": "UEG Week 2026 (via Hyper.ai news summary)",
+          "sourceType": "Conference",
+          "date": "October 2026",
+          "published": "2026-10",
+          "url": "https://hyper.ai/en/stories/b9d617b0429431c4b2c2a40a4c0ae5d1",
+          "beat": "surgery-care",
+          "foundIn": "Worldwide",
+          "linkStatus": "ok",
+          "id": "e210c8d11c97",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Norwegian IBSEN III cohort: about half of people newly diagnosed with IBD gain meaningful quality-of-life improvement within 3 years",
+          "summary": "A population-based cohort of adults with UC and Crohn's completed the IBDQ and SF-36 questionnaires at diagnosis and at 1 and 3 years. Half reached a clinically meaningful improvement in health-related quality of life. Improvement was linked to symptomatic remission and higher self-efficacy. It was also linked to lower fatigue, depression and IBS-like symptoms.",
+          "tag": "Quality of life trajectories",
+          "condition": "IBD",
+          "track": "",
+          "region": "Norway",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Quality of life depends on more than inflammation. Fatigue, mood and IBS-like symptoms were tied to whether people improved, which supports looking at these alongside gut disease activity.",
+          "source": "Inflammatory Bowel Diseases (Oxford Academic)",
+          "sourceType": "Journal",
+          "date": "October 14, 2026",
+          "published": "2026-10-14",
+          "url": "https://doi.org/10.1093/ibd/izag196",
+          "beat": "diet-living",
+          "foundIn": "Europe",
+          "linkStatus": "unknown",
+          "id": "d1c4144273ba",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Upadacitinib in Crohn's: ~4-year U-ENDURE extension and real-world UPlift interim data at UEG Week",
+          "summary": "In as-observed U-ENDURE analyses at week 144, clinical remission was 78.9% (15 mg) and 86.6% (30 mg). Endoscopic remission was 47.1% and 64.2%. In the interim real-world UPlift study (N=497 evaluable), 70.2% of people with moderate-to-severe Crohn's had a clinical response within 12 weeks, with a median time to first response of 13 days. As-observed numbers only count people still on treatment, so they likely overstate results.",
+          "tag": "JAK inhibitor",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "Global (presented in Barcelona)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Long-term and real-world data show how well an oral JAK inhibitor holds up outside trials. Speed of response is useful, but as-observed analyses leave out people who dropped out.",
+          "source": "AbbVie news release on UEG Week 2026 presentations",
+          "sourceType": "Company",
+          "date": "October 17, 2026",
+          "published": "2026-10-17",
+          "url": "https://news.abbvie.com/2026-10-17-SKYRIZI-R-risankizumab-and-RINVOQ-R-upadacitinib-Data-Highlight-Long-Term-Clinical-and-Endoscopic-Outcomes-Across-Inflammatory-Bowel-Disease-IBD-at-UEGW-2026",
+          "beat": "symptoms",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "6b452f509e33",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "AbbVie UEG Week data: risankizumab remission in UC through week 96, plus real-world upadacitinib speed in Crohn's",
+          "summary": "In the COMMAND study of UC, patients on risankizumab 180 mg had as-observed clinical remission rates of 54.0%–73.1% at week 96, and endoscopic remission rates of 38.8%–53.5%. Preliminary real-world UPlift data in moderate-to-severe Crohn's showed a median of 13 days to first response with upadacitinib. These are company-presented, as-observed and non-comparative figures.",
+          "tag": "IL-23 / JAK long-term data",
+          "condition": "IBD",
+          "track": "",
+          "region": "Europe (multinational)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "These are long-term durability and real-world speed-of-response signals for drugs already in use. As-observed company data can overstate results because people who stopped treatment drop out of the numbers.",
+          "source": "AbbVie abstracts at UEG Week 2026, via GuruFocus and FairsOnline",
+          "sourceType": "Company",
+          "date": "October 18, 2026",
+          "published": "2026-10-18",
+          "url": "https://www.gurufocus.com/news/9129046/abbvie-abbv-showcases-longterm-ibd-data-at-ueg-week-2026",
+          "beat": "treatments",
+          "foundIn": "Latin America",
+          "linkStatus": "unknown",
+          "id": "6c38475ad756",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Mirikizumab (Omvoh) reaches 50% one-year clinical remission in children and teens with ulcerative colitis",
+          "summary": "In the single-arm, open-label phase 3 SHINE-2 study in children aged 6 to 17, 81% had a clinical response after 12 weeks of induction. Half were in clinical remission at week 52, and 50% were in corticosteroid-free remission. Four of 63 patients (6.3%) had a serious adverse event, none judged treatment-related, and two (3.2%) stopped treatment because of a UC flare. The data come from the company, and Lilly plans to submit them to regulators.",
+          "tag": "IL-23 biologic, pediatric UC",
+          "condition": "UC",
+          "track": "",
+          "region": "United States / international",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Children with UC have had few approved biologic options, so this is an early step toward a possible new pediatric choice. It is still a single-arm study with no placebo group, and the drug is not yet approved for children.",
+          "source": "Eli Lilly press release (reported by BioPharm International)",
+          "sourceType": "Company",
+          "date": "October 19, 2026",
+          "published": "2026-10-19",
+          "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-omvoh-mirikizumab-mrkz-meets-primary-endpoint-clinical",
+          "beat": "surgery-care",
+          "foundIn": "Worldwide",
+          "linkStatus": "unknown",
+          "id": "c615ea7edca7",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Dual-targeting ABBV-466 (risankizumab + trosunilimab) beats either drug alone for Crohn's endoscopic remission in early trial",
+          "summary": "In the open-label phase 2a TARGET-CD platform study (NCT06548542), 30.2% on the combination had endoscopic remission at week 12. That compared with 21.3% on risankizumab alone and 18.0% on trosunilimab alone. The data were a late-breaker at UEG Week 2026. The study is small, early-phase and sponsor-run.",
+          "tag": "Combination biologic",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "Global (presented in Barcelona)",
+          "originalLanguage": "English",
+          "evidence": "early",
+          "whyItMatters": "It hints that targeting two pathways at once could raise healing rates beyond single-drug therapy. It is a phase 2a signal only, so it says nothing yet about safety over time or availability.",
+          "source": "AbbVie data at UEG Week 2026, via Pharmacally",
+          "sourceType": "Company",
+          "date": "October 19, 2026",
+          "published": "2026-10-19",
+          "url": "https://pharmacally.com/abbvie-abbv-466-crohns-disease-phase-2a-results/",
+          "beat": "symptoms",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "a480797dddb5",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "CD-HOPE trial: cyclic exclusive enteral nutrition cut 1-year relapse versus daily partial enteral nutrition in children with Crohn's",
+          "summary": "In 21 French hospitals, 100 children aged 6–18 in remission after exclusive enteral nutrition (EEN) were randomised. One group had 2 weeks of EEN every 8 weeks, and the other had daily partial enteral nutrition (PEN) for 52 weeks. After a year, 49% (24 of 49) in the cyclic EEN group had relapsed, against 76% (39 of 51) with PEN (adjusted OR 0.29). There were 19 adverse events, 6 possibly treatment-related. The trial was open-label.",
+          "tag": "Cyclic EEN",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "France",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It supports repeated short EEN courses as a drug-free way to maintain remission in some children after EEN induction. Relapse was still common in both groups, so it is not a guarantee.",
+          "source": "The Lancet Gastroenterology & Hepatology (summary in Nature Reviews Gastroenterology & Hepatology)",
+          "sourceType": "Journal",
+          "date": "January 2026",
+          "published": "2026-01-19",
+          "url": "https://www.nature.com/articles/s41575-026-01180-1",
+          "beat": "diet-living",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "729e3a478e18",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Guselkumab (Tremfya) three-year Crohn's data from the GALAXI 2 and 3 phase 3 trials",
+          "summary": "On 12 October 2026 Johnson & Johnson announced three-year results from the phase 3 GALAXI 2 and 3 trials of guselkumab in adults with moderately to severely active Crohn's disease. The company says the data show sustained effectiveness and safety. The report I found gave no specific rates, and the data come from the company rather than an independent analysis.",
+          "tag": "IL-23 biologic",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "International (company-reported)",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Long-term follow-up speaks to whether benefit from an IL-23 drug lasts beyond the first year. Company-reported results should be read alongside independent peer-reviewed data.",
+          "source": "Johnson & Johnson announcement, via GuruFocus",
+          "sourceType": "Company",
+          "date": "October 12, 2026",
+          "published": "2026-10-12",
+          "url": "https://www.gurufocus.com/news/9120067/johnson-johnson-reports-strong-threeyear-data-for-tremfya-in-crohns-disease-jnj",
+          "beat": "treatments",
+          "foundIn": "Netherlands & Belgium",
+          "linkStatus": "unknown",
+          "id": "0a3715900f22",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Japanese team builds an MRI score to predict which Crohn's strictures persist after treatment",
+          "summary": "Institute of Science Tokyo researchers developed and temporally validated a framework using baseline MR enterography. It combines inflammatory activity with structural severity to estimate whether a Crohn's stricture will fail to improve after advanced therapy. The announcement gives no performance figures in the text I could see.",
+          "tag": "MRI stricture prediction",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "Japan",
+          "originalLanguage": "Japanese",
+          "evidence": "emerging",
+          "whyItMatters": "Strictures can lead to obstruction and surgery, and it is hard to tell early which ones will respond to drugs. If confirmed in other centres, imaging like this could help guide discussions about drug therapy versus earlier procedures.",
+          "source": "Institute of Science Tokyo (via Medibio)",
+          "sourceType": "News",
+          "date": "October 16, 2026",
+          "published": "2026-10-16",
+          "url": "https://medibio.tiisys.com/197561",
+          "beat": "diet-living",
+          "foundIn": "Worldwide",
+          "linkStatus": "ok",
+          "id": "193529fa8035",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "FUZION phase 3: guselkumab perianal fistula remission holds across subgroups, including prior biologic users",
+          "summary": "New prespecified subgroup analyses of the FUZION trial in Crohn's perianal fistula were presented at ACG 2026. In the overall trial, 28% (100 mg every 8 weeks) and 27% (200 mg every 4 weeks) reached combined fistula remission at week 24, versus 10% on placebo. The company says the results were consistent in subgroups, including people with prior biologic exposure.",
+          "tag": "IL-23 perianal fistula",
+          "condition": "Crohn's",
+          "track": "",
+          "region": "International (presented at ACG 2026)",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Perianal fistulas are painful, often need surgery, and have had few randomised-trial options. Most patients in FUZION still did not reach combined remission at week 24, so benefit is partial.",
+          "source": "Johnson & Johnson press release (ACG 2026)",
+          "sourceType": "Company",
+          "date": "October 12, 2026",
+          "published": "2026-10-12",
+          "url": "https://lifestyle.middletownlifemagazine.com/story/761202/new-tremfya-guselkumab-study-shows-consistent-perianal-fistula-remission-across-key-crohns-disease-patient-subgroups/",
+          "beat": "symptoms",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "a653baf681d7",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Anti-TL1A duvakitug: phase 2b RELIEVE UCCD trial published in Lancet Gastroenterology & Hepatology",
+          "summary": "In the phase 2b trial, adults with moderate-to-severe ulcerative colitis got a 2,250 mg subcutaneous loading dose, then 450 mg or 900 mg every two weeks, or placebo. The primary endpoint was clinical remission at week 14 (modified Mayo score). The analysis covered 137 patients. Medical news coverage reports improved clinical remission in UC and endoscopic response in Crohn's, with no new safety signals and tolerability comparable to placebo.",
+          "tag": "Anti-TL1A biologic",
+          "condition": "IBD",
+          "track": "",
+          "region": "International (Medical University of Vienna-led)",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Anti-TL1A drugs are a new class that may also affect fibrosis. This is still phase 2b with a 14-week induction period, so longer-term safety and efficacy are unproven.",
+          "source": "Medical Dialogues, reporting on The Lancet Gastroenterology & Hepatology",
+          "sourceType": "News",
+          "date": "October 2, 2026",
+          "published": "2026-10-02",
+          "url": "https://medicaldialogues.in/amp/gastroenterology/news/duvakitug-shows-promise-in-ulcerative-colitis-and-crohns-disease-lancet-177419",
+          "beat": "symptoms",
+          "foundIn": "Europe",
+          "linkStatus": "unknown",
+          "id": "1a113ef979f8",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Brazil: IBD cases rose more than fivefold from 2012 to 2025, a national study finds",
+          "summary": "A study of Brazil's public health system records, presented at the 74th Brazilian Congress of Coloproctology, found IBD prevalence rose from 30 to 158 cases per 100,000 people between 2012 and 2025. Yearly new diagnoses rose from 9.35 to 12.34 per 100,000. The authors project that new cases could reach 22.7 per 100,000 and prevalence 264 per 100,000 by 2035.",
+          "tag": "Latin America epidemiology",
+          "condition": "IBD",
+          "track": "",
+          "region": "Brazil",
+          "originalLanguage": "Spanish",
+          "evidence": "emerging",
+          "whyItMatters": "The rising caseload suggests growing demand for IBD specialist care, monitoring and advanced therapies in Brazil's public system. These are registry figures, not clinical trial results.",
+          "source": "Prensa Latina (reporting a study presented at the Brazilian Congress of Coloproctology)",
+          "sourceType": "News",
+          "date": "September 25, 2026",
+          "published": "2026-09-25",
+          "url": "https://www.prensa-latina.cu/2026/09/25/reportan-en-brasil-aumento-de-dolencias-inflamatorias-intestinales/",
+          "beat": "surgery-care",
+          "foundIn": "Latin America",
+          "linkStatus": "ok",
+          "id": "7b23a77fc325",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "German-Austrian registry: exclusive enteral nutrition linked to better weight and BMI gains in children with IBD",
+          "summary": "The CEDATA-GPGE registry analysis covered 450 children (303 Crohn's, 147 UC) followed for four years. Weight and BMI scores rose significantly, and exclusive enteral nutrition was linked to larger gains (BMI SDS +0.67 vs +0.36 without it). Height improved only slightly overall, and the effect sizes were small.",
+          "tag": "Enteral nutrition & growth",
+          "condition": "IBD",
+          "track": "",
+          "region": "Germany/Austria",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Poor growth and low weight are common problems in paediatric IBD. These observational data support nutritional therapy as one way to help, and the authors say children with severe or recurrent flares need close monitoring.",
+          "source": "Hospital Healthcare (reporting a Journal of Pediatric Gastroenterology and Nutrition study)",
+          "sourceType": "News",
+          "date": "October 1, 2026",
+          "published": "2026-10-01",
+          "url": "https://hospitalhealthcare.com/specialisms/gastroenterology/exclusive-enteral-nutrition-linked-to-improved-growth-in-paediatric-ibd/",
+          "beat": "diet-living",
+          "foundIn": "Worldwide",
+          "linkStatus": "ok",
+          "id": "927ad19a4b1b",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        }
+      ],
+      "translations": {},
+      "stats": {
+        "gathered": 16,
+        "new": 8,
+        "carried": 6,
+        "drops": {
+          "invalid": 1,
+          "old": 0,
+          "future": 0,
+          "duplicate": 2,
+          "deadLink": 0,
+          "cap": 0
+        }
+      }
+    },
+    "gainer": {
+      "status": "updated",
+      "stories": [
+        {
+          "title": "Meta-analysis of 63 studies: adding creatine to resistance training gives modest extra strength and lean mass, with no change in fat",
+          "summary": "A three-level meta-analysis of 63 studies and 1,489 people found that creatine added to lifting gave moderate extra strength gains and a smaller lean-mass gain (Hedges' g about 0.30). Fat mass did not change significantly, and body mass rose only slightly (g about 0.12). Upper-body strength gains were significant in adults 18–44 and 60+, but not in the 45–59 group. I found this only through a creatine brand's blog, which cites the Journal of the International Society of Sports Nutrition (21 September 2026) and a team at Capital University of Physical Education and Sports, Beijing. I could not open the paper itself, so check the original before relying on the numbers.",
+          "tag": "Creatine",
+          "condition": "",
+          "track": "",
+          "region": "China (reported by a US supplement company blog)",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Creatine is a reasonable, low-cost add-on to a lifting programme for a hard gainer. Expect a small to moderate lean-mass gain on top of training, not a replacement for eating more.",
+          "source": "Vybrance Labs blog summarising J Int Soc Sports Nutr meta-analysis (PubMed 42765482)",
+          "sourceType": "Company",
+          "date": "September 2026 (blog seen October 2026)",
+          "published": "2026-09-21",
+          "url": "https://www.vybrancelabs.co/blogs/the-lab/whats-new-in-creatine-research-october-2026",
+          "beat": "eating",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "9a0351e83768",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Peanut-based energy-dense supplement raised weight in undernourished adults with TB (open-label RCT, India)",
+          "summary": "In an open-label randomised trial of undernourished adults with drug-sensitive pulmonary TB, a peanut-based energy-dense nutritional supplement produced more weight gain than standard care. A higher share of supplement recipients gained 5% of body weight by the end of the intensive phase. Median weight gain at month 6 was 11.7%, almost identical to the RATIONS food-basket study (11.6%).",
+          "tag": "Energy surplus",
+          "condition": "",
+          "track": "",
+          "region": "India",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "This is a disease setting, not healthy hard gainers, and the trial was open-label. It still shows that a compact, calorie-dense food on top of normal meals can reliably move body weight when appetite or intake is limiting.",
+          "source": "PubMed Central author manuscript (preprint on medRxiv July 2025)",
+          "sourceType": "Journal",
+          "date": "June 2026",
+          "published": "2026-06-14",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13264476/",
+          "beat": "eating",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "d43537e688e4",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Review: short sleep may limit muscle gain, but evidence comes mostly from observational and mechanistic studies",
+          "summary": "A Strength & Conditioning Journal review looks at how sleep affects hypertrophy and strength. It links short sleep (and, in some groups, long sleep) to lower lean mass, poorer strength and weaker training adaptations. The authors say there are few trials that manipulate sleep in resistance-trained people, so cause and effect is unproven.",
+          "tag": "Sleep & recovery",
+          "condition": "",
+          "track": "",
+          "region": "International (no Asia-Pacific focus)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "If you struggle to add muscle, regular sleep is a low-cost thing to check alongside calories and training. Don't expect sleep alone to fix slow gains, because the direct trial evidence is still thin.",
+          "source": "Strength & Conditioning Journal (Lippincott/NSCA)",
+          "sourceType": "Journal",
+          "date": "August 2026",
+          "published": "2026-08-21",
+          "url": "https://journals.lww.com/00126548-990000000-00288",
+          "beat": "training",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "unknown",
+          "id": "7d92238d5059",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Crohn's disease: malnutrition was far more common in active disease than in remission (127 patients)",
+          "summary": "In a cross-sectional study of 127 people with Crohn's disease, 63 had active disease and 64 were in remission. Overall, 47.2% met GLIM malnutrition criteria: 81.0% of those with active disease versus 14.1% of those in remission. Active disease went with lower BMI, arm and calf circumference, skinfold thickness, and nutrition-screening scores. The excerpt I found does not say where the study was done.",
+          "tag": "IBD & malnutrition",
+          "condition": "",
+          "track": "",
+          "region": "Not stated in source (non-North American journal)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "If you have Crohn's and can't gain weight, active inflammation is probably a major reason. Getting the disease under control comes first, and simple tape-measure checks of arm and calf can help track nutritional status where body-composition scans aren't available.",
+          "source": "PLoS One",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-03",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0352372",
+          "beat": "gut",
+          "foundIn": "North America",
+          "linkStatus": "ok",
+          "id": "3f1cf1daae03",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "IBD: nutritional status and energy expenditure tracked from active disease to remission, relative to calorie and protein intake",
+          "summary": "A small prospective cohort followed 14 hospitalized and 12 outpatient IBD patients during active disease and again after 12 weeks in remission. Nutritional status was measured by bioimpedance vector analysis (BIVA), and energy expenditure by indirect calorimetry (Q-NRG). Intake of calories and protein was compared with these measures. The baseline mean BMI was 24 kg/m². The excerpt I found did not give the main outcome results.",
+          "tag": "Energy surplus",
+          "condition": "IBD",
+          "track": "",
+          "region": "Europe (Netherlands-based authors; not North America)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "BMI can hide poor body composition in IBD, and energy needs change with disease phase. Dietitian-guided calorie and protein targets should be re-checked as a flare settles.",
+          "source": "Inflammatory Bowel Diseases (Oxford Academic)",
+          "sourceType": "Journal",
+          "date": "August 2026",
+          "published": "2026-08-30",
+          "url": "https://doi.org/10.1093/ibd/izag171",
+          "beat": "gut",
+          "foundIn": "North America",
+          "linkStatus": "unknown",
+          "id": "e06231da8eed",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Chinese GWAS: about 1 in 9 young adults gained no lean mass from 12 weeks of lifting, and genes explained 28% of the variation",
+          "summary": "In 187 sedentary young Chinese Han adults, a 12-week supervised program (squat and bench press at 70% 1RM, twice weekly) raised lean body mass by an average of 1.7 kg. The range was −3.6 to +7.6 kg, and about 11% gained no lean mass. The study found nine genome-wide-significant variants, and a genetic score explained 27.7% of the variation in response.",
+          "tag": "Training response",
+          "condition": "",
+          "track": "",
+          "region": "China",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Large differences in gains on the same program are normal and partly genetic, so a slow start doesn't mean you are doing it wrong. It does not show that genetic testing should guide training today. The study is small and needs replication.",
+          "source": "Journal of Cachexia, Sarcopenia and Muscle (Beijing Sport University-led study)",
+          "sourceType": "Journal",
+          "date": "July 2026",
+          "published": "2026-07-15",
+          "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.70347",
+          "beat": "training",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "unknown",
+          "id": "63940e95a522",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "NHANES analysis: adults treated for IBD show lower grip strength and lean mass, with faster age-related strength decline",
+          "summary": "Among 5,522 US adults, only 25 had treated IBD, so the authors say the results need careful interpretation. After adjusting for age, sex and BMI, IBD was linked to lower grip strength and lower appendicular lean mass index, and to a steeper age-related fall in grip strength. Muscle quality did not differ between groups.",
+          "tag": "IBD & muscle",
+          "condition": "",
+          "track": "",
+          "region": "United States (NHANES data)",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Low muscle can persist in people with IBD even when treated and at a normal BMI. If you have IBD and struggle to gain, ask for grip-strength or body-composition checks, not just a weight check, and consider resistance training and nutrition support.",
+          "source": "Journal of Lifestyle Medicine (via PubMed)",
+          "sourceType": "Journal",
+          "date": "February 2026",
+          "published": "2026-02-28",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41821576/",
+          "beat": "eating",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "fcd07bcd535e",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Small crossover study: one heavy or hypertrophy-style lifting session barely changed sleep in trained men",
+          "summary": "Eleven men with at least 1 year of lifting experience did heavy strength sessions (4 sets at 85–90% 1RM), hypertrophy sessions (3 sets at 70–80% 1RM) and a control day. Total sleep time, sleep efficiency, sleep onset and wake time after sleep onset did not differ between conditions. The heavy session did shorten absolute REM time, and skin temperature was higher early in the night after both lifting sessions.",
+          "tag": "Sleep & recovery",
+          "condition": "",
+          "track": "",
+          "region": "Asia (journal: Physical Activity and Nutrition; study locati",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "Hard training in the daytime does not appear to damage your sleep after a single session. The sample is tiny and covers one session only, so it says nothing about the effects of chronic short sleep on muscle gain.",
+          "source": "Physical Activity and Nutrition (PubMed-indexed)",
+          "sourceType": "Journal",
+          "date": "June 2026",
+          "published": "2026-06-30",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42438854/",
+          "beat": "training",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "f2f262ce479f",
+          "firstSeen": "2026-10-19",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "isNew": true
+        },
+        {
+          "title": "Sprint-interval cardio added to lifting shows no strength penalty versus lifting alone in new meta-analysis",
+          "summary": "This meta-analysis compared lifting plus sprint interval training with lifting alone in healthy adults. It found no significant differences in lower-body strength (SMD 0.01), upper-body strength (SMD -0.06), jump performance or sprint performance. The excerpt I could see did not give a clear hypertrophy result, and the paper appears to say hypertrophy data are too sparse to conclude.",
+          "tag": "Cardio interference",
+          "condition": "",
+          "track": "",
+          "region": "International",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Short, hard sprint intervals do not appear to blunt strength gains from lifting, so a hard gainer who wants some conditioning has an option besides long steady cardio. Muscle size was not clearly settled, so keep cardio volume modest and keep eating in a surplus.",
+          "source": "International Journal of Sports Medicine",
+          "sourceType": "Journal",
+          "date": "September 2026 (online February 2026)",
+          "published": "2026-09",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41734815/",
+          "beat": "training",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "a0fff3da0b5d",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Meta-analysis of exclusive enteral nutrition in adult Crohn's disease: about 66% remission in real-world studies, but steroids worked better in RCTs",
+          "summary": "This Indian Journal of Gastroenterology meta-analysis pooled 40 studies with 2,459 adults. The pooled clinical remission rate with EEN was 66% across 23 real-world cohorts (n=1,269). In five RCTs (n=315), corticosteroids beat EEN for remission (RR 0.65). Elemental and non-elemental formulas did not differ in efficacy (RR 1.04).",
+          "tag": "IBD & muscle",
+          "condition": "",
+          "track": "",
+          "region": "India (journal); international studies",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Formula-only feeding can help settle active Crohn's in adults, and cheaper non-elemental formulas appear to work as well as elemental ones. It is not better than steroids, and the outcome measured is remission rather than weight or muscle gain. Gaining weight with Crohn's usually depends on controlling the disease first.",
+          "source": "Indian Journal of Gastroenterology",
+          "sourceType": "Journal",
+          "date": "May 2026",
+          "published": "2026-05-01",
+          "url": "https://link.springer.com/article/10.1007/s12664-026-01989-3",
+          "beat": "gut",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "5508e38e9350",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Systematic review: exercise for bone density in IBD rests on just two RCTs, both in Crohn's disease",
+          "summary": "Only two randomised trials (164 participants in total) met the criteria, and both enrolled adults with Crohn's disease. Six months of combined impact and resistance training gave higher lumbar-spine bone density than usual care. Hip results were not consistently better, and no randomised evidence existed for ulcerative colitis.",
+          "tag": "IBD & muscle",
+          "condition": "",
+          "track": "",
+          "region": "International",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Supervised lifting with impact work looks feasible in stable Crohn's disease and may protect bone, which matters for a thin person with IBD. The evidence base is small and silent on ulcerative colitis. The review looks at bone, not muscle gain.",
+          "source": "Healthcare (MDPI)",
+          "sourceType": "Journal",
+          "date": "May 2026",
+          "published": "2026-05",
+          "url": "https://doi.org/10.3390/healthcare14111448",
+          "beat": "training",
+          "foundIn": "Europe",
+          "linkStatus": "unknown",
+          "id": "8fa8c4ddc2f8",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Umbrella review of 17 meta-analyses: combining lifting and endurance work keeps hypertrophy comparable to lifting alone",
+          "summary": "The review pooled 17 meta-analyses covering 144 studies and 1,492 healthy participants. Compared with lifting alone, concurrent training gave comparable strength, power and hypertrophy, plus better aerobic capacity (SMD 0.77). Doing lifting before endurance work showed non-significant trends favouring strength and hypertrophy, and elite-athlete data were scarce.",
+          "tag": "Cardio interference",
+          "condition": "",
+          "track": "",
+          "region": "International",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Moderate cardio for heart health or appetite should not wreck muscle gain in recreational lifters. Put the lifting first in a session and don't let cardio eat into the energy surplus.",
+          "source": "Sports Medicine",
+          "sourceType": "Journal",
+          "date": "February 2026 (online); June 2026 issue",
+          "published": "2026-02-28",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41762427/",
+          "beat": "training",
+          "foundIn": "Europe",
+          "linkStatus": "ok",
+          "id": "8e58d52c028c",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Brazilian health press: total daily protein matters most, and big single doses may also work",
+          "summary": "A Brazilian news piece quotes a nutritionist who says total daily protein, at 1.6–2.2 g/kg, is the deciding factor for muscle gain. For a 60 kg person that is about 96–132 g a day. She cites research suggesting single doses of 70–100 g can still support muscle protein synthesis, so the old 20–30 g per meal ceiling may be too strict. She still advises spreading intake over 3–4 meals. This is secondary news coverage that refers to a 2023 study. It is not new trial data.",
+          "tag": "Protein",
+          "condition": "",
+          "track": "",
+          "region": "Brazil",
+          "originalLanguage": "Portuguese",
+          "evidence": "emerging",
+          "whyItMatters": "If you struggle to eat, you don't have to hit a strict 20–30 g protein cap at every meal. Reaching your daily total (about 1.6–2.2 g/kg) matters more, and larger servings at the meals you can manage are fine.",
+          "source": "Metrópoles",
+          "sourceType": "News",
+          "date": "August 2026",
+          "published": "2026-08-18",
+          "url": "https://www.metropoles.com/vida-e-estilo/proteina-massa-muscular",
+          "beat": "eating",
+          "foundIn": "Worldwide",
+          "linkStatus": "ok",
+          "id": "f1caf6108af4",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Active ulcerative colitis: new Asian sarcopenia criteria flag more young men with muscle loss",
+          "summary": "Researchers at Peking Union Medical College Hospital compared 57 hospitalized adults with active UC against 35 healthy controls. They used bioimpedance and handgrip strength and applied the AWGS 2025 sarcopenia consensus. The newer criteria identified 11 more male patients as sarcopenic than AWGS 2019 did. Prevalence in patients aged 18–49 was also significantly higher under the 2025 criteria, and sarcopenic patients had higher hsCRP (p=0.011). The study is cross-sectional and small, and it also looked at gut microbiota and serum metabolites.",
+          "tag": "IBD & muscle",
+          "condition": "",
+          "track": "",
+          "region": "China",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "A young person with UC can look fine on BMI and still be under-muscled by current Asian criteria. A grip-strength or body-composition check is worth asking for if you are thin with active disease. This study describes the problem but did not test any treatment.",
+          "source": "Frontiers in Nutrition",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-03",
+          "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2026.1942104/full",
+          "beat": "gut",
+          "foundIn": "Asia-Pacific",
+          "linkStatus": "ok",
+          "id": "4dccd0d25f31",
+          "firstSeen": "2026-10-18",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        }
+      ],
+      "translations": {},
+      "stats": {
+        "gathered": 10,
+        "new": 8,
+        "carried": 6,
+        "drops": {
+          "invalid": 0,
+          "old": 0,
+          "future": 0,
+          "duplicate": 0,
+          "deadLink": 0,
+          "cap": 0
+        }
+      }
+    },
+    "trials": {
+      "status": "updated",
+      "registry": [
+        {
+          "id": "NCT07881133",
+          "title": "Perioperative Biomarkers in Colorectal and Gastric Cancer Surgery",
+          "officialTitle": "Temporal Profiles of Inflammatory Markers in General Oncologic Surgery",
+          "summary": "This study aims to evaluate whether monitoring perioperative inflammatory and metabolic biomarkers can help identify postoperative complications early in adult patients undergoing colorectal or gastric cancer surgery. The study is a randomized controlled trial conducted at Bucharest Emergency Clinical Hospital, Romania. Participants are assigned to either an intervention group receiving enhanced recovery care…",
+          "plain": {
+            "title": "Inflammatory and metabolic markers to spot complications after cancer surgery",
+            "summary": "This trial tests whether monitoring inflammatory and metabolic biomarkers around the time of surgery can help identify complications early. It measures how well these biomarkers predict complications after surgery."
+          },
+          "whoFor": "Adults having colorectal or gastric cancer surgery.",
+          "kind": "Symptom management",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "N/A",
+          "status": "Recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Diagnostic test",
+              "name": "Perioperative Biomarker-Guided Monitoring"
+            }
+          ],
+          "primaryOutcome": "Predictive Performance of Perioperative Biomarkers for Postoperative Complications",
+          "sponsor": "Bucharest Emergency Hospital",
+          "industry": false,
+          "countries": [
+            "Romania"
+          ],
+          "enrollment": 320,
+          "start": "2026-02-25",
+          "firstPosted": "2026-10-19",
+          "lastUpdate": "2026-10-19",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07881133",
+          "firstSeenAt": "2026-10-19T16:59:47.838Z",
+          "change": "new",
+          "isNew": true
+        },
+        {
+          "id": "NCT07878026",
+          "title": "This is a Single-center, Prospective, Single-arm Clinical Study Designed to Evaluate the Efficacy and Safety of Oral Aeromonas sp. MTB Phage Therapy for Pouchitis in Patients With Ulcerative Colitis (UC).",
+          "officialTitle": "A Single-center, Prospective, Single-arm Clinical Research Protocol for the Treatment of Pouchitis With Aeromonas sp. MTB Bacteriophage",
+          "summary": "The goal of this single-arm, prospective clinical trial is to assess the clinical efficacy and safety of oral Aeromonas sp. MTB-specific phage therapy in adult participants aged 18-70 years with pouchitis following ileal pouch-anal anastomosis (IPAA) for ulcerative colitis, who are positive for stool MTB bacteria or aerolysin. The main questions it aims to answer are: * Does 2-week oral MTB phage treatment lead to…",
+          "plain": {
+            "title": "Oral phage therapy for pouchitis after surgery for ulcerative colitis",
+            "summary": "This trial tests a 2-week course of oral phage therapy targeting Aeromonas sp. MTB bacteria, given to everyone in the study. It measures the percentage of participants whose Modified Pouchitis Disease Activity Index (mPDAI) score drops from baseline to week 14."
+          },
+          "whoFor": "Adults aged 18-70 with pouchitis after ileal pouch-anal anastomosis for ulcerative colitis who test positive for stool MTB bacteria or aerolysin.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase Early 1",
+          "status": "Not yet recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Biologic",
+              "name": "MTB-targeted phage therapy"
+            }
+          ],
+          "primaryOutcome": "Percentage of participants with a decrease in Modified Pouchitis Disease Activity Index (mPDAI) total score from baseline to week 14",
+          "sponsor": "Jinling Hospital, China",
+          "industry": false,
+          "countries": [
+            "China"
+          ],
+          "enrollment": 12,
+          "start": "2027-01-01",
+          "firstPosted": "2026-10-16",
+          "lastUpdate": "2026-10-16",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07878026",
+          "firstSeenAt": "2026-10-17T13:45:50.288Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07872449",
+          "title": "Risankizumab for Refractory Perianal Fistulizing Crohn's Disease",
+          "officialTitle": "Evaluation of Risankizumab for Refractory Perianal Fistulizing Crohn's Disease Using MRI-Based Remission Criteria: A Prospective, Single-Arm, Multicenter Study",
+          "summary": "Crohn's disease is an inflammatory bowel disease characterized by relapses and remissions, causing lesions throughout the digestive tract and accompanied by diarrhea, abdominal pain, and nutritional disorders. In Japan particularly, the incidence of anal lesions is high, with approximately half of patients developing fistulas or abscesses, significantly impairing quality of life (QOL). For perianal fistulizing…",
+          "plain": {
+            "title": "Risankizumab for hard-to-treat perianal fistulas in Crohn's disease",
+            "summary": "This Phase 4 trial tests the drug risankizumab in people with Crohn's disease who have perianal fistulas. It measures the proportion of participants with combined fistula remission at Week 28."
+          },
+          "whoFor": "People with refractory perianal fistulizing Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 4",
+          "status": "Not yet recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "Risankizumab"
+            }
+          ],
+          "primaryOutcome": "The proportion of participants achieving combined fistula remission at Week 28",
+          "sponsor": "Yuki Horio",
+          "industry": false,
+          "countries": [
+            "Japan"
+          ],
+          "enrollment": 25,
+          "start": "2026-10-01",
+          "firstPosted": "2026-10-13",
+          "lastUpdate": "2026-10-19",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07872449",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07871669",
+          "title": "Efficacy and Safety of TRA16 Administered Orally in Patients With Enteric Hyperoxaluria (EH).",
+          "officialTitle": "A Phase II, Multi-center, Randomized, Double-Blind, Placebo-Controlled Clinical Study to Evaluate the Efficacy and Safety of TRA16 Administered Orally in Patients With Enteric Hyperoxaluria (EH).",
+          "summary": "A Phase II, Multi-center, Randomized, Double-Blind, Placebo-Controlled Clinical Study to Evaluate the Efficacy and Safety of TRA16 Administered Orally in Patients with Enteric Hyperoxaluria (EH).",
+          "plain": {
+            "title": "TRA16 pill versus placebo for enteric hyperoxaluria",
+            "summary": "This Phase 2 trial tests TRA16, taken by mouth, against a placebo. It measures the percent change from baseline in 24-hour urinary oxalate excretion."
+          },
+          "whoFor": "Patients with enteric hyperoxaluria.",
+          "kind": "Medication",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "Phase 2",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "TRA16"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Percent Change from Baseline in 24-hour Urinary Oxalate Excretion",
+          "sponsor": "Wuhan Kangfude Urolithiasis Research Institute Co., Ltd.",
+          "industry": true,
+          "countries": [],
+          "enrollment": 30,
+          "start": "2027-03-01",
+          "firstPosted": "2026-10-13",
+          "lastUpdate": "2026-10-13",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07871669",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07869225",
+          "title": "A Phase I, Randomized, Double-Blind, Placebo-Controlled Study of EQ504 in Single and Multiple Ascending Doses in Healthy Volunteers",
+          "officialTitle": "A Phase 1, Randomized, Double-Blind, Placebo-Controlled Single and Multiple Ascending Dose Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Orally Administered EQ504 in Healthy Volunteers",
+          "summary": "This is a Phase 1, first in human, three-part randomized, double-blind, placebo-controlled dose escalation trial to evaluate the safety, tolerability, pharmacokinetics (PK) and pharmacodynamics (PD) of EQ504 following single ascending dose (SAD) and multiple ascending dose administration (MAD), and an optional food effect (FE) cohort in healthy volunteers. The study will be conducted at a single site. Approximately…",
+          "plain": {
+            "title": "First-in-human safety study of EQ504 in healthy volunteers",
+            "summary": "This Phase 1 trial tests rising single and multiple doses of EQ504 against a placebo, with an optional food-effect group. It measures safety, tolerability, and how the body processes and responds to the drug, mainly through the incidence of treatment-emergent adverse events."
+          },
+          "whoFor": "Healthy volunteers.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 1",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "EQ504"
+            },
+            {
+              "type": "Drug",
+              "name": "EQ504 Placebo"
+            }
+          ],
+          "primaryOutcome": "Incidence of Treatment Emergent Adverse Events",
+          "sponsor": "Equillium",
+          "industry": true,
+          "countries": [
+            "Australia"
+          ],
+          "enrollment": 70,
+          "start": "2026-10",
+          "firstPosted": "2026-10-09",
+          "lastUpdate": "2026-10-09",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07869225",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07857447",
+          "title": "The Effects of a Modified Mediterranean Diet on Ulcerative Colitis Patients",
+          "officialTitle": "Galectin-3, Fecal Calprotectin and Intestinal Ultrasound for Assessing the Effects of a Modified Mediterranean Diet on Ulcerative Colitis Disease Activity",
+          "summary": "Ulcerative colitis is a chronic disease with a significant impact on quality of life where a substantial proportion of patients fails to achieve disease remission. It is a multifactorial disease, and the influence of diet on its onset and course remains underexplored. Favorable effects of the Mediterranean diet on numerous diseases have been confirmed in clinical research, but in the case of ulcerative colitis,…",
+          "plain": {
+            "title": "Modified Mediterranean diet for people with ulcerative colitis",
+            "summary": "This trial compares a modified Mediterranean diet with standard nutritional guidance. It measures the percentage of participants in clinical remission, based on the SCCAI score, at Week 12."
+          },
+          "whoFor": "Patients with ulcerative colitis.",
+          "kind": "Symptom management",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Other",
+              "name": "Modified Mediterranean Diet"
+            },
+            {
+              "type": "Other",
+              "name": "Standard Nutritional Guidance"
+            }
+          ],
+          "primaryOutcome": "Percentage of Participants Achieving Clinical Remission per Simple Clinical Colitis Activity Index (SCCAI) at Week 12",
+          "sponsor": "University Hospital Sestre Milosrdnice",
+          "industry": false,
+          "countries": [
+            "Croatia"
+          ],
+          "enrollment": 62,
+          "start": "2026-10",
+          "firstPosted": "2026-10-05",
+          "lastUpdate": "2026-10-05",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07857447",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07852273",
+          "title": "Investigating the Effect of the Non-nutritive Sweetener Sucralose in Inflammatory Bowel Disease",
+          "officialTitle": "The Effect of Non-Nutritive Food Sweeteners in Inflammatory Bowel Disease",
+          "summary": "This study will focus on the commonly used non-nutritive sweetener (NNS) sucralose (2 sachets/day resulting in daily dose: sucralose 2.5mg/kg) and its role in changing the gut microbiota in humans with Inflammatory Bowel Disease (IBD), compared to healthy non-IBD individuals. We will focus on studying IBD patients affected with Crohn's Disease (CD) as a proof of principle that could be tested later in other IBD…",
+          "plain": {
+            "title": "Does the sweetener sucralose change gut bacteria in IBD?",
+            "summary": "This study tests daily sucralose (2 sachets a day, 2.5 mg/kg) and its role in changing gut bacteria. It measures the change in the fecal microbiome."
+          },
+          "whoFor": "People with Crohn's disease, compared with healthy people without IBD.",
+          "kind": "Care & monitoring",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "N/A",
+          "status": "Recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Other",
+              "name": "Sucralose (non-nutritive sweetener)"
+            }
+          ],
+          "primaryOutcome": "Change in fecal microbiome",
+          "sponsor": "Case Western Reserve University",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 40,
+          "start": "2024-04-18",
+          "firstPosted": "2026-10-01",
+          "lastUpdate": "2026-10-01",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07852273",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07848594",
+          "title": "The Impact of Overnight Active Temperature Regulation on Gut Microbiome, Inflammation, and Circadian Rhythm.",
+          "officialTitle": "The Impact of Active Temperature Regulation During Sleep on Adult Gut Microbiome Composition, Systemic Inflammation, and Circadian Rhythm.",
+          "summary": "This study examines whether two continuous weeks of overnight active temperature regulation (via the Eight Sleep Pod) use affects gut microbiome composition, inflammation, and the body's daily temperature and blood pressure rhythms in postmenopausal women and age-matched men with self-reported poor sleep.",
+          "plain": {
+            "title": "Overnight temperature-regulating bed system and gut bacteria, inflammation, body rhythms",
+            "summary": "This study tests two continuous weeks of overnight active temperature regulation with the Eight Sleep Pod. It measures gut microbiome composition, along with inflammation and the body's daily temperature and blood pressure rhythms."
+          },
+          "whoFor": "Postmenopausal women and age-matched men with self-reported poor sleep.",
+          "kind": "Symptom management",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "N/A",
+          "status": "Recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Device",
+              "name": "Overnight Active Temperature Regulation: Eight Sleep Pod System"
+            }
+          ],
+          "primaryOutcome": "Gut Microbiome Composition",
+          "sponsor": "Eight Sleep Inc.",
+          "industry": true,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 100,
+          "start": "2026-10",
+          "firstPosted": "2026-09-30",
+          "lastUpdate": "2026-09-30",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07848594",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07845487",
+          "title": "A Trial to Investigate PALI-2108 Versus Placebo in Participants With Moderately to Severely Active Ulcerative Colitis",
+          "officialTitle": "A Phase 2, Multicenter, Randomized, Double-Blind, Placebo-Controlled, Dose Ranging Study to Evaluate the Efficacy, Safety, Pharmacokinetics, and Pharmacodynamics of Induction and Maintenance Therapy With PALI-2108 in Participants With Moderately to Severely Active Ulcerative Colitis",
+          "summary": "The ASCENTRA-UC study is a phase 2 study testing PALI-2108 in patients with moderate to severe ulcerative colitis. Doses of drug will be compared against a placebo to see how well it works, how safe it is, and how the body responds to it.",
+          "plain": {
+            "title": "PALI-2108 versus placebo for moderate to severe ulcerative colitis",
+            "summary": "This Phase 2 trial (ASCENTRA-UC) compares doses of PALI-2108 with a placebo. It measures how well the drug works, how safe it is, and how the body responds, with the main outcome being clinical remission by modified Mayo Score at Week 12."
+          },
+          "whoFor": "Patients with moderately to severely active ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 2",
+          "status": "Recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "PALI-2108"
+            },
+            {
+              "type": "Drug",
+              "name": "PALI-2108"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Proportion of participants with clinical remission using the 3-component modified Mayo Score (mMS) at Week 12.",
+          "sponsor": "Palisade Bio",
+          "industry": true,
+          "countries": [
+            "United States",
+            "Poland",
+            "Italy",
+            "Georgia",
+            "Canada",
+            "Hungary",
+            "Czechia",
+            "Romania",
+            "Serbia",
+            "France",
+            "Slovakia",
+            "Latvia"
+          ],
+          "enrollment": 204,
+          "start": "2026-08-28",
+          "firstPosted": "2026-09-29",
+          "lastUpdate": "2026-09-29",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07845487",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07846683",
+          "title": "A Study to Assess the Efficacy and Safety of Afimkibart for Induction Therapy in Participants With Moderately to Severely Active Ulcerative Colitis",
+          "officialTitle": "A Phase III, Multicenter, Double-Blind Placebo-Controlled Study to Assess the Efficacy and Safety of Subcutaneous Induction Therapy With Afimkibart in Patients With Moderately to Severely Active Ulcerative Colitis",
+          "summary": "The purpose of this study is to assess the efficacy and safety of subcutaneous induction with afimkibart in participants with moderately to severely active ulcerative colitis (UC).",
+          "plain": {
+            "title": "Afimkibart injections to start treatment in moderate to severe ulcerative colitis",
+            "summary": "This Phase 3 trial tests afimkibart given under the skin as induction therapy, compared with a placebo. It measures the percentage of participants in clinical remission, plus safety."
+          },
+          "whoFor": "Patients with moderately to severely active ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 3",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "Afimkibart"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Percentage of Participants With Clinical Remission",
+          "sponsor": "Hoffmann-La Roche",
+          "industry": true,
+          "countries": [],
+          "enrollment": 350,
+          "start": "2026-11-15",
+          "firstPosted": "2026-09-29",
+          "lastUpdate": "2026-09-29",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07846683",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07832435",
+          "title": "A Phase 2, Placebo-Controlled Study of Oral RXC008 for Crohn's Strictures",
+          "officialTitle": "Multicentre, Placebo-controlled Randomised, Double Blind, Phase 2 Study to Assess Efficacy, Safety, Tolerability and Pharmacokinetics of RXC008 in Participants With Strictures Due to Crohn's Disease Following Treatment With Orally Administered RXC008",
+          "summary": "Crohn's disease (CD) is chronic inflammatory bowel disease where any part of the Gastrointestinal (GI) tract can become inflamed and develop fibrotic strictures. Intestinal strictures cause abdominal distension, cramping, dietary restrictions, nausea, vomiting, abdominal pain, and postprandial abdominal pain, which significantly impact patient quality of life. Rho-associated coiled-coil kinase (ROCK) family of…",
+          "plain": {
+            "title": "RXC008 pill versus placebo for Crohn's disease strictures",
+            "summary": "This Phase 2 trial tests high and low doses of oral RXC008 against a placebo. It measures the absolute change from baseline in the primary stricture."
+          },
+          "whoFor": "People with Crohn's disease who have intestinal strictures.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 2",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "High Dose"
+            },
+            {
+              "type": "Drug",
+              "name": "Low Dose"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Absolute change from baseline in primary stricture.",
+          "sponsor": "Redx Pharma Ltd",
+          "industry": true,
+          "countries": [],
+          "enrollment": 180,
+          "start": "2026-10-01",
+          "firstPosted": "2026-09-22",
+          "lastUpdate": "2026-09-22",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07832435",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07833332",
+          "title": "Endoscopic Stricturotomy Versus Balloon Dilation for Small Bowel Fibrotic Strictures in Crohn's Disease",
+          "officialTitle": "Comparison of Endoscopic Needle-Knife Stricturotomy Versus Endoscopic Balloon Dilation for Small Bowel Fibrotic Strictures in Crohn's Disease: A Multicenter, Open-Label, Randomized Controlled Trial",
+          "summary": "This multicenter, open-label, randomized controlled trial aims to compare the safety and immediate effectiveness of endoscopic stricturotomy (ES) and endoscopic balloon dilation (EBD) for the treatment of small bowel fibrotic strictures in patients with Crohn's disease. Eligible participants with Crohn's disease and small bowel fibrotic strictures will be randomly assigned to receive either endoscopic stricturotomy…",
+          "plain": {
+            "title": "Two endoscopic procedures for narrowed small bowel in Crohn's disease",
+            "summary": "This open-label trial randomly assigns participants to endoscopic stricturotomy or endoscopic balloon dilation. It compares safety and immediate effectiveness, with the main measure being the percentage of treated strictures with bleeding or perforation."
+          },
+          "whoFor": "Patients with Crohn's disease and small bowel fibrotic strictures.",
+          "kind": "Care & monitoring",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "N/A",
+          "status": "Recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Procedure",
+              "name": "Endoscopic Stricturotomy"
+            },
+            {
+              "type": "Procedure",
+              "name": "Endoscopic Balloon Dilation"
+            }
+          ],
+          "primaryOutcome": "Percentage of Treated Small Bowel Strictures With Procedure-Related Bleeding or Perforation",
+          "sponsor": "Sixth Affiliated Hospital, Sun Yat-sen University",
+          "industry": false,
+          "countries": [
+            "China"
+          ],
+          "enrollment": 244,
+          "start": "2024-02-18",
+          "firstPosted": "2026-09-22",
+          "lastUpdate": "2026-09-22",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07833332",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07834515",
+          "title": "Phase 1b Clinical Study in Patients With Active Ulcerative Colitis",
+          "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled, Multi-Center Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Efficacy Signal of TP-317 in Patients With Active Ulcerative Colitis",
+          "summary": "Purpose of study is to evaluate the safety, tolerability, pharmacokinetics of TP317 vs. placebo in adults with active ulcerative colitis. Participants will be randomly assigned to receive either daily oral tablets (8 tablets) of TP317 (80 mg) or an identical placebo pill. Study will include 2 colonoscopies, daily dosing (including at home and in clinic), safety assessments, diary and questionnaire completion and 5…",
+          "plain": {
+            "title": "TP317 tablets versus placebo in active ulcerative colitis",
+            "summary": "This Phase 1b trial tests daily oral TP317 (8 tablets, 80 mg) against an identical placebo. It measures safety, tolerability, and how the body processes the drug."
+          },
+          "whoFor": "Adults with active ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 1",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "TP317"
+            },
+            {
+              "type": "Drug",
+              "name": "Matching placebo"
+            }
+          ],
+          "primaryOutcome": "Safety of TP317",
+          "sponsor": "Thetis Pharmaceuticals LLC",
+          "industry": true,
+          "countries": [],
+          "enrollment": 24,
+          "start": "2026-09-16",
+          "firstPosted": "2026-09-22",
+          "lastUpdate": "2026-09-22",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07834515",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07824726",
+          "title": "Ex Vivo Comparison Of Combination Versus Single Therapeutic Pathway Inhibition In Human Intestinal Mucosa From Patients With Inflammatory Bowel Disease",
+          "officialTitle": "Ex Vivo Comparison Of Combination Versus Single Therapeutic Pathway Inhibition In Human Intestinal Mucosa From Patients With Inflammatory Bowel Disease",
+          "summary": "The purpose of this study is to evaluate whether simultaneously targeting three inflammatory pathways (TL1A, IL-23, and α4β7) produces a stronger anti-inflammatory effect in intestinal tissue from patients with Inflammatory Bowel Disease (IBD) compared with targeting individual pathways. The study aims to investigate whether this combined approach may help overcome limitations associated with single-pathway…",
+          "plain": {
+            "title": "Lab test of combined drug targets on intestinal tissue from people with IBD",
+            "summary": "This study tests whether blocking three inflammatory pathways (TL1A, IL-23, and α4β7) together reduces inflammation more than blocking one, using intestinal biopsy tissue treated outside the body. It measures levels of pro-inflammatory cytokines in the biopsy culture fluid after treatment with ATTO-1091."
+          },
+          "whoFor": "Patients with inflammatory bowel disease who give extra biopsies and a blood sample.",
+          "kind": "Care & monitoring",
+          "conditions": [
+            "Crohn's",
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Not yet recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Procedure",
+              "name": "Collection of 8 additional intestinal mucosal biopsies during standard-of-care…"
+            },
+            {
+              "type": "Procedure",
+              "name": "Collection of an additional 2 mL blood sample"
+            }
+          ],
+          "primaryOutcome": "Concentration of pro-inflammatory cytokines in intestinal biopsy culture supernatants following ex vivo treatment with ATTO-1091",
+          "sponsor": "PhoenixLAB srls",
+          "industry": false,
+          "countries": [
+            "Italy"
+          ],
+          "enrollment": 30,
+          "start": "2026-10-01",
+          "firstPosted": "2026-09-17",
+          "lastUpdate": "2026-09-17",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07824726",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07822087",
+          "title": "A Phase 1 Study of ATORM-C in Patients With Crohn's Disease",
+          "officialTitle": "An Open, Sequential Dose-Escalation, Single-Center, Phase 1 Clinical Trial to Evaluate Tolerability, Safety, and Exploratory Efficacy of ATORM-C in Patients With Crohn's Disease",
+          "summary": "This Phase 1 study evaluates the safety and tolerability of ATORM-C in patients with Crohn's disease. ATORM-C is an investigational product consisting of autologous adult stem cell-derived intestinal organoids. Participants will receive a single dose of ATORM-C applied directly to a target intestinal ulcer during colonoscopy. The study will also explore the effect of ATORM-C on intestinal ulcer healing.",
+          "plain": {
+            "title": "ATORM-C stem cell-derived organoids applied to Crohn's ulcers",
+            "summary": "This Phase 1 trial tests a single dose of ATORM-C, made from a patient's own stem cell-derived intestinal organoids, applied to an intestinal ulcer during colonoscopy. It measures safety and tolerability, mainly dose-limiting toxicities, and explores ulcer healing."
+          },
+          "whoFor": "Patients with Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 1",
+          "status": "Recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Biologic",
+              "name": "Autologous Adult Stem Cell-Derived Intestinal Organoid"
+            }
+          ],
+          "primaryOutcome": "Dose-Limiting Toxicities (DLTs)",
+          "sponsor": "ORGANOIDSCIENCES LTD.",
+          "industry": true,
+          "countries": [
+            "South Korea"
+          ],
+          "enrollment": 18,
+          "start": "2026-09",
+          "firstPosted": "2026-09-16",
+          "lastUpdate": "2026-09-16",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07822087",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07819539",
+          "title": "Anthocyanin-Rich Berry Supplementation in Patients With Colorectal Cancer",
+          "officialTitle": "Effect of Anthocyanins on the Immune Response During Colorectal Cancer Treatment in Patients Over 65 Years of Age Using Freeze-Dried Black Raspberry and Strawberry Extracts",
+          "summary": "This prospective, open-label interventional study evaluated the effects of short-term supplementation with an anthocyanin-rich freeze-dried black raspberry and strawberry preparation in patients undergoing treatment for colorectal cancer. The study assessed the tolerability of the intervention and longitudinal changes in nutritional status and selected inflammatory and biochemical biomarkers. Participants received…",
+          "plain": {
+            "title": "Black raspberry and strawberry supplement in colorectal cancer",
+            "summary": "This open-label study tests a freeze-dried berry supplement rich in anthocyanins. It measures tolerability and changes in nutritional status and inflammatory and biochemical markers, with change in inflammatory biomarkers as the main outcome."
+          },
+          "whoFor": "Patients undergoing treatment for colorectal cancer.",
+          "kind": "Symptom management",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "N/A",
+          "status": "Completed",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Supplement",
+              "name": "Anthocyanin-Rich Freeze-Dried Berry Supplement"
+            }
+          ],
+          "primaryOutcome": "Change in Inflammatory Biomarkers",
+          "sponsor": "Jagiellonian University",
+          "industry": false,
+          "countries": [
+            "Poland"
+          ],
+          "enrollment": 70,
+          "start": "2023-05-24",
+          "firstPosted": "2026-09-15",
+          "lastUpdate": "2026-09-15",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07819539",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07820046",
+          "title": "Nitazoxanide as Adjunct Therapy in Mild-to-Moderate Ulcerative Colitis",
+          "officialTitle": "Nitazoxanide in Mild-to-Moderate Ulcerative Colitis: A Randomized, Double-Blind, Placebo-Controlled Trial",
+          "summary": "Ulcerative colitis (UC) is a chronic inflammatory bowel disease characterized by relapsing inflammation of the colonic mucosa. Despite advances in therapeutic options, many patients experience incomplete remission or treatment resistance. Emerging evidence suggests that intestinal barrier dysfunction, microbiota dysbiosis, and immune dysregulation play central roles in UC pathogenesis. Nitazoxanide is a…",
+          "plain": {
+            "title": "Nitazoxanide added to treatment for mild-to-moderate ulcerative colitis",
+            "summary": "This Phase 2/3 trial tests nitazoxanide as an add-on therapy. It measures the change in Mayo Score."
+          },
+          "whoFor": "Patients with mild-to-moderate ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 2/3",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "Nitazoxanide (NTZ)"
+            }
+          ],
+          "primaryOutcome": "Change in Mayo Score (Mayo Scoring System for Ulcerative Colitis)",
+          "sponsor": "Tanta University",
+          "industry": false,
+          "countries": [],
+          "enrollment": 44,
+          "start": "2027-01-01",
+          "firstPosted": "2026-09-15",
+          "lastUpdate": "2026-09-15",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07820046",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07819799",
+          "title": "Safety, Tolerability and PK of ATTO 1091 in Healthy Adult Volunteers and Patients With Ulcerative Colitis",
+          "officialTitle": "A Phase 1, Multi-Part, Single Ascending Dose and Multiple Ascending Dose Study to Assess the Safety, Tolerability, and Pharmacokinetics of ATTO 1091 in Healthy Adult Volunteers and Patients With Ulcerative Colitis",
+          "summary": "The goal of this clinical trial is to assess the safety, tolerability, and pharmacokinetics (PK) of ATTO-1091 in healthy adults and patients with ulcerative colitis. The main questions it aims to answer are: What medical problems do participants have when taking ATTO-1091? How long does ATTO-1091 stay in the body after dosing? Researchers will compare ATTO-1091 to a placebo (a look-alike substance that contains no…",
+          "plain": {
+            "title": "ATTO-1091 vs placebo: safety and body processing in healthy adults and people with UC",
+            "summary": "This trial tests ATTO-1091 compared with a placebo in healthy adults and patients with ulcerative colitis. It measures safety and tolerability, including the incidence of adverse events, and how long the drug stays in the body."
+          },
+          "whoFor": "Healthy adult volunteers and patients with ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 1",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "ATTO-1091"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Incidence of AEs",
+          "sponsor": "Attovia Therapeutics Inc",
+          "industry": true,
+          "countries": [],
+          "enrollment": 96,
+          "start": "2026-12-14",
+          "firstPosted": "2026-09-15",
+          "lastUpdate": "2026-09-15",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07819799",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07814456",
+          "title": "Fecal Microbiota Transplantation for Ulcerative Colitis Using Dai and Han Donors",
+          "officialTitle": "Fecal Microbiota Transplantation for Ulcerative Colitis Using Healthy Donors From Yunnan Dai and Han Nationalities: A Randomized Study to Screen Core Metabolites and Key Microbiota",
+          "summary": "This study is a randomized clinical trial evaluating fecal microbiota transplantation (FMT) for ulcerative colitis (UC) using healthy donors from two ethnic groups in Yunnan, China. UC is a chronic inflammatory bowel disease causing colon inflammation and ulcers. FMT transfers gut bacteria from a healthy donor to a patient to restore healthy intestinal microbiota. Previous research suggested that FMT using donors…",
+          "plain": {
+            "title": "Fecal microbiota transplant from Dai and Han donors for ulcerative colitis",
+            "summary": "This randomized trial tests fecal microbiota transplantation, which transfers gut bacteria from a healthy donor to a patient, using donors from two ethnic groups in Yunnan, China. It measures the rate of clinical and endoscopic remission at 12 weeks."
+          },
+          "whoFor": "Patients with ulcerative colitis.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 2",
+          "status": "Recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Biologic",
+              "name": "Fecal Microbiota Transplantation (FMT)"
+            }
+          ],
+          "primaryOutcome": "Rate of clinical and endoscopic remission at 12 weeks",
+          "sponsor": "First Affiliated Hospital of Kunming Medical University",
+          "industry": false,
+          "countries": [
+            "China"
+          ],
+          "enrollment": 200,
+          "start": "2026-02-03",
+          "firstPosted": "2026-09-11",
+          "lastUpdate": "2026-09-15",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07814456",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07804511",
+          "title": "Adapted Physical Activity for Persistent Fatigue in Patients With Inflammatory Bowel Disease in Remission",
+          "officialTitle": "Impact of Adapted Physical Activity on Persistent Fatigue in Patients With Inflammatory Bowel Disease in Remission",
+          "summary": "The cAPAble study aims to evaluate the impact of an adapted physical activity program on persistent fatigue in patients with inflammatory bowel disease in remission. This multicenter randomized study will include 120 participants. Participants will be randomly assigned to either a 6-month adapted physical activity program or usual care. Fatigue will be assessed using the FACIT-F questionnaire at 6 months.",
+          "plain": {
+            "title": "Adapted physical activity program for lasting fatigue in IBD in remission",
+            "summary": "This randomized trial tests a 6-month adapted physical activity program against usual care in 120 participants. It measures fatigue at 6 months using the FACIT-F questionnaire."
+          },
+          "whoFor": "Patients with inflammatory bowel disease in remission who have persistent fatigue.",
+          "kind": "Symptom management",
+          "conditions": [
+            "Crohn's",
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Behavioral",
+              "name": "Adapted Physical Activity"
+            },
+            {
+              "type": "Other",
+              "name": "Usual Care"
+            }
+          ],
+          "primaryOutcome": "Mean Functional Assessment of Chronic Illness Therapy-Fatigue (FACIT-F) score at 6 months.",
+          "sponsor": "University Hospital, Grenoble",
+          "industry": false,
+          "countries": [
+            "France"
+          ],
+          "enrollment": 120,
+          "start": "2027-06",
+          "firstPosted": "2026-09-04",
+          "lastUpdate": "2026-09-11",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07804511",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07799428",
+          "title": "Bacillus Probiotic Spores in Supporting the Treatment of Chronic Inflammatory Bowel Disease",
+          "officialTitle": "Evaluating the Efficacy of Bacillus Probiotic Spores in Supporting the Treatment of Chronic Inflammatory Bowel Disease (IBD): An Interventional Trial",
+          "summary": "Inflammatory bowel disease (IBD), including ulcerative colitis and Crohn's disease, is a chronic relapsing intestinal disorder driven by immune dysregulation, impaired mucosal barrier function, and gut microbiome dysbiosis. Although current therapies can control inflammation, many patients still experience recurrent symptoms, treatment resistance, adverse effects, and impaired quality of life. Probiotics represent…",
+          "plain": {
+            "title": "Bacillus probiotic spores (LiveSpo) as add-on support for inflammatory bowel disease",
+            "summary": "This trial tests Bacillus probiotic spore products (LiveSpo DIA30 and LiveSpo COLON) as support for IBD treatment. It measures the change in IBD-related quality of life."
+          },
+          "whoFor": "Patients with inflammatory bowel disease, including ulcerative colitis and Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's",
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Not yet recruiting",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Other",
+              "name": "RO"
+            },
+            {
+              "type": "Combination",
+              "name": "LiveSpo® DIA30"
+            },
+            {
+              "type": "Combination",
+              "name": "LiveSpo® COLON"
+            }
+          ],
+          "primaryOutcome": "Change in IBD-related quality of life",
+          "sponsor": "Anabio R&D",
+          "industry": true,
+          "countries": [
+            "Vietnam"
+          ],
+          "enrollment": 150,
+          "start": "2026-08-26",
+          "firstPosted": "2026-09-02",
+          "lastUpdate": "2026-09-02",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07799428",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07796568",
+          "title": "Virtual Group Therapy for IBD Patients With Anxiety and Depression",
+          "officialTitle": "Group-based Virtual Psychotherapy Intervention for Anxiety and Depression in Patients With Inflammatory Bowel Disease",
+          "summary": "This study is being done to better understand the complex relationship between mental health and Inflammatory Bowel Disease (IBD), with a particular focus on symptoms of depression and anxiety. While depression and anxiety have traditionally been viewed as reactions to the burden of living with IBD, new research suggests that the biological factors involved in IBD may also contribute directly to these mental health…",
+          "plain": {
+            "title": "Online group therapy for people with IBD who have anxiety and depression",
+            "summary": "This study tests a 10-session virtual group therapy program guided by the Mind over Mood manual. It measures how acceptable the treatment is to patients."
+          },
+          "whoFor": "Patients with IBD who have clinically significant symptoms of depression or anxiety.",
+          "kind": "Symptom management",
+          "conditions": [
+            "Crohn's",
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Not yet recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Behavioral",
+              "name": "Group Psychotherapy Intervention"
+            }
+          ],
+          "primaryOutcome": "Determine acceptability of a 10-session, group-based, virtual treatment guided by the Mind over Mood treatment manual in patients with IBD with clinically…",
+          "sponsor": "University of Chicago",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 16,
+          "start": "2026-09",
+          "firstPosted": "2026-09-01",
+          "lastUpdate": "2026-09-01",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07796568",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT07794410",
+          "title": "A Study Comparing Transperineal Ultrasound, Magnetic Resonance Imaging, Endoscopic Ultrasound, and Examination Under Anesthesia to Detect and Classify Perianal Fistulas in Patients With Crohn's Disease or Fistulas of Unknown Cause",
+          "officialTitle": "A Quadrimodal Comparison of Transperineal Ultrasound and Magnetic Resonance Imaging-based Sonographic Investigation With Integrated Testing Using Endoscopic Ultrasound and Examination Under Anesthesia for the Assessment of Perianal Fistulas in Patients With Crohn's Disease and Fistulas of Cryptogenic Origin (TRANSIT-CD Study)",
+          "summary": "The goal of this study is to learn how well different imaging tests detect and describe perianal fistulas in adults with Crohn's disease or fistulas with no known cause (cryptogenic). Perianal fistulas are painful tunnels that form near the anus and can lead to discharge, swelling, or infection. The main questions this study aims to answer are: How accurate is transperineal ultrasound (TPUS) compared to magnetic…",
+          "plain": {
+            "title": "Comparing four exams for finding and classifying perianal fistulas in Crohn's disease",
+            "summary": "This study compares transperineal ultrasound, MRI, endoscopic ultrasound, and examination under anesthesia for detecting and describing perianal fistulas. It measures how sensitive transperineal ultrasound and MRI are at detecting fistulas, lesion by lesion."
+          },
+          "whoFor": "Adults with Crohn's disease or perianal fistulas of unknown cause (cryptogenic).",
+          "kind": "Symptom management",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "N/A",
+          "status": "Recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Diagnostic test",
+              "name": "Transperineal Ultrasound (TPUS)"
+            },
+            {
+              "type": "Diagnostic test",
+              "name": "Magnetic Resonance Imaging (MRI)"
+            },
+            {
+              "type": "Diagnostic test",
+              "name": "Endoscopic Ultrasound (EUS)"
+            },
+            {
+              "type": "Diagnostic test",
+              "name": "Examination Under Anesthesia (EUA)"
+            }
+          ],
+          "primaryOutcome": "Per-lesion sensitivity of transperineal ultrasound (TPUS) and magnetic resonance imaging (MRI) for detecting perianal fistulas",
+          "sponsor": "Asian Institute of Gastroenterology, India",
+          "industry": false,
+          "countries": [
+            "India"
+          ],
+          "enrollment": 50,
+          "start": "2025-07-25",
+          "firstPosted": "2026-08-31",
+          "lastUpdate": "2026-08-31",
+          "resultsPosted": "",
+          "hasResults": false,
+          "url": "https://clinicaltrials.gov/study/NCT07794410",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "new",
+          "isNew": false
+        },
+        {
+          "id": "NCT06316999",
+          "title": "Intestinal Ultrasound for the Evaluation of Pouchitis and Other Outcomes After Ileal Pouch-Anal Anastomosis",
+          "officialTitle": "Utility of Intestinal Ultrasound as a Diagnostic Tool for the Evaluation of Pouchitis and Other Outcomes After Ileal Pouch-Anal Anastomosis: A Prospective Pilot Study",
+          "summary": "Intestinal ultrasound (IUS) has been studied in the evaluation of inflammatory bowel disease (IBD) and is increasingly used as a non-invasive, easy to use, cost-effective tool for point-of-care to assess disease activity and more recently to predict response to treatment. However, there is a paucity of data on the use of IUS specifically for ulcerative colitis (UC) patients with an ileal pouch-anal anastomosis…",
+          "plain": {
+            "title": "Intestinal ultrasound to check for pouchitis after ileal pouch surgery",
+            "summary": "This study tests intestinal ultrasound, a non-invasive imaging tool, for evaluating pouchitis and other outcomes after ileal pouch-anal anastomosis. It measures how accurately ultrasound identifies pouchitis findings."
+          },
+          "whoFor": "Patients with ulcerative colitis who have had an ileal pouch-anal anastomosis.",
+          "kind": "Symptom management",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Completed",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Diagnostic test",
+              "name": "Intestinal Ultrasound"
+            }
+          ],
+          "primaryOutcome": "Diagnostic Accuracy of Intestinal Ultrasound (IUS) to Evaluate for Pouchitis Findings, Post Ileal Pouch-Anal Anastomosis-Number of Participants With Abnormal…",
+          "sponsor": "Mayo Clinic",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 66,
+          "start": "2024-07-01",
+          "firstPosted": "2024-03-19",
+          "lastUpdate": "2026-08-12",
+          "resultsPosted": "2026-08-12",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT06316999",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT05836883",
+          "title": "Study of ExoFlo for the Treatment of Perianal Fistulas",
+          "officialTitle": "A Phase IB/IIA Study of ExoFlo, an Ex Vivo Culture-expanded Adult Allogeneic Bone Marrow Mesenchymal Stem Cell Derived Extracellular Vesicle Isolate Product, for the Treatment of Perianal Fistulizing Crohn's Disease",
+          "summary": "To evaluate the safety and feasibility of ExoFlo as a treatment for Perianal Fistulizing Crohn's Disease.",
+          "plain": {
+            "title": "ExoFlo for perianal fistulas in Crohn's disease",
+            "summary": "This trial tests ExoFlo, compared with a local saline injection, as a treatment for perianal fistulizing Crohn's disease. It measures safety and feasibility, including adverse events."
+          },
+          "whoFor": "Patients with perianal fistulizing Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 1/2",
+          "status": "Terminated",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Biologic",
+              "name": "ExoFlo"
+            },
+            {
+              "type": "Other",
+              "name": "Local injection of normal saline"
+            }
+          ],
+          "primaryOutcome": "Adverse Events",
+          "sponsor": "Direct Biologics, LLC",
+          "industry": true,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 5,
+          "start": "2023-08-28",
+          "firstPosted": "2023-05-01",
+          "lastUpdate": "2026-08-11",
+          "resultsPosted": "2026-08-11",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT05836883",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT05739162",
+          "title": "A Study of Endoscopic Sleeve Gastroplasty for Obesity in Ulcerative Colitis",
+          "officialTitle": "Endoscopic Sleeve Gastroplasty (ESG) as a Treatment Option for Obesity in Ulcerative Colitis (UC) Patients Undergoing Colectomy With Ileal Pouch Anal Anastomosis (IPAA)",
+          "summary": "The purpose of this research is to gather information on the safety and effectiveness of Endoscopic Sleeve Gastroplasty (ESG) for weight loss in a population of obese UC patients undergoing colectomy with eventual IPAA.",
+          "plain": {
+            "title": "Endoscopic sleeve gastroplasty for weight loss in obese people with ulcerative colitis",
+            "summary": "This study tests endoscopic sleeve gastroplasty, using the Apollo Endoscopic Suture System together with a lifestyle intervention, for weight loss. It measures the percent of total body weight lost, along with safety and effectiveness."
+          },
+          "whoFor": "Obese patients with ulcerative colitis undergoing colectomy with eventual IPAA.",
+          "kind": "Symptom management",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Active, not recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Device",
+              "name": "Apollo Endoscopic Suture System"
+            },
+            {
+              "type": "Behavioral",
+              "name": "Lifestyle Intervention"
+            }
+          ],
+          "primaryOutcome": "Percent Total Body Weight Loss",
+          "sponsor": "Mayo Clinic",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 2,
+          "start": "2023-09-20",
+          "firstPosted": "2023-02-22",
+          "lastUpdate": "2026-08-06",
+          "resultsPosted": "2026-08-06",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT05739162",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT05651542",
+          "title": "A Comprehensive Self-Management Intervention for Individuals With Inflammatory Bowel Disease",
+          "officialTitle": "A Comprehensive Self-Management Intervention for Individuals With Inflammatory Bowel Disease",
+          "summary": "This study aims to test the feasibility, acceptability, and preliminary efficacy of a comprehensive self-management (CSM) intervention for people with inflammatory bowel disease (IBD). The CSM-IBD intervention is an adaption of the CSM intervention initially developed for individuals with irritable bowel syndrome. The intervention has eight sessions which cover an introduction to IBD, symptom tracking, cognitive…",
+          "plain": {
+            "title": "Self-management program for people with inflammatory bowel disease",
+            "summary": "This study tests an eight-session comprehensive self-management program for IBD, adapted from one developed for irritable bowel syndrome, against a control. It measures feasibility, mainly recruitment, and also acceptability and early signs of benefit."
+          },
+          "whoFor": "People with inflammatory bowel disease.",
+          "kind": "Symptom management",
+          "conditions": [
+            "Crohn's",
+            "UC"
+          ],
+          "phase": "N/A",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Behavioral",
+              "name": "Comprehensive Self-Management Intervention"
+            },
+            {
+              "type": "Other",
+              "name": "Control"
+            }
+          ],
+          "primaryOutcome": "Recruitment Feasibility",
+          "sponsor": "University of Washington",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 55,
+          "start": "2023-03-14",
+          "firstPosted": "2022-12-15",
+          "lastUpdate": "2026-09-28",
+          "resultsPosted": "2026-09-28",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT05651542",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT05507203",
+          "title": "ABTECT-1 - ABX464 Treatment Evaluation for Ulcerative Colitis Therapy -1",
+          "officialTitle": "A Randomized, Double-blind, Placebo-controlled, Multicenter Phase III Study to Evaluate the Efficacy and Safety of ABX464 Once Daily for Induction Treatment in Subjects With Moderately to Severely Active Ulcerative Colitis",
+          "summary": "This is a multicenter, randomized, placebo controlled study to evaluate the efficacy and safety of ABX464 given at 25 or 50 mg QD in inducing clinical remission in subjects with moderately to severely active ulcerative colitis who have inadequate response, no response, a loss of response, or an intolerance to either conventional therapies \\[corticosteroids, immunosuppressant (i.e. azathioprine, 6-mercaptopurine,…",
+          "plain": {
+            "title": "ABX464 vs placebo to induce remission in moderate to severe ulcerative colitis (ABTECT-1)",
+            "summary": "This randomized trial tests ABX464 at 25 or 50 mg once daily against a placebo. It measures the proportion of participants in clinical remission at week 8 by modified Mayo score."
+          },
+          "whoFor": "Adults with moderately to severely active ulcerative colitis who did not respond, lost response, or could not tolerate conventional therapies.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 3",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "ABX464"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Proportion of Subjects Who Achieve Clinical Remission Per Modified Mayo Score at Week 8",
+          "sponsor": "Abivax S.A.",
+          "industry": true,
+          "countries": [
+            "United States",
+            "China",
+            "India",
+            "South Korea",
+            "Poland",
+            "Ukraine",
+            "France",
+            "Germany",
+            "Australia",
+            "Italy",
+            "United Kingdom",
+            "Czechia",
+            "Turkey (Türkiye)",
+            "Austria",
+            "Belgium",
+            "Hungary",
+            "Bulgaria",
+            "Netherlands",
+            "Portugal",
+            "Spain",
+            "Switzerland",
+            "Argentina",
+            "Canada",
+            "Greece"
+          ],
+          "enrollment": 639,
+          "start": "2022-11-16",
+          "firstPosted": "2022-08-18",
+          "lastUpdate": "2026-09-10",
+          "resultsPosted": "2026-09-10",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT05507203",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT05507216",
+          "title": "ABTECT-2 - ABX464 Treatment Evaluation for Ulcerative Colitis Therapy -2",
+          "officialTitle": "A Randomized, Double-blind, Placebo-controlled, Multicenter Phase III Study to Evaluate the Efficacy and Safety of ABX464 Once Daily for Induction Treatment in Subjects With Moderately to Severely Active Ulcerative Colitis",
+          "summary": "This is a multicenter, randomized, placebo controlled study to evaluate the efficacy and safety of ABX464 given at 25 or 50 mg QD in inducing clinical remission in subjects with moderately to severely active ulcerative colitis who have inadequate response, no response, a loss of response, or an intolerance to either conventional therapies \\[corticosteroids, immunosuppressant (i.e. azathioprine, 6-mercaptopurine,…",
+          "plain": {
+            "title": "ABX464 vs placebo to induce remission in moderate to severe ulcerative colitis (ABTECT-2)",
+            "summary": "This randomized trial tests ABX464 at 25 or 50 mg once daily against a placebo. It measures the proportion of participants in clinical remission at week 8 by modified Mayo score."
+          },
+          "whoFor": "Adults with moderately to severely active ulcerative colitis who did not respond, lost response, or could not tolerate conventional therapies.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 3",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "ABX464"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Proportion of Subjects Who Achieve Clinical Remission Per Modified Mayo Score at Week 8",
+          "sponsor": "Abivax S.A.",
+          "industry": true,
+          "countries": [
+            "Japan",
+            "United States",
+            "Poland",
+            "Ukraine",
+            "Brazil",
+            "India",
+            "France",
+            "Israel",
+            "Germany",
+            "Slovakia",
+            "Spain",
+            "Argentina",
+            "Italy",
+            "Romania",
+            "Serbia",
+            "Ireland",
+            "Belgium",
+            "Canada",
+            "Hungary",
+            "Mexico",
+            "Bosnia and Herzegovina",
+            "Bulgaria",
+            "Croatia",
+            "Lithuania",
+            "United Kingdom",
+            "Czechia",
+            "New Zealand"
+          ],
+          "enrollment": 636,
+          "start": "2023-01-25",
+          "firstPosted": "2022-08-18",
+          "lastUpdate": "2026-09-10",
+          "resultsPosted": "2026-09-10",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT05507216",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT04703829",
+          "title": "Virtual Incision Robotically Assisted Surgical Device Use in Minimally Invasive Colectomy",
+          "officialTitle": "Virtual Incision Robotically Assisted Surgical Device (VI RASD) for Umbrella Surgical Procedures: Minimally Invasive Right and Left Colectomy",
+          "summary": "For patients with colon polyps (clumps of cells in the lining of the colon) treatment often requires removal of the affected portion of the colon. Both conventional laparoscopic and robotically assisted minimally invasive surgery have been shown to have reduced complication rates and shorter hospital stays. This study aims to look at the use of the VI RASD as a robotic surgical device in right or left colectomy…",
+          "plain": {
+            "title": "A small robotic surgical device for minimally invasive colon removal surgery",
+            "summary": "This study tests the VI RASD robotic surgical device in minimally invasive right or left colectomy. It measures how many patients have the device steps completed successfully without switching to open surgery."
+          },
+          "whoFor": "Patients with colon polyps who need part of the colon removed.",
+          "kind": "Care & monitoring",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "N/A",
+          "status": "Active, not recruiting",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Device",
+              "name": "VI-RASD use in minimally invasive right or left colectomy"
+            },
+            {
+              "type": "Procedure",
+              "name": "Right or Left colectomy"
+            }
+          ],
+          "primaryOutcome": "Efficacy: Number of Participants With Successful Completion of the VI RASD Steps in Colectomy Procedures Without Conversion to Open Surgery",
+          "sponsor": "Virtual Incision Corporation",
+          "industry": true,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 30,
+          "start": "2021-08-09",
+          "firstPosted": "2021-01-11",
+          "lastUpdate": "2026-10-01",
+          "resultsPosted": "2026-10-01",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT04703829",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT04673357",
+          "title": "A Study of Ustekinumab in Pediatric Participants With Moderately to Severely Active Crohn's Disease",
+          "officialTitle": "A Phase 3 Study of the Efficacy, Safety, and Pharmacokinetics of Ustekinumab as Open-label Intravenous Induction Treatment Followed by Randomized Double-blind Subcutaneous Ustekinumab Maintenance in Pediatric Participants With Moderately to Severely Active Crohn's Disease",
+          "summary": "The purpose of this study is to evaluate the efficacy of ustekinumab dosing in inducing clinical remission (Global) and in maintaining clinical remission (US); to evaluate the safety profile and ustekinumab exposure (pharmacokinetics \\[PK\\]) in pediatric participants with moderately to severely active Crohn's disease.",
+          "plain": {
+            "title": "Ustekinumab for children with moderate to severe Crohn's disease",
+            "summary": "This trial tests ustekinumab dosing against a placebo for inducing and maintaining clinical remission. It measures clinical remission at week 8 of induction, plus safety and how much drug is in the body."
+          },
+          "whoFor": "Pediatric participants with moderately to severely active Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 3",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "Ustekinumab"
+            },
+            {
+              "type": "Drug",
+              "name": "Placebo"
+            }
+          ],
+          "primaryOutcome": "Global Outcome Measure: Percentage of Participants With Clinical Remission at Induction Week 8 (Week I-8)",
+          "sponsor": "Janssen Research & Development, LLC",
+          "industry": true,
+          "countries": [
+            "United States",
+            "Japan",
+            "Germany",
+            "Belgium",
+            "Hungary",
+            "Poland",
+            "United Kingdom",
+            "Israel",
+            "Russia"
+          ],
+          "enrollment": 101,
+          "start": "2021-04-06",
+          "firstPosted": "2020-12-17",
+          "lastUpdate": "2026-07-30",
+          "resultsPosted": "2026-07-30",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT04673357",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT04504136",
+          "title": "Regulation of Mucosal Healing in Inflammatory Bowel Disease",
+          "officialTitle": "Regulation of Mucosal Healing in Inflammatory Bowel Disease",
+          "summary": "The objective of the current study is to compare non-healing colonic ulcers in patients with inflammatory bowel disease (IBD) with iatrogenic colonic ulcers (biopsy sites) in healthy control patients and patients with rheumatoid or psoriatic arthritis. Patients will be biopsied at baseline and again at a follow-up visit in a \"biopsy of the biopsy\" approach. These biopsies will be used to reveal patterns about gene…",
+          "plain": {
+            "title": "Studying why some bowel ulcers heal poorly in IBD using repeat biopsies",
+            "summary": "This study compares non-healing colonic ulcers in IBD patients with biopsy-site ulcers in healthy controls and in patients with rheumatoid or psoriatic arthritis. It takes biopsies at baseline and follow-up, and measures the change in the ratio of mitochondrial to nuclear DNA."
+          },
+          "whoFor": "Patients with IBD, along with healthy controls and patients with rheumatoid or psoriatic arthritis.",
+          "kind": "Care & monitoring",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "N/A",
+          "status": "Completed",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Procedure",
+              "name": "Serial Biopsy"
+            }
+          ],
+          "primaryOutcome": "Change in Relative Ratio of Mitochondrial DNA to Nuclear DNA",
+          "sponsor": "Terrence A Barrett",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 26,
+          "start": "2021-04-30",
+          "firstPosted": "2020-08-07",
+          "lastUpdate": "2026-09-30",
+          "resultsPosted": "2026-09-30",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT04504136",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT04469686",
+          "title": "Phase 3 Study to Evaluate the Safety and Efficacy of Hydrocortisone Acetate Suppositories",
+          "officialTitle": "3-Arm Randomized Placebo Controlled Double Blind Phase 3 Study to Evaluate Safety and Efficacy of Once-Daily and Twice-Daily Hydrocortisone Acetate 90 mg Suppository Administered With a Sephure Suppository Applicator in Subjects With Ulcerative Colitis of the Rectum",
+          "summary": "A randomized, multi-center, double-blind, three arm placebo-controlled study in male and non-pregnant, non-lactating female subjects aged 18 years to examine the safety and efficacy of two dosing regimens of hydrocortisone acetate 90 mg suppository administered with the Sephure suppository applicator for the treatment of ulcerative colitis of the rectum.",
+          "plain": {
+            "title": "Hydrocortisone acetate suppositories for ulcerative colitis of the rectum",
+            "summary": "This trial compares two dosing regimens of 90 mg hydrocortisone acetate suppositories, given with the Sephure applicator, against placebo. It measures clinical remission."
+          },
+          "whoFor": "Adult men and non-pregnant, non-lactating women with ulcerative colitis of the rectum.",
+          "kind": "Medication",
+          "conditions": [
+            "UC"
+          ],
+          "phase": "Phase 3",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Combination",
+              "name": "Twice daily 90 mg hydrocortisone acetate suppository administered with Sephure…"
+            },
+            {
+              "type": "Combination",
+              "name": "Once daily 90 mg hydrocortisone acetate or placebo suppository administered…"
+            },
+            {
+              "type": "Combination",
+              "name": "Twice daily placebo suppository administered with Sephure applicator"
+            }
+          ],
+          "primaryOutcome": "Clinical Remission",
+          "sponsor": "Cristcot HCA LLC",
+          "industry": true,
+          "countries": [
+            "United States",
+            "Poland",
+            "India",
+            "Philippines",
+            "Vietnam",
+            "Ukraine",
+            "Romania",
+            "Jordan",
+            "Russia",
+            "Bulgaria",
+            "France",
+            "Saudi Arabia",
+            "Germany",
+            "Italy",
+            "Spain",
+            "Turkey (Türkiye)",
+            "China",
+            "Georgia",
+            "South Africa",
+            "Denmark",
+            "Lebanon",
+            "Moldova",
+            "Libya"
+          ],
+          "enrollment": 200,
+          "start": "2020-12-10",
+          "firstPosted": "2020-07-14",
+          "lastUpdate": "2026-08-06",
+          "resultsPosted": "2026-08-06",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT04469686",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT03277703",
+          "title": "Flu Vaccine Response in Patients on Biologic Therapies",
+          "officialTitle": "Booster Vaccine Strategy to Improve Serologic Responses to Influenza Vaccination in Children With Rheumatic Diseases and Inflammatory Bowel Disease Who Are Receiving Immunosuppressive Therapies",
+          "summary": "This proposed study will assess the immunogenicity, safety, and clinical efficacy of an influenza vaccine booster dose strategy in patients with autoimmune diseases who are receiving immunosuppressive therapies. Investigators will compare serologic responses to single versus a booster dose of influenza vaccine in patients with inflammatory bowel disease (IBD- Crohn's Disease or Ulcerative Colitis) or rheumatologic…",
+          "plain": {
+            "title": "Extra flu vaccine dose for people with IBD or rheumatic disease on immune-suppressing drugs",
+            "summary": "This trial compares a single flu vaccine dose with a single dose plus a booster in patients receiving immunosuppressive therapies. It measures immune response using the influenza hemagglutination inhibition (HAI) titer, and also looks at safety and clinical efficacy."
+          },
+          "whoFor": "Patients with inflammatory bowel disease (Crohn's disease or ulcerative colitis) or rheumatologic disease who are receiving immunosuppressive therapies.",
+          "kind": "Medication",
+          "conditions": [
+            "IBD"
+          ],
+          "phase": "Phase 2",
+          "status": "Completed",
+          "randomized": true,
+          "interventions": [
+            {
+              "type": "Biologic",
+              "name": "Influenza vaccine"
+            }
+          ],
+          "primaryOutcome": "Influenza Hemagglutination Inhibition (HAI) Titer",
+          "sponsor": "Stony Brook University",
+          "industry": false,
+          "countries": [
+            "United States"
+          ],
+          "enrollment": 30,
+          "start": "2017-11-03",
+          "firstPosted": "2017-09-11",
+          "lastUpdate": "2026-08-06",
+          "resultsPosted": "2026-08-06",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT03277703",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        },
+        {
+          "id": "NCT02782663",
+          "title": "A Study to Evaluate the Long-Term Efficacy, Safety, and Tolerability of Repeated Administration of Upadacitinib (ABT-494) in Participants With Crohn's Disease",
+          "officialTitle": "A Phase 2, Multicenter, Open-Label Extension (OLE) Study to Observe the Long-Term Efficacy, Safety, and Tolerability of Repeated Administration of Upadacitinib (ABT-494) in Subjects With Crohn's Disease",
+          "summary": "This is a open-label extension (OLE) study designed to evaluate the long-term efficacy, safety, and tolerability of Upadacitinib (ABT-494).",
+          "plain": {
+            "title": "Long-term upadacitinib for Crohn's disease in an open-label extension study",
+            "summary": "This open-label extension study looks at the long-term efficacy, safety, and tolerability of repeated upadacitinib (ABT-494) treatment. It measures the percentage of participants in endoscopic remission at month 12."
+          },
+          "whoFor": "People with Crohn's disease.",
+          "kind": "Medication",
+          "conditions": [
+            "Crohn's"
+          ],
+          "phase": "Phase 2",
+          "status": "Completed",
+          "randomized": false,
+          "interventions": [
+            {
+              "type": "Drug",
+              "name": "ABT-494"
+            }
+          ],
+          "primaryOutcome": "Percentage of Participants Achieving Endoscopic Remission at Month 12",
+          "sponsor": "AbbVie",
+          "industry": true,
+          "countries": [
+            "United States",
+            "Canada",
+            "France",
+            "Germany",
+            "Israel",
+            "Denmark",
+            "Italy",
+            "Netherlands",
+            "Poland",
+            "Slovakia",
+            "Spain",
+            "United Kingdom",
+            "Belgium",
+            "Czechia",
+            "Hungary",
+            "New Zealand",
+            "Norway",
+            "Romania"
+          ],
+          "enrollment": 107,
+          "start": "2016-05-18",
+          "firstPosted": "2016-05-25",
+          "lastUpdate": "2026-08-13",
+          "resultsPosted": "2026-08-13",
+          "hasResults": true,
+          "url": "https://clinicaltrials.gov/study/NCT02782663",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "change": "results",
+          "isNew": false
+        }
+      ],
+      "stories": [
+        {
+          "title": "Switching children with IBD from IV to subcutaneous infliximab kept most in remission",
+          "summary": "A meta-analysis pooled six small pediatric cohorts (173 children) that switched from intravenous to subcutaneous infliximab. About 92% stayed on treatment and 93% stayed in clinical remission, while 8% stopped for any reason, mostly due to injection-site problems, relapse, or paradoxical dermatitis. New anti-drug antibodies were rare (four children, none sustained), and drug levels were about 2-fold higher than before the switch.",
+          "tag": "Subcutaneous infliximab",
+          "condition": "IBD",
+          "kind": "Medication",
+          "region": "USA.",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It suggests that subcutaneous infliximab, which is not yet approved for people under 18, may be a workable option that cuts school absence and travel for children with IBD, though the evidence comes from observational cohorts and still needs prospective confirmation.",
+          "source": "Current gastroenterology reports",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-17",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42891908/",
+          "pmid": "42891908",
+          "id": "pmid-42891908",
+          "originalTitle": "Switching from Intravenous to Subcutaneous Infliximab in Children with Inflammatory Bowel Disease: A Systematic Review and Meta-Analysis",
+          "firstSeenAt": "2026-10-18T14:02:53.312Z",
+          "isNew": true
+        },
+        {
+          "title": "Tofacitinib 20 mg and 30 mg worked similarly in acute severe ulcerative colitis",
+          "summary": "In a small double-blind pilot trial of 72 adults with acute severe UC, all received IV corticosteroids plus tofacitinib at 20 or 30 mg/day. Clinical response at day 7 was 91.7% with 20 mg and 86.1% with 30 mg, a difference that was not statistically significant. Rescue therapy, treatment escalation or colectomy within 90 days was similar (event-free survival 83.3% vs 80.2%), and adverse events were mostly mild with no blood clots or major cardiovascular events reported.",
+          "tag": "JAK inhibitor",
+          "condition": "UC",
+          "kind": "Medication",
+          "region": "India",
+          "originalLanguage": "English",
+          "evidence": "early",
+          "whyItMatters": "This early evidence suggests that a higher tofacitinib dose may not add benefit over the lower dose in hospitalized severe UC, though the trial was too small to be conclusive.",
+          "source": "Journal of Crohn's & colitis",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-09",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42880720/",
+          "pmid": "42880720",
+          "id": "pmid-42880720",
+          "originalTitle": "Tofacitinib 20 vs 30 mg in acute severe ulcerative colitis: a double-blind randomized controlled trial",
+          "firstSeenAt": "2026-10-17T13:45:50.288Z",
+          "isNew": false
+        },
+        {
+          "title": "Machine learning shows promise for predicting anti-TNF response in Crohn's, especially with imaging data",
+          "summary": "A meta-analysis of 29 studies with 6,697 Crohn's patients assessed machine learning models that predict response to anti-TNF therapy. In external validation, models using radiomic (imaging) features scored a C-index of 0.865, and models combining clinical and radiomic features scored 0.883. Models using clinical features alone scored 0.733. The authors noted methodological limitations.",
+          "tag": "Treatment prediction",
+          "condition": "Crohn's",
+          "kind": "Care & monitoring",
+          "region": "&#xa0;China",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "In the future, such tools might help identify early who is unlikely to respond to anti-TNF drugs, but they need more validation across diverse groups of patients before routine use.",
+          "source": "Frontiers in immunology",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-30",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42877081/",
+          "pmid": "42877081",
+          "id": "pmid-42877081",
+          "originalTitle": "The predictive value of machine learning for the response to anti-TNF-α therapy in patients with Crohn's disease: a systematic review and meta-analysis",
+          "firstSeenAt": "2026-10-16T00:22:34.305Z",
+          "isNew": false
+        },
+        {
+          "title": "Oral icotrokinra pill beat placebo for response in moderate-to-severe ulcerative colitis",
+          "summary": "In a phase 2b randomized trial of 252 adults with moderately to severely active UC, clinical response at week 12 was 63%, 58% and 55% with 400, 200 and 100 mg daily icotrokinra, versus 27% with placebo. At 400 mg, clinical remission was 30% vs 11% and endoscopic improvement was 37% vs 14%. Adverse events were similar across groups through week 28 (60-66%).",
+          "tag": "Oral IL-23 blocker",
+          "condition": "UC",
+          "kind": "Medication",
+          "region": "Los Angeles",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It suggests a once-daily pill that blocks the interleukin-23 pathway could one day be an alternative to injected or infused IL-23 antibodies, though larger and longer trials are needed.",
+          "source": "The New England journal of medicine",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-15",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42874103/",
+          "pmid": "42874103",
+          "id": "pmid-42874103",
+          "originalTitle": "Phase 2 Trial of Icotrokinra for Patients with Ulcerative Colitis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Etrasimod lowers inflammatory immune cells in blood and gut lining in UC",
+          "summary": "Using blood from 782 and gut biopsies from 611 patients in the phase 3 ELEVATE UC trials, etrasimod reduced circulating T- and B-cell subsets at week 12 compared with placebo. Gut tissue showed fewer T cells, B cells, myeloid cells and neutrophils, with reduced IL-17 and IL-8 signaling. Changes consistent with tissue repair were most prominent in patients who reached remission.",
+          "tag": "S1P modulator",
+          "condition": "UC",
+          "kind": "Medication",
+          "region": "Germany",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It helps explain how this oral UC medication works on the immune system and the gut lining.",
+          "source": "Journal of Crohn's & colitis",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-09",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42864953/",
+          "pmid": "42864953",
+          "id": "pmid-42864953",
+          "originalTitle": "Etrasimod reduces circulating and mucosal inflammatory lymphocyte populations and alters innate immune and non-immune cell signatures in intestinal mucosa: ELEVATE UC phase 3 clinical data",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Fast-recovery surgery pathways shorten hospital stays for people with IBD",
+          "summary": "A meta-analysis of 18 studies (one randomized trial, 17 observational) found enhanced recovery protocols cut hospital stay by about 1.6 days (moderate certainty). There were no clear differences in 30-day readmissions, reoperations or complications, though certainty for these was low to very low.",
+          "tag": "Surgery recovery",
+          "condition": "IBD",
+          "kind": "Care & monitoring",
+          "region": "Canada",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "If you need bowel surgery, enhanced recovery programs may mean a shorter hospital stay without evidence of more readmissions or complications, though the evidence is mostly observational.",
+          "source": "Colorectal disease : the official journal of the Association of Coloproctology of Great Britain and Ireland",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-01",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42811387/",
+          "pmid": "42811387",
+          "id": "pmid-42811387",
+          "originalTitle": "Enhanced recovery after colorectal surgery in patients with inflammatory bowel disease to reduce hospital length of stay: A systematic review and meta-analysis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Stem cell therapy closed about 6 in 10 Crohn's perianal fistulas long-term",
+          "summary": "A meta-analysis of 18 studies with 750 patients and 12 months to 4 years of follow-up found a pooled long-term healing rate of 59% in randomized trials and 63% across all designs. No treatment-related deaths or clear therapy-linked cancers were found.",
+          "tag": "Stem cells for fistula",
+          "condition": "Crohn's",
+          "kind": "Medication",
+          "region": "Iran",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It suggests stem cell treatment may give lasting healing for fistulas that haven't responded to standard care, although study designs differ.",
+          "source": "Colorectal disease : the official journal of the Association of Coloproctology of Great Britain and Ireland",
+          "sourceType": "Journal",
+          "date": "October 2026",
+          "published": "2026-10-01",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42803164/",
+          "pmid": "42803164",
+          "id": "pmid-42803164",
+          "originalTitle": "Long-term clinical outcomes of stem cell-based interventions in Crohn's-related perianal fistula: A systematic review and meta-analysis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Under-the-skin infliximab kept most children with IBD in remission after switching",
+          "summary": "A pooled analysis of five cohorts (162 children, mostly Crohn's) found treatment persistence of about 90% and clinical remission of about 90% at roughly 6 months. Infliximab blood levels roughly doubled after the switch, new antidrug antibodies were rare (0.7%), and injection site reactions occurred in 11%. Certainty was low to very low, and nearly all children switched while already in remission.",
+          "tag": "Subcutaneous infliximab",
+          "condition": "IBD",
+          "kind": "Medication",
+          "region": "Brazil.",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "It offers early reassurance for families considering a switch from intravenous to subcutaneous infliximab, which is currently off-label in children, but it does not show the injection can start treatment.",
+          "source": "European journal of pediatrics",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-29",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42809127/",
+          "pmid": "42809127",
+          "id": "pmid-42809127",
+          "originalTitle": "Subcutaneous infliximab for maintenance therapy in children and adolescents with inflammatory bowel disease: a systematic review and meta-analysis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Trial testing a phone-based CBT program for fatigue in IBD remission is under way",
+          "summary": "This is a protocol for an open-label, waitlist-controlled randomized trial of a 7-week app-based cognitive behavioral program for fatigue in people with IBD in remission. 351 patients were randomized; 151 of 502 screened were excluded for having little fatigue (FACIT-F of 40 or higher). No results are available yet and are expected in 2027.",
+          "tag": "Fatigue",
+          "condition": "IBD",
+          "kind": "Symptom management",
+          "region": "81 358035351",
+          "originalLanguage": "English",
+          "evidence": "early",
+          "whyItMatters": "Fatigue is common even in remission, and this trial could show whether a scalable app-based approach helps, but there are no findings yet.",
+          "source": "JMIR research protocols",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-28",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42803779/",
+          "pmid": "42803779",
+          "id": "pmid-42803779",
+          "originalTitle": "Evaluation of a Mental Health Care App-Based Fatigue Management Program for Patients With Inflammatory Bowel Disease in Remission: Protocol for a Randomized Controlled Trial",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "COVID-19 didn't worsen IBD course, but interrupted biologics raised flare risk",
+          "summary": "Across four matched cohorts (about 1,300 patients), prior COVID-19 was not linked to worse IBD course (OR 1.06; 95% CI 0.76-1.49). COVID-19 was linked to delayed or stopped biologics (OR 10.44), and flares were more frequent when biologics were delayed or stopped (about 52% vs 18%).",
+          "tag": "COVID-19 and biologics",
+          "condition": "IBD",
+          "kind": "Care & monitoring",
+          "region": "Brasil",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "It suggests the bigger concern after COVID-19 may be interrupted IBD treatment rather than the infection itself, though the evidence is limited to a few observational cohorts.",
+          "source": "Arquivos de gastroenterologia",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-21",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42788521/",
+          "pmid": "42788521",
+          "id": "pmid-42788521",
+          "originalTitle": "COVID-19 AND IBD: LOOK BEYOND THE VIRUS. A SYSTEMATIC REVIEW AND META-ANALYSIS FOCUSED ON BIOLOGIC THERAPY CONTINUITY",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Neutrophil traps are high in IBD and blocking them eased colitis in animal models",
+          "summary": "A review of 48 studies found markers of neutrophil extracellular traps were raised in the gut and blood of people with IBD and linked to more severe disease and poorer prognosis. In animal models, blocking or breaking down these traps reduced disease activity and tissue damage and improved gut barrier function. Several results were not robust in sensitivity analyses.",
+          "tag": "Neutrophil traps",
+          "condition": "IBD",
+          "kind": "Medication",
+          "region": "&#xa0;China",
+          "originalLanguage": "English",
+          "evidence": "early",
+          "whyItMatters": "This is early-stage science pointing to a possible future treatment target, with no human treatment trials yet.",
+          "source": "Frontiers in immunology",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-17",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42824291/",
+          "pmid": "42824291",
+          "id": "pmid-42824291",
+          "originalTitle": "Neutrophil extracellular traps as a potential therapeutic target in inflammatory bowel disease: a systematic review and meta-analysis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Stem cells and anti-TNF drugs both help Crohn's fistulas; no clear winner",
+          "summary": "A network meta-analysis of 15 randomized trials (2,475 patients) found stem cells improved fistula remission (OR 5.33) and response (OR 4.76) versus placebo. Anti-TNF drugs also improved fistula remission (OR 2.19) and were better for overall clinical remission (OR 2.41). Indirect comparison showed a non-significant trend favoring stem cells for fistula healing, and both had safety similar to placebo.",
+          "tag": "Fistula treatment",
+          "condition": "Crohn's",
+          "kind": "Medication",
+          "region": "&#xa0;China",
+          "originalLanguage": "English",
+          "evidence": "strong",
+          "whyItMatters": "Both options appear to work for perianal Crohn's fistulas, but without head-to-head trials it is unclear which is better.",
+          "source": "Frontiers in immunology",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-11",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42798531/",
+          "pmid": "42798531",
+          "id": "pmid-42798531",
+          "originalTitle": "Efficacy and safety of tumor necrosis factor-α inhibitors and mesenchymal stem cells in the treatment of fistulizing Crohn's disease: a systematic review and network meta-analysis",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        },
+        {
+          "title": "Balloon dilation of Crohn's strictures helped avoid surgery over 7 years better than stents",
+          "summary": "In a long-term follow-up of 80 patients from the ProtDilat trial (median 77 months), 31.5% needed surgery. Balloon dilatation (HR 0.26), a single endoscopic treatment (HR 0.33) and no medical therapy intensification (HR 0.22) were linked to lower surgery risk. Adverse events were less frequent with endoscopic treatment than surgery (8.75% vs 36%).",
+          "tag": "Strictures",
+          "condition": "Crohn's",
+          "kind": "Care & monitoring",
+          "region": "Spain",
+          "originalLanguage": "English",
+          "evidence": "emerging",
+          "whyItMatters": "It suggests endoscopic balloon dilation can delay or avoid surgery for many people with Crohn's strictures, though this is a retrospective follow-up of an open-label trial.",
+          "source": "Journal of Crohn's & colitis",
+          "sourceType": "Journal",
+          "date": "September 2026",
+          "published": "2026-09-03",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42759052/",
+          "pmid": "42759052",
+          "id": "pmid-42759052",
+          "originalTitle": "Self-expandable metal stents versus endoscopic balloon dilatation for the treatment of strictures in Crohn's disease: a retrospective long-term follow-up of the ProtDilat study, an open label, multicenter, randomized trial",
+          "firstSeenAt": "2026-10-15T18:12:46.285Z",
+          "isNew": false
+        }
+      ],
+      "stats": {
+        "registryFetched": 32,
+        "newTrials": 1,
+        "updatedTrials": 0,
+        "resultsFetched": 12,
+        "newResults": 0,
+        "errors": []
+      },
+      "translations": {}
+    }
+  }
+}

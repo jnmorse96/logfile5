@@ -1,9 +1,9 @@
 {
-  "lastRunAt": "2026-10-18T14:02:53.312Z",
+  "lastRunAt": "2026-10-19T16:59:47.838Z",
   "lastRunOk": true,
-  "lastSuccessAt": "2026-10-18T14:02:53.312Z",
-  "nextRunAt": "2026-10-19T10:17:00.000Z",
-  "message": "Updated: 44 new items across 4 sections.",
+  "lastSuccessAt": "2026-10-19T16:59:47.838Z",
+  "nextRunAt": "2026-10-20T10:17:00.000Z",
+  "message": "Updated: 43 new items across 4 sections.",
   "problems": [],
   "counts": {
     "reality": {
@@ -23,8 +23,8 @@
     },
     "trials": {
       "stories": 13,
-      "new": 2,
-      "trials": 34
+      "new": 1,
+      "trials": 35
     }
   }
 }
