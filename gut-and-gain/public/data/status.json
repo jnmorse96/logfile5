@@ -1,11 +1,22 @@
 {
-  "lastRunAt": "2026-10-21T15:18:43.653Z",
-  "lastRunOk": true,
+  "lastRunAt": "2026-10-22T15:19:41.196Z",
+  "lastRunOk": false,
   "lastSuccessAt": "2026-10-21T15:18:43.653Z",
-  "nextRunAt": "2026-10-22T10:17:00.000Z",
-  "message": "Updated: 45 new items across 4 sections.",
-  "problems": [],
+  "nextRunAt": "2026-10-23T10:17:00.000Z",
+  "message": "Partly updated: 42 new items across 4 sections. 1 of 3 searches failed and will retry next run. Needs attention: Your Anthropic account is out of credit. Add credit at https://platform.claude.com/settings/billing.",
+  "problems": [
+    {
+      "code": "credit",
+      "message": "Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.",
+      "fix": "Your Anthropic account is out of credit. Add credit at https://platform.claude.com/settings/billing."
+    }
+  ],
   "counts": {
+    "trials": {
+      "stories": 16,
+      "new": 0,
+      "trials": 39
+    },
     "reality": {
       "stories": 14,
       "new": 14,
@@ -20,11 +31,6 @@
       "stories": 14,
       "new": 14,
       "trials": 0
-    },
-    "trials": {
-      "stories": 16,
-      "new": 3,
-      "trials": 39
     }
   }
 }
