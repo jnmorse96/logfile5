@@ -1,14 +1,15 @@
 {
-  "lastRunAt": "2026-10-22T15:19:41.196Z",
+  "lastRunAt": "2026-10-23T15:08:00.349Z",
   "lastRunOk": false,
   "lastSuccessAt": "2026-10-21T15:18:43.653Z",
-  "nextRunAt": "2026-10-23T10:17:00.000Z",
-  "message": "Partly updated: 42 new items across 4 sections. 1 of 3 searches failed and will retry next run. Needs attention: Your Anthropic account is out of credit. Add credit at https://platform.claude.com/settings/billing.",
+  "nextRunAt": "2026-10-24T10:17:00.000Z",
+  "message": "The engine couldn't start: invalid x-api-key",
   "problems": [
     {
-      "code": "credit",
-      "message": "Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.",
-      "fix": "Your Anthropic account is out of credit. Add credit at https://platform.claude.com/settings/billing."
+      "code": "auth",
+      "message": "invalid x-api-key",
+      "fix": "The ANTHROPIC_API_KEY secret is invalid or was revoked. Create a new key at https://platform.claude.com/settings/keys and update the secret in GitHub (Settings → Secrets and variables → Actions).",
+      "keyCheck": "starts with sk- but not sk-ant-, so it's likely from another provider; length 106 characters (a full key is usually about 108)"
     }
   ],
   "counts": {
